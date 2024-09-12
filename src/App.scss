@@ -1,0 +1,36 @@
+@import './constants/constSCSS.scss';
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == tablet {
+    @media (min-width: 640px) {
+      @content;
+    }
+  } @else if $breakpoint == desktop {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}
+
+html {
+  background-color: $c-black;
+}
+// ПРИКЛАД ЯК КОРИСТУВАТИСЬ МІКСІНОМ ДЛЯ СТВОРЕННЯ АДАПТИВНОГО ДИЗАЙНУ!!!
+// .main {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   flex-direction: column;
+
+//     @include respond-to(tablet) {
+//       max-width: 639px;
+//       padding-inline: 34px;
+
+//     }
+
+//     @include respond-to(desktop) {
+//       max-width: 1240px;
+//       padding-inline: 210px;
+
+//     }
+//   }

@@ -1,5 +1,9 @@
-function App() {
-  return <></>;
-}
+import './App.scss';
 
-export default App;
+export const App = () => {
+  return (
+    <>
+    <p>fetchYourBrain</p>
+    </>
+  )
+}

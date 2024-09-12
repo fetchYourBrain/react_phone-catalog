@@ -13,7 +13,7 @@ function App() {
     <Header />
       <div>
 
-      <Card_layoutgit  />
+      <Card_layout  />
 
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />

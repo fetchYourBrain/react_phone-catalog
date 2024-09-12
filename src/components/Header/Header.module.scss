@@ -1,0 +1,21 @@
+@import '../../App.scss';
+@import '../../constants/constSCSS.scss';
+.header {
+  margin: 0;
+	padding: 0;
+	border: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 320px;
+  padding: 16px;
+
+  @include respond-to(desktop) {
+    padding-inline: 24px;
+  }
+
+}

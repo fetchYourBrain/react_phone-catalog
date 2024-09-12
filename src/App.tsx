@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Header from './components/Header/Header'
+import { Card_layout } from './components/Card_Layout/Card_layout'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -11,6 +12,9 @@ function App() {
     <>
     <Header />
       <div>
+
+      <Card_layoutgit  />
+
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>

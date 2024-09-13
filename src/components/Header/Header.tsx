@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './Header.module.scss';
 import logo from '../../../public/img/icons/nice-gadgets-logo.png';
 import burger_icon from '../../../public/img/icons/burger-menu-icon.svg';

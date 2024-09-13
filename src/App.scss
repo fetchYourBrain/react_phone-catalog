@@ -1,4 +1,19 @@
 @import './constants/constSCSS.scss';
+@font-face {
+  font-family: "Mont";
+  src: url(../public/fonts/Mont-Bold.otf);
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Mont";
+  src: url(../public/fonts/Mont-Regular.otf);
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Mont";
+  src: url(../public/fonts/Mont-SemiBold.otf);
+  font-weight: 600;
+}
 
 @mixin respond-to($breakpoint) {
   @if $breakpoint == tablet {
@@ -13,6 +28,7 @@
 }
 
 html {
+  font-family: Mont, sans-serif;
   background-color: $c-black;
 }
 // ПРИКЛАД ЯК КОРИСТУВАТИСЬ МІКСІНОМ ДЛЯ СТВОРЕННЯ АДАПТИВНОГО ДИЗАЙНУ!!!

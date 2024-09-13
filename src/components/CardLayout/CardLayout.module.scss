@@ -1,0 +1,114 @@
+@import '../../App.scss';
+@import '../../constants/constSCSS.scss';
+@import '../../reset.scss';
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 212px;
+  height: 439px;
+  padding: 32px;
+  background-color: #161827;
+  font-family: sans-serif;
+}
+
+.card__image {
+  object-fit: contain;
+  width: 148px;
+  height: 129px;
+}
+
+.card__title {
+  text-align: left;
+  padding-top: 24px;
+  line-height: 21px;
+  font-size: x;
+  font-weight: 600;
+  color: #F1F2F9;
+}
+
+.card__price {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  margin-top: 8px;
+  line-height: 31px;
+  font-weight: 800;
+  color: #F1F2F9;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    margin-top: 8px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #3B3E4A;
+  }
+}
+
+.card__specifications {
+  margin-top: 8px;
+}
+
+.card__specificationRaw {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.card__specification {
+  margin-right: 5px;
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 700;
+  color: #75767F;
+}
+
+.card__specificationValue {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 15px;
+  color: #F1F2F9;
+}
+
+.card__buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.card__addToCartButton {
+  display: block;
+  width: 100px;
+  height: 40px;
+  margin-top: 8px;
+  padding: 10px;
+  border: none;
+  background-color: #905BFF;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  color: #F1F2F9;
+}
+
+.card__addToCartButton:hover {
+  background-color: #A378FF;
+  color: #F1F2F9;
+}
+
+.card__heartIconButton {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin-top: 8px;
+  padding: 12px;
+  border: none;
+  background-color: #323542;
+  cursor: pointer;
+  color: #F1F2F9;
+}

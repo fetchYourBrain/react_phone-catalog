@@ -9,7 +9,7 @@ export const Categories = () => {
       </div>
       <div className={styles.list}>
         {CATEGORIES.map((category) => (
-          <div className={styles.category}>
+          <div key={category.name} className={styles.category}>
             <div
               className={styles.img_container}
               style={{ backgroundColor: category.backgroundColor }}

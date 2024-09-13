@@ -1,0 +1,16 @@
+@import '../../App.scss';
+@import '../../constants/constSCSS.scss';
+@import '../../reset.scss';
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 320px;
+  padding: 16px;
+
+  @include respond-to(desktop) {
+    padding-inline: 24px;
+  }
+
+}

@@ -11,5 +11,5 @@ export const App = () => {
 
     <p>fetchYourBrain</p>
     </>
-  )
-}
+  );
+};

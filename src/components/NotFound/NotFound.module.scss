@@ -1,0 +1,42 @@
+@import '../../App.scss';
+@import '../../constants/constSCSS.scss';
+@import '../../reset.scss';
+
+.not_found {
+  text-align: center;
+  margin: 50px auto;
+  padding: 20px;
+}
+  
+.image {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 22px; //32desk
+  color: $c-white;
+}
+
+.description {
+  font-size: 1.2rem;
+  color: $c-accent;
+  margin-bottom: 20px;
+}
+
+.go_back {
+  display: inline-block;
+  padding: 13.5px 20px;
+  background-color: $c-accent;
+
+  color: $c-white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: $c-accent-hover;
+  }
+}

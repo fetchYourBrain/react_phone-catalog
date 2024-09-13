@@ -1,0 +1,30 @@
+@import '../../constants/constSCSS.scss';
+@import '../../constants/constSCSS.scss';
+
+.navLink {
+  text-decoration: none;
+  color: $c-secondary;
+  text-transform: uppercase;
+  font-family: Mont;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 11px;
+
+  &::after {
+    content: '';
+    display: block;
+    border-bottom: 3px solid transparent;
+    width: fit-content;
+    transition: 0.3s ease;
+    
+  }
+}
+
+
+.active {
+  color: $c-white;
+
+  &::after {
+    border-color: $c-white;
+  }
+}

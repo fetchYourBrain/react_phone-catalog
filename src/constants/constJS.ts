@@ -1,0 +1,1 @@
+export const NAV_ITEMS = ['home', 'phones', 'tablets', 'accessories'];

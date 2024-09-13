@@ -1,5 +1,17 @@
 @import '../../App.scss';
 
+.block {
+    margin-top: 56px;
+
+    @include respond-to(tablet) {
+        margin-top: 64px;
+    }
+
+    @include respond-to(desktop) {
+        margin-top: 80px;
+    }
+}
+
 .top_block {
     margin-bottom: 24px;
 }
@@ -38,7 +50,16 @@
         object-fit: contain;
         position: absolute;
         right: -20%;
-        bottom: -28%;
+        bottom: -30%;
+        transition: all .3s ease;
+    }
+
+    &:hover {
+        img {
+            right: -15%;
+            bottom: -28%;
+            transform: scale(1.05);
+        }
     }
 
 

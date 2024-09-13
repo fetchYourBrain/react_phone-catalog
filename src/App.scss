@@ -32,6 +32,11 @@
   }
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 html {
   font-family: Mont, sans-serif;
   background-color: $c-black;

@@ -4,6 +4,7 @@ import styles from "./Card.module.scss";
 export const Card: React.FC<Product> = ({
   name,
   price,
+  fullPrice,
   capacity,
   ram,
   screen,
@@ -16,7 +17,9 @@ export const Card: React.FC<Product> = ({
       </div>
       <h3 className={styles.title}>{name}</h3>
 
-      <p className={styles.price}>${price}</p>
+      <p className={styles.price}>
+        ${price} <span className={styles.full_price}>${fullPrice}</span>
+      </p>
 
       <div className={styles.specifications}>
         <div className={styles.row}>

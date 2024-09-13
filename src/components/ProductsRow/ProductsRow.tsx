@@ -1,17 +1,20 @@
-import { useAppSelector } from "../../hooks/helperToolkit";
+import { Product } from "../../types/products";
 import { Card } from "../Card/Card";
 import styles from "./ProductsRow.module.scss";
 
-export const ProductsRow = () => {
-  const products = useAppSelector((state) => state.product.products);
+interface Props {
+  products: Product[];
+  title: string;
+}
 
+export const ProductsRow: React.FC<Props> = ({ products, title }) => {
   return (
     <div className={styles.block}>
       <div className={styles.top_block}>
-        <h2 className={styles.title}>Brand new models</h2>
+        <h2 className={styles.title}>{title}</h2>
       </div>
       <div className={styles.row}>
-        {products.slice(0, 20).map((product) => (
+        {products.map((product) => (
           <Card key={product.id} {...product} />
         ))}
       </div>

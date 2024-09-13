@@ -5,6 +5,7 @@
 .card {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 212px;
   padding: 32px;
   background-color: $c-surface;
@@ -12,10 +13,10 @@
   @include respond-to(tablet) {
     width: 237px;
   }
-    
+
   @include respond-to(desktop) {
     width: 272px;
-  }     
+  }
 }
 
 .image {
@@ -26,11 +27,11 @@
     width: 173px;
     height: 202px;
   }
-    
+
   @include respond-to(desktop) {
     width: 208px;
     height: 196px;
-  }   
+  }
 }
 
 .card_image {
@@ -49,31 +50,27 @@
 }
 
 .price {
-  display: flex;
-  position: relative;
   justify-content: space-between;
   width: 100%;
-  margin-top: 8px;
+  margin: 8px 6px 8px 0;
   line-height: 1.4;
   font-size: 22px;
   font-weight: 800;
   color: $c-white;
 
-  &::after {
-    content: '';
-    display: block;
-    position: absolute;
-    margin-top: 8px;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: $c-elements;
-  }
+
+}
+
+.full_price {
+  color: $c-secondary;
+  font-weight: 600;
+  text-decoration: line-through;
 }
 
 .specifications {
-  margin-top: 8px;
+  position: relative;
+  border-top: solid 1px $c-elements;
+  padding-top: 8px;
 }
 
 .row {
@@ -122,10 +119,10 @@
   @include respond-to(tablet) {
     width: 125px;
   }
-    
+
   @include respond-to(desktop) {
     width: 160px;
-  }   
+  }
 
   &:hover {
     background-color: #A378FF;

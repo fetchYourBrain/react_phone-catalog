@@ -22,7 +22,7 @@ export const Header = () => {
         <nav className={styles.navContainer}>
           <ul className={styles.navigation}>
             {NAV_ITEMS.map((item) => (
-              <NavItem key={item} item={item} />
+              <NavItem key={item.name} {...item} />
             ))}
           </ul>
         </nav>

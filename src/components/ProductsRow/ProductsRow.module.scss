@@ -1,0 +1,16 @@
+@import '../../App.scss';
+.block{
+
+}
+.top_block{
+    margin-bottom: 24px;
+}
+.title{
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.4;
+}
+.row {
+    display: flex;
+    gap: 16px;
+}

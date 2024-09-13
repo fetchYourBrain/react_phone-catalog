@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
 import { CATEGORIES } from "../../constants/constJS";
 import styles from "./Categories.module.scss";
+import { getCategoryRoute } from "../../features/getCategoryRoute";
 
 export const Categories = () => {
   return (
@@ -9,7 +11,11 @@ export const Categories = () => {
       </div>
       <div className={styles.list}>
         {CATEGORIES.map((category) => (
-          <div key={category.name} className={styles.category}>
+          <Link
+            to={getCategoryRoute(category.name)}
+            key={category.name}
+            className={styles.category}
+          >
             <div
               className={styles.img_container}
               style={{ backgroundColor: category.backgroundColor }}
@@ -18,7 +24,7 @@ export const Categories = () => {
             </div>
             <h3 className={styles.name}>{category.name}</h3>
             <div className={styles.amount}>95 models</div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

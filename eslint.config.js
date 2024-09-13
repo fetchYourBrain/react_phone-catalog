@@ -3,44 +3,37 @@ import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
 
-
 export default [
-  {files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"]},
-  {languageOptions: { globals: globals.browser }},
+  {
+    files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
+    languageOptions: {
+      sourceType: "module",
+      globals: globals.browser,
+    },
+    rules: {
+      "react/react-in-jsx-scope": "off", // Вимкнути правило для імпорту React
+      "react/jsx-uses-react": "off",
+    },
+    settings: {
+      react: {
+        version: "detect", // Автоматично визначати версію React
+      },
+    },
+  },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
   {
-    "env": {
-        "browser": true,
-        "es2021": true
+    rules: {
+      "react/react-in-jsx-scope": "off",
+      "react/jsx-uses-react": "off", // Повторне вимкнення правила
+      "no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        { argsIgnorePattern: "^_" },
+      ],
+      "react/prop-types": "off",
     },
-    "extends": [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:react/recommended"
-    ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaVersion": 12,
-        "project": "./tsconfig.json",
-        "sourceType": "module",
-        "ecmaFeatures": {
-            "jsx": true
-        }
-    },
-    "settings": {
-        "import/extensions": [".js", ".jsx", ".ts", ".tsx"],
-        "import/parsers": {
-          "@typescript-eslint/parser": [".ts", ".tsx"]
-        },
-        "import/resolver": {
-          "typescript": {}
-        }
-    },
-    "plugins": ["react", "react-hooks", "@typescript-eslint"],
-    "rules": {
-        // Customize rules here as per your project's needs
-    }
-}
+  },
+  { ignores: ["build/", "dist/assets/index-CWtxwvIe.js", "node_modules"] },
 ];

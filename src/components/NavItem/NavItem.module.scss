@@ -1,7 +1,9 @@
 @import '../../constants/constSCSS.scss';
-@import '../../constants/constSCSS.scss';
+@import '../../App.scss';
 
 .navLink {
+  display: flex;
+  align-items: center;
   text-decoration: none;
   color: $c-secondary;
   text-transform: uppercase;
@@ -9,22 +11,45 @@
   font-size: 12px;
   font-weight: 800;
   line-height: 11px;
+  position: relative;
+  height: 48px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: $c-white; 
+    &::after {
+      content: '';
+      background-color: $c-white;
+      height: 3px;
+      position: absolute;
+      width: 100%;
+      transition: 0.3s ease;
+      left: 0;
+      bottom: 0;
+    }
+  }
+
+  @include respond-to(desktop) {
+    height: 64px;
+  }
+
+  &.active {
+    color: $c-white;
+
+    &::after {
+      width: 100%;
+    }
+  }
 
   &::after {
     content: '';
     display: block;
-    border-bottom: 3px solid transparent;
-    width: fit-content;
+    background-color: $c-white;
+    height: 3px;
+    position: absolute;
+    width: 0;
     transition: 0.3s ease;
-    
-  }
-}
-
-
-.active {
-  color: $c-white;
-
-  &::after {
-    border-color: $c-white;
+    left: 0;
+    bottom: 0;
   }
 }

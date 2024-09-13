@@ -20,15 +20,15 @@ export const Card: React.FC = () => {
 
 
       <div className={styles.specifications}>
-        <div className={styles.raw}>
+        <div className={styles.row}>
         <p className={styles.specification}>Screen</p>
         <p className={styles.value}>6.1” OLED</p>
         </div>
-        <div className={styles.raw}>
+        <div className={styles.row}>
         <p className={styles.specification}>Capacity</p>
         <p className={styles.value}>128 GB</p>
         </div>
-        <div className={styles.raw}>
+        <div className={styles.row}>
         <p className={styles.specification}>RAM</p>
         <p className={styles.value}>6 GB</p>
         </div>

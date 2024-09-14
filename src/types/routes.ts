@@ -1,6 +1,6 @@
 export enum RoutesLink {
   HomePage = "/",
-  ProductPage = "/products",
+  ProductPage = "/:products",
   TabletsPage = "/tablets",
   PhonesPage = "/phones",
   AccessoriesPage = "/accessories",

@@ -1,6 +1,6 @@
+import React from 'react';
 import styles from './NotFound.module.scss';
 import page_not_found from '../../../public/img/page-not-found.png';
-import { Link } from 'react-router-dom';
 
 export const NotFound: React.FC  = () => {
   return (
@@ -12,11 +12,11 @@ export const NotFound: React.FC  = () => {
       />
       <h2 className={styles.title}>Oops! Page Not Found</h2>
       <p className={styles.description}>
-        The page you're looking for doesn't exist or has been moved.
+        The page you&apos;re looking for doesn&apos;t exist or has been moved.
       </p>
-      <Link to="/" className={styles.go_back}>
-        Go Back Home
-      </Link>
+      <a href="/" className={styles.go_back}>
+        Go Back Home &#8594;
+      </a>
     </div>
   );
 } 

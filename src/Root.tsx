@@ -5,9 +5,7 @@ import { HomePage } from "./pages/HomePage/HomePage";
 import { ProductDetails } from "./pages/ProductDetails/ProductDetails";
 import { CartPage } from "./pages/CartPage/CartPage";
 import { FavoritePage } from "./pages/FavoritePage/FavoritePage";
-import { TabletsPage } from "./pages/TabletsPage/TabletsPage";
-import { PhonesPage } from "./pages/PhonesPage/PhonesPage";
-import { AccessoriesPage } from "./pages/AccessoriesPage/AccessoriesPage";
+import { ProductPage } from "./pages/ProductPage/ProductPage";
 
 export const Root = () => {
   return (
@@ -16,24 +14,7 @@ export const Root = () => {
         <Route path={RoutesLink.HomePage} element={<App />}>
           <Route index element={<HomePage />} />
 
-          <Route path={RoutesLink.TabletsPage} element={<TabletsPage />}>
-            <Route
-              path={RoutesLink.ProductDetailsPage}
-              element={<ProductDetails />}
-            />
-          </Route>
-
-          <Route path={RoutesLink.PhonesPage} element={<PhonesPage />}>
-            <Route
-              path={RoutesLink.ProductDetailsPage}
-              element={<ProductDetails />}
-            />
-          </Route>
-
-          <Route
-            path={RoutesLink.AccessoriesPage}
-            element={<AccessoriesPage />}
-          >
+          <Route path={RoutesLink.ProductPage} element={<ProductPage />}>
             <Route
               path={RoutesLink.ProductDetailsPage}
               element={<ProductDetails />}

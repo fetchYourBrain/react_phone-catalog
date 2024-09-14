@@ -1,0 +1,90 @@
+@import '../../App.scss';
+
+.block {
+    margin-top: 56px;
+
+    @include respond-to(tablet) {
+        margin-top: 64px;
+    }
+
+    @include respond-to(desktop) {
+        margin-top: 80px;
+    }
+}
+
+.top_block {
+    margin-bottom: 24px;
+}
+
+.title {
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+    justify-content: center;
+
+    @include respond-to(tablet) {
+        flex-direction: row;
+        gap: 16px;
+    }
+}
+
+.category {}
+
+.img_container {
+    width: 288px;
+    height: 288px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 24px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        position: absolute;
+        right: -20%;
+        bottom: -30%;
+        transition: all .3s ease;
+    }
+
+    &:hover {
+        img {
+            right: -15%;
+            bottom: -28%;
+            transform: scale(1.05);
+        }
+    }
+
+
+    @include respond-to(tablet) {
+        width: 188px;
+        height: 188px;
+    }
+
+    @include respond-to(desktop) {
+        width: 368px;
+        height: 368px;
+    }
+
+}
+
+.name {
+    margin-bottom: 4px;
+    font-size: 20px;
+    line-height: 1.28;
+    font-weight: 700;
+}
+
+.amount {
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 600;
+    color: $c-secondary;
+}

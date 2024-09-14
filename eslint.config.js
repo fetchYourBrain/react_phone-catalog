@@ -32,6 +32,7 @@ export default [
         "warn",
         { argsIgnorePattern: "^_" },
       ],
+      "react/prop-types": "off",
     },
   },
   { ignores: ["build/", "dist/assets/index-CWtxwvIe.js", "node_modules"] },

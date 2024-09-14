@@ -1,0 +1,28 @@
+@import '../../App.scss';
+
+.block {
+    margin-top: 56px;
+
+    @include respond-to(tablet) {
+        margin-top: 64px;
+    }
+
+    @include respond-to(desktop) {
+        margin-top: 80px;
+    }
+}
+
+.top_block {
+    margin-bottom: 24px;
+}
+
+.title {
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+.row {
+    display: flex;
+    gap: 16px;
+}

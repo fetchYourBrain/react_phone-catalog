@@ -1,0 +1,22 @@
+@import '../../App.scss';
+
+.container {
+    max-width: 100%;
+    display: grid;
+    margin: 0 auto;
+    padding: 0px 16px;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 16px;
+
+    @include respond-to(tablet) {
+        padding-inline: 24px;
+        max-width: auto;
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    @include respond-to(desktop) {
+        padding-inline: 32px;
+        max-width: 1136px;
+        grid-template-columns: repeat(24, 32px);
+    }
+}

@@ -15,7 +15,7 @@ export const Footer = () => {
                     </a>
                 </div>
                 <nav className={styles.navigation}>
-                    <a href="https://github.com/fetchYourBrain/react_phone-catalog" target="_blank">
+                    <a href="#">
                     Github
                     </a>
                     <a href="#">Contacts</a>

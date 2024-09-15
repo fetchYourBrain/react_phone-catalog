@@ -2,6 +2,13 @@
 @import '../../reset.scss';
 @import '../../constants/constSCSS.scss';
 
+.header {
+  position: sticky;
+  background-color: $c-black;
+  z-index: 1;
+  top: 0;
+}
+
 .container {
   display: flex;
   justify-content: space-between;
@@ -67,6 +74,7 @@
 .favorites,
 .cart {
   display: none;
+  cursor: pointer;
 
   @include respond-to(tablet) {
     display: flex;
@@ -75,6 +83,9 @@
     width: 48px;
     height: 48px;
     border-left: 1px solid $c-elements;
+  }
+  &:hover {
+    background-color: $c-icons;
   }
   @include respond-to(desktop) {
     width: 64px;

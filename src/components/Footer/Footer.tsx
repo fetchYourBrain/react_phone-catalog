@@ -1,5 +1,5 @@
 import styles from './Footer.module.scss';
-import logo from '../../../public/img/icons/nice-gadgets-logo.png';
+import logo from "../../../public/img/icons/logo.svg";
 
 export const Footer = () => {
     const handleBackToTop = () => {
@@ -21,9 +21,9 @@ export const Footer = () => {
                     <a href="#">Contacts</a>
                     <a href="#">Rights</a>
                 </nav>
-                <div className={styles['backToTop']}>
-                    <p className={styles['backToTopTittle']}>Back to top</p>
-                    <button className={styles['backToTopBtn']} onClick={handleBackToTop}>↑</button>
+                <div className={styles.backToTop}>
+                    <p className={styles.backToTopTitle}>Back to top</p>
+                    <button className={styles.backToTopBtn} onClick={handleBackToTop}>↑</button>
                 </div>
             </div>
       </footer>

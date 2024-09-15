@@ -3,9 +3,8 @@
 @import '../../reset.scss';
 
 .container {
-  bottom: 0;
-  position: absolute;
   width: 100%;
+  margin-top: 64px;
   padding: 32px 16px;
   border-top: 1px solid #3B3E4A;
   background: $c-black;
@@ -22,60 +21,61 @@
   @include respond-to(desktop) {
     padding: 32px 152px;
   }
-  
-  .logoContainer {
-    width: 89px;
-    height: 32px;
+}
 
-    color: $c-white;
-    display: flex;
-  }
-  
-  .navigation {
-    flex-direction: column;
-    display: flex;
-    gap: 16px;
+.logoContainer {
+  width: 89px;
+  height: 32px;
 
-    @include respond-to(tablet) {
-      align-items: center;
-      flex-direction: row;
-      gap: 13.5px;
-    }
+  color: $c-white;
+  display: flex;
+}
 
-    @include respond-to(desktop) {
-      gap: 106.83px;
-    }
-  
-    a {
-      text-decoration: none;
-      text-transform: uppercase;
-      color: $c-white;
-      font-weight: 800;
-      font-size: 12px;
-      line-height: 11px;
-    }
-  }
-  
-  .backToTop {
-    justify-content: center;
-    display: flex;
-    gap: 16px;
+.navigation {
+  flex-direction: column;
+  display: flex;
+  gap: 16px;
+
+  @include respond-to(tablet) {
     align-items: center;
-  
-    .backToTopTittle {
-      font-size: 12px;
-      color: #7A7D8C;
-    }
-  
-    .backToTopBtn {
-      height: 32px;
-      width: 32px;
-      border: none;
-      background-color: $c-elements;
-      font-size: 24px;
-      color: white;
-      cursor: pointer;
-    }
+    flex-direction: row;
+    gap: 13px;
+  }
+
+  @include respond-to(desktop) {
+    gap: 106px;
+  }
+
+  a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $c-white;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 11px;
+    cursor: pointer;
+  }
+}
+
+.backToTop {
+  justify-content: center;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+
+  .backToTopTitle {
+    font-size: 12px;
+    color: #7A7D8C;
+  }
+
+  .backToTopBtn {
+    height: 32px;
+    width: 32px;
+    border: none;
+    background-color: $c-elements;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
   }
 }
   

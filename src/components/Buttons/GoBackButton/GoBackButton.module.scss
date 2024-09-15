@@ -1,0 +1,40 @@
+@import '../../../App.scss';
+
+.go_back {
+  display: flex;
+  align-items: center;
+  background-color: inherit;
+  border: none;
+  color: $c-white;
+  font-family: Mont, sans-serif;
+  cursor: pointer;
+  width: 66px;
+  height: 16px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    color: $c-accent-hover;
+
+    path {
+      fill: $c-accent-hover
+    }
+  }
+}
+
+.svg_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 4px;
+  width: 16px;
+  height: 16px;
+}
+
+.text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+}

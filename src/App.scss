@@ -1,65 +1,20 @@
-@import './constants/constSCSS.scss';
-@import './reset.scss';
+@import './styles/utils/reset';
+@import './styles/utils/fonts';
+@import './styles/utils/mixins';
+@import './styles/utils/vars';
 
-@font-face {
-  font-family: "Mont";
-  src: url(../public/fonts/Mont-Bold.otf);
-  font-weight: 800;
-}
-
-@font-face {
-  font-family: "Mont";
-  src: url(../public/fonts/Mont-Regular.otf);
-  font-weight: 600;
-}
-
-@font-face {
-  font-family: "Mont";
-  src: url(../public/fonts/Mont-SemiBold.otf);
-  font-weight: 700;
-}
-
-@mixin respond-to($breakpoint) {
-  @if $breakpoint ==tablet {
-    @media (min-width: 640px) {
-      @content;
-    }
-  }
-
-  @else if $breakpoint ==desktop {
-    @media (min-width: 1200px) {
-      @content;
-    }
-  }
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
 
 html {
   font-family: Mont, sans-serif;
   background-color: $c-black;
   color: $c-white;
+  min-height: calc(100vh - map-get($header-heights, mobile-tablet) - map-get($footer-heights, mobile));
+
+  @include respond-to(tablet) {
+  min-height: calc(100vh - map-get($header-heights, mobile-tablet) - map-get($footer-heights, tablet-desktop));
+  }
+
+  @include respond-to(desktop) {
+  min-height: calc(100vh - map-get($header-heights, desktop) - map-get($footer-heights, tablet-desktop));
+  }
 }
-
-// ПРИКЛАД ЯК КОРИСТУВАТИСЬ МІКСІНОМ ДЛЯ СТВОРЕННЯ АДАПТИВНОГО ДИЗАЙНУ!!!
-// .main {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   flex-direction: column;
-
-//     @include respond-to(tablet) {
-//       max-width: 639px;
-//       padding-inline: 34px;
-
-//     }
-
-//     @include respond-to(desktop) {
-//       max-width: 1240px;
-//       padding-inline: 210px;
-
-//     }
-//   }

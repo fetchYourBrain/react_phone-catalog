@@ -5,17 +5,39 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  max-width: 288px;
+
+  @include respond-to(tablet) {
+    flex-direction: row;
+  }
 }
 
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   gap: 16px;
   padding: 16px;
   background-color: $c-surface;
+
+  @include respond-to(tablet) {
+    flex-direction: row;
+    padding: 24px;
+    gap: 24px;
+  }
 }
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  @include respond-to(tablet) {
+    gap: 24px;
+  }
+}
+
+
 
 .button {
   background-color: inherit;
@@ -24,46 +46,146 @@
 }
 
 .button_image {
-  width: 16px;
+  display: inline-block;
+  background-image: url(../../../public/img/icons/close_card_item_button.svg);
   height: 16px;
+  width: 16px;
+  transition: background-image 0.3s ease;
+
+  &:hover {
+    background-image: url(../../../public/img/icons/close_card_item_button_active.svg);
+  }
 }
 
 .image_container {
-  max-width: 80px;
-  max-height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .image {
-  width: 66px;
-  height: 66px;
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
 }
 
 .title {
-  font-family: Mont;
+  font-family: Mont, sans-serif;
   font-size: 14px;
   font-weight: 600;
   line-height: 21px;
+  width: 128px;
+
+  @include respond-to(tablet) {
+    width: 176px;
+  }
+
+  @include respond-to(desktop) {
+    width: 336px;
+  }
 }
 
 .amount {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-direction: row;
+  width: 100%;
+
+  @include respond-to(tablet) {
+    width: auto;
+    gap: 24px;
+  }
 }
 
 .counter {
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
 .count {
-  font-family: Mont;
+  font-family: Mont, sans-serif;
   font-size: 14px;
   font-weight: 600;
   line-height: 32px;
   text-align: center;
   width: 32px;
   height: 32px;
+}
+
+.change_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: inherit;
+  border: $c-surface-two;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.add_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: $c-surface-two;
+  border: none;
+  cursor: pointer;
+
+
+}
+.add, 
+.subtract {
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.add {
+  background-image: url(../../../public/img/icons/plus-icon.svg);
+}
+
+.subtract {
+  background-image: url(../../../public/img/icons/minus-icon.svg);
+
+  &.active {
+    background-image: url(../../../public/img/icons/minus-icon-active.svg);
+  }
+}
+
+.subtract_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: inherit;
+  border: 1px solid $c-elements;
+  cursor: pointer;
+  
+    &.active  {
+    background-color: $c-surface-two;
+  }
+
+}
+
+.value {
+font-family: Mont;
+font-size: 22px;
+font-weight: 800;
+line-height: 31px;
+width: 80px;
+text-align: right;
 }

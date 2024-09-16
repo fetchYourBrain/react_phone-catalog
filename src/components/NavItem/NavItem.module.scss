@@ -5,35 +5,29 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: $c-secondary;
-  text-transform: uppercase;
-  font-family: Mont;
+  position: relative;
+  padding: 8px 0;
+  line-height: 0.9;
   font-size: 12px;
   font-weight: 800;
-  line-height: 11px;
-  position: relative;
-  height: 48px;
-  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 4%;
+  color: $c-secondary;
 
+  &::after {
+    content: '';
+    display: block;
+    background-color: $c-white;
+    height: 2px;
+    position: absolute;
+    width: 0;
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s ease;
+  }
+
+  &:active,
   &:hover {
-    color: $c-white; 
-    &::after {
-      content: '';
-      background-color: $c-white;
-      height: 3px;
-      position: absolute;
-      width: 100%;
-      transition: 0.3s ease;
-      left: 0;
-      bottom: 0;
-    }
-  }
-
-  @include respond-to(desktop) {
-    height: 64px;
-  }
-
-  &.active {
     color: $c-white;
 
     &::after {
@@ -41,15 +35,37 @@
     }
   }
 
-  &::after {
-    content: '';
-    display: block;
-    background-color: $c-white;
-    height: 3px;
-    position: absolute;
-    width: 0;
-    transition: 0.3s ease;
-    left: 0;
-    bottom: 0;
+  @include respond-to(tablet) {
+    height: 48px;
+
+    &::after {
+      height: 3px;
+    }
+
+    &:hover,
+    &.active {
+      color: $c-white;
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
+  @include respond-to(desktop) {
+    height: 64px;
+
+    &::after {
+      height: 3px;
+    }
+
+    &:hover,
+    &.active {
+      color: $c-white;
+
+      &::after {
+        width: 100%;
+      }
+    }
   }
 }

@@ -107,7 +107,7 @@
   margin-top: 8px;
   padding: 9px;
   border: none;
-  background-color: #905BFF;
+  background-color: $c-accent;
   cursor: pointer;
   line-height: 1.5;
   font-size: 14px;
@@ -125,7 +125,7 @@
   }
 
   &:hover {
-    background-color: #A378FF;
+    background-color: $c-accent-hover;
     color: $c-white;
   }
 }

@@ -1,0 +1,85 @@
+@import '../../App.scss';
+@import '../../constants/constSCSS.scss';
+@import '../../reset.scss';
+
+.top {
+  position: sticky;
+  background-color: $c-black;
+  z-index: 1;
+  top: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 320px;
+  padding-left: 16px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid $c-elements;
+}
+
+.logo {
+  width: 64px;
+  height: 22px;
+}
+
+.close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  border-left: 1px solid $c-elements;
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+}
+
+.icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.nav {
+  margin-top: 24px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  gap: 16px;
+}
+
+.bottom {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 64px;
+  gap: 0;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: 64px;
+  border-top: 1px solid $c-surface-two;
+  cursor: pointer;
+
+  &:first-child {
+    border-right: 1px solid $c-surface-two;
+  }
+
+  &:active {
+    box-shadow: inset 0 -2px 0 0 $c-white;
+  }
+}

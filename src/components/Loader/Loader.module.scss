@@ -1,0 +1,29 @@
+@import '../../App.scss';
+@import '../../constants/constSCSS.scss';
+@import '../../reset.scss';
+
+.loader_container {
+  grid-column: 1 / -1;
+  display: grid;
+  place-items: center;
+  height: 20vh;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 4px solid $c-white;
+  border-right: 4px solid transparent;
+  animation: rotation 1.2s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 

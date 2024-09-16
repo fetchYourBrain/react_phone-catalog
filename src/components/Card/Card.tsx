@@ -1,14 +1,25 @@
-import { Product } from "../../types/products";
 import styles from "./Card.module.scss";
 
-export const Card: React.FC<Product> = ({
+interface Props {
+  name: string;
+  image: string;
+  price: number;
+  fullPrice: number;
+  screen: string;
+  capacity: string;
+  ram: string;
+  hasDiscount: boolean;
+}
+
+export const Card: React.FC<Props> = ({
   name,
+  image,
+  capacity,
   price,
   fullPrice,
-  capacity,
-  ram,
   screen,
-  image,
+  ram,
+  hasDiscount,
 }) => {
   return (
     <div className={styles.card}>
@@ -18,7 +29,12 @@ export const Card: React.FC<Product> = ({
       <h3 className={styles.title}>{name}</h3>
 
       <p className={styles.price}>
-        ${price} <span className={styles.full_price}>${fullPrice}</span>
+        ${price}{" "}
+        {hasDiscount ? (
+          <span className={styles.full_price}>${fullPrice}</span>
+        ) : (
+          ""
+        )}
       </p>
 
       <div className={styles.specifications}>

@@ -1,6 +1,18 @@
+@import '../../App.scss';
+
 .list {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
     row-gap: 40px;
     column-gap: 16px;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: repeat(1, 287px);
+
+    @include respond-to(tablet) {
+        grid-template-columns: repeat(2, 288px);
+    }
+
+    @include respond-to(desktop) {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }

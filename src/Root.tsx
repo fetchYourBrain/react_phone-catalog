@@ -13,14 +13,17 @@ export const Root = () => {
     <HashRouter>
       <Routes>
         <Route path={RoutesLink.HomePage} element={<App />}>
-          <Route index element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/:products" element={<ProductPage />} />
+          <Route path="/:products/:id" element={<ProductDetails />} />
+          {/* <Route index element={<HomePage />} />
 
           <Route path={RoutesLink.ProductPage} element={<ProductPage />}>
             <Route
               path={RoutesLink.ProductDetailsPage}
               element={<ProductDetails />}
             />
-          </Route>
+          </Route> */}
 
           <Route path={RoutesLink.CartPage} element={<CartPage />} />
           <Route path={RoutesLink.FavoritesPage} element={<FavoritePage />} />

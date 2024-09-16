@@ -19,6 +19,7 @@ export const ProductList = () => {
             fullPrice={product.priceRegular}
             screen={product.screen}
             ram={product.ram}
+            id={product.id}
             hasDiscount={true}
           />
         ))

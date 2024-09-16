@@ -20,8 +20,8 @@ export const fetchProductList = createAsyncThunk<Phone[], string>(
     try {
       const response = await getAllProducts(params);
       return response;
-    } catch (error: any) {
-      return rejectWithValue(error.message || "Failed to fetch products");
+    } catch (error) {
+      return rejectWithValue("Failed to recieve a list from server");
     }
   }
 );
@@ -51,4 +51,4 @@ export const allProductSlice = createSlice({
   },
 });
 
-export default allProductSlice.reducer
+export default allProductSlice.reducer;

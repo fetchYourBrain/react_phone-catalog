@@ -29,6 +29,7 @@ export const ProductsRow: React.FC<Props> = ({
             fullPrice={product.fullPrice}
             screen={product.screen}
             ram={product.ram}
+            id={product.itemId}
             hasDiscount={hasDiscount}
           />
         ))}

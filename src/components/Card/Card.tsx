@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./Card.module.scss";
 
 interface Props {
@@ -8,6 +9,7 @@ interface Props {
   screen: string;
   capacity: string;
   ram: string;
+  id: string;
   hasDiscount: boolean;
 }
 
@@ -19,6 +21,7 @@ export const Card: React.FC<Props> = ({
   fullPrice,
   screen,
   ram,
+  id,
   hasDiscount,
 }) => {
   return (
@@ -26,7 +29,9 @@ export const Card: React.FC<Props> = ({
       <div className={styles.image}>
         <img className={styles.card_image} src={image} alt={name} />
       </div>
-      <h3 className={styles.title}>{name}</h3>
+      <Link to={`${id}`}>
+        <h3 className={styles.title}>{name}</h3>
+      </Link>
 
       <p className={styles.price}>
         ${price}{" "}

@@ -1,0 +1,35 @@
+//COLORS
+
+$c-secondary: #75767F;
+$c-icons: #4A4D58;
+$c-elements: #3B3E4A;
+$c-surface: #161827;
+$c-surface-two: #323542;
+$c-black: #0F1121;
+$c-white: #F1F2F9;
+$c-accent-hover: #A378FF;
+$c-accent:#905BFF;
+$c-green: #27AE60;
+$c-red: #EB5757;
+
+
+//FONTS
+
+$font-family-base: 'Mont', sans-serif;
+$font-size-base: 14px;
+$font-weight-regular: 600;
+$font-weight-semi-bold: 700;
+$font-weight-bold: 800;
+
+//SIZES 
+
+$header-heights: (
+  mobile-tablet: 48px,
+  desktop: 64px
+);
+
+
+$footer-heights: (
+  mobile: 257px,
+  tablet-desktop: 96px
+);

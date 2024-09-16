@@ -8,6 +8,7 @@ import { FavoritePage } from "./pages/FavoritePage/FavoritePage";
 import { TabletsPage } from "./pages/TabletsPage/TabletsPage";
 import { PhonesPage } from "./pages/PhonesPage/PhonesPage";
 import { AccessoriesPage } from "./pages/AccessoriesPage/AccessoriesPage";
+import { NotFound } from "./components/NotFound/NotFound";
 
 export const Root = () => {
   return (
@@ -42,6 +43,7 @@ export const Root = () => {
 
           <Route path={RoutesLink.CartPage} element={<CartPage />} />
           <Route path={RoutesLink.FavoritesPage} element={<FavoritePage />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </HashRouter>

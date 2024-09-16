@@ -1,6 +1,4 @@
 @import '../../App.scss';
-@import '../../constants/constSCSS.scss';
-@import '../../reset.scss';
 
 .loader_container {
   grid-column: 1 / -1;
@@ -23,7 +21,8 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
-} 
+}

@@ -8,7 +8,7 @@ $c-surface-two: #323542;
 $c-black: #0F1121;
 $c-white: #F1F2F9;
 $c-accent-hover: #A378FF;
-$c-accent:#905BFF;
+$c-accent: #905BFF;
 $c-green: #27AE60;
 $c-red: #EB5757;
 
@@ -33,3 +33,7 @@ $footer-heights: (
   mobile: 257px,
   tablet-desktop: 96px
 );
+
+// TRANSITION
+
+$duration-default: .3s;

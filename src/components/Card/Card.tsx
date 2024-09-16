@@ -33,14 +33,14 @@ export const Card: React.FC<Props> = ({
         <h3 className={styles.title}>{name}</h3>
       </Link>
 
-      <p className={styles.price}>
+      <h3 className={styles.price}>
         ${price}{" "}
         {hasDiscount ? (
           <span className={styles.full_price}>${fullPrice}</span>
         ) : (
           ""
         )}
-      </p>
+      </h3>
 
       <div className={styles.specifications}>
         <div className={styles.row}>

@@ -17,9 +17,7 @@
 }
 
 .title {
-    font-size: 22px;
-    font-weight: 800;
-    line-height: 1.4;
+    @include h2;
 }
 
 .list {
@@ -76,15 +74,11 @@
 }
 
 .name {
+    @include h4;
     margin-bottom: 4px;
-    font-size: 20px;
-    line-height: 1.28;
-    font-weight: 700;
 }
 
 .amount {
-    font-size: 14px;
-    line-height: 1.5;
-    font-weight: 600;
+    @include body-text;
     color: $c-secondary;
 }

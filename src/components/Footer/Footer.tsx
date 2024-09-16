@@ -9,8 +9,8 @@ export const Footer = () => {
     return (
         <footer className={styles.footer}>
             <div className={styles.container}>
-                <div className={styles.logoContainer}>
-                    <a className={styles.logoLink}>
+                <div className={styles.logo_container}>
+                    <a>
                         <img src={logo} alt="The logo of Nice Gadgets" />
                     </a>
                 </div>
@@ -21,9 +21,9 @@ export const Footer = () => {
                     <a href="#">Contacts</a>
                     <a href="#">Rights</a>
                 </nav>
-                <div className={styles.backToTop}>
-                    <p className={styles.backToTopTitle}>Back to top</p>
-                    <button className={styles.backToTopBtn} onClick={handleBackToTop}>↑</button>
+                <div className={styles.back_to_top}>
+                    <p className={styles.back_to_top_title}>Back to top</p>
+                    <button className={styles.back_to_top_btn} onClick={handleBackToTop}>↑</button>
                 </div>
             </div>
       </footer>

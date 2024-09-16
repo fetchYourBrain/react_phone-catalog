@@ -3,30 +3,29 @@
 @import '../../reset.scss';
 
 .container {
-  width: 100%;
+  width: 100vw;
   margin-top: 64px;
   padding: 32px 16px;
   border-top: 1px solid #3B3E4A;
   background: $c-black;
-  flex-direction: column;
   display: flex;
+  flex-direction: column;
   gap: 32px;
 
   @include respond-to(tablet) {
     justify-content: space-between;
     flex-direction: row;
-    padding: 32px;
+    padding: 32px 24px;
   }
 
   @include respond-to(desktop) {
-    padding: 32px 152px;
+    padding: 32px 0px;
   }
 }
 
-.logoContainer {
+.logo_container {
   width: 89px;
   height: 32px;
-
   color: $c-white;
   display: flex;
 }
@@ -57,18 +56,18 @@
   }
 }
 
-.backToTop {
+.back_to_top {
   justify-content: center;
   display: flex;
   gap: 16px;
   align-items: center;
 
-  .backToTopTitle {
+  .back_to_top_title {
     font-size: 12px;
     color: #7A7D8C;
   }
 
-  .backToTopBtn {
+  .back_to_top_btn {
     height: 32px;
     width: 32px;
     border: none;

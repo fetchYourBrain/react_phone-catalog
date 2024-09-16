@@ -1,0 +1,63 @@
+@import '../../App.scss';
+
+
+.cart {
+  font-family: Mont, sans-serif;
+  color: $c-white
+}
+
+.container {
+  min-width: 320px;
+  padding-inline: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  margin: 0 auto;
+  flex-direction: column;
+  margin-bottom: 56px;
+  margin-bottom: 32px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 41px;
+  margin-top: 24px;
+  margin-bottom: 32px;
+}
+
+.total {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 24px;
+  border: 1px solid $c-elements;
+}
+
+.number {
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 41px;
+}
+
+// .total__items {
+
+// }
+
+.items {
+  color: $c-secondary;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+
+
+}
+
+.line {
+  border: none;
+  border-top: 1px solid $c-elements;
+  width: 100%;
+  margin: 16px 0;
+}

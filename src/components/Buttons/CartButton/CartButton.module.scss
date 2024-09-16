@@ -1,0 +1,22 @@
+@import '../../../App.scss';
+
+
+.button {
+background-color: $c-accent-hover;
+height: 48px;
+min-width: 240px;
+border: none;
+cursor: pointer;
+
+  &:hover {
+    background-color: $c-accent;
+  }
+
+  &_text {
+    color: $c-white;
+    font-family: Mont, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 21px;
+  }
+}

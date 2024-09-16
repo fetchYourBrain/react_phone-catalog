@@ -3,9 +3,14 @@
 @import '../../reset.scss';
 
 .not_found {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
   padding: 24px 16px;
   text-align: center;
+  grid-column: 1 / -1;
+  align-items: center;
+  justify-content: center;
 
   @include respond-to(tablet) {
     padding-inline: 24px;
@@ -16,24 +21,26 @@
   }
 }
 
-.image {
-  // outline: 1px solid orange ;
-
-  max-width: 500px;
-  width: 100%;
-  height: auto;
+.img_container {
+  max-width: 480px;
+  max-height: 480px;
+  background-color: $c-white;
+  border-radius: 32px;
   margin-bottom: 24px;
 }
 
-.title {
-  // outline: 1px solid orange ;
+.image {
+  width: 100%;
+  object-fit: contain;
+}
 
+.title {
   margin-bottom: 32px;
   font-size: 22px;
   color: $c-white;
   font-weight: 800;
   line-height: 1.4;
-  
+
   @include respond-to(tablet) {
     font-size: 32px;
     line-height: 1.3;
@@ -42,7 +49,6 @@
 }
 
 .description {
-  // outline: 1px solid orange ;
 
   font-size: 16px;
   line-height: 1.4;
@@ -57,7 +63,6 @@
 }
 
 .go_back {
-  // outline: 1px solid orange ;
 
   min-width: 240px;
   max-width: 500px;
@@ -68,7 +73,8 @@
 
   text-decoration: none;
   color: $c-white;
-  font-size: 14px;;
+  font-size: 14px;
+  ;
   line-height: 1.5;
   font-weight: 700;
   transition: background-color 0.3s;

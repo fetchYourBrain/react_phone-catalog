@@ -1,24 +1,45 @@
-import { Product } from "../../types/products";
+import { Link } from "react-router-dom";
 import styles from "./Card.module.scss";
 
-export const Card: React.FC<Product> = ({
+interface Props {
+  name: string;
+  image: string;
+  price: number;
+  fullPrice: number;
+  screen: string;
+  capacity: string;
+  ram: string;
+  id: string;
+  hasDiscount: boolean;
+}
+
+export const Card: React.FC<Props> = ({
   name,
+  image,
+  capacity,
   price,
   fullPrice,
-  capacity,
-  ram,
   screen,
-  image,
+  ram,
+  id,
+  hasDiscount,
 }) => {
   return (
     <div className={styles.card}>
       <div className={styles.image}>
         <img className={styles.card_image} src={image} alt={name} />
       </div>
-      <h3 className={styles.title}>{name}</h3>
+      <Link to={`${id}`}>
+        <h3 className={styles.title}>{name}</h3>
+      </Link>
 
       <p className={styles.price}>
-        ${price} <span className={styles.full_price}>${fullPrice}</span>
+        ${price}{" "}
+        {hasDiscount ? (
+          <span className={styles.full_price}>${fullPrice}</span>
+        ) : (
+          ""
+        )}
       </p>
 
       <div className={styles.specifications}>

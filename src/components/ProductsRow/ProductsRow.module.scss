@@ -17,9 +17,7 @@
 }
 
 .title {
-    font-size: 22px;
-    font-weight: 800;
-    line-height: 1.4;
+    @include h2;
 }
 
 .row {

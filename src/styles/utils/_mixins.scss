@@ -1,3 +1,5 @@
+@import './vars';
+
 // Response
 @mixin respond-to($breakpoint) {
   @if $breakpoint ==tablet {
@@ -15,40 +17,100 @@
 
 // HEADINGS
 
-@mixin headings {
-  h1 {
-    font-family: Mont, sans-serif;
+@mixin h1 {
+  font-family: Mont, sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 41px;
+  letter-spacing: -0.01em;
+
+  @include respond-to(tablet) {
     font-size: 48px;
-    font-weight: 800;
     line-height: 56px;
-    letter-spacing: -0.01em;
   }
+}
 
-  h2 {
-    font-family: Mont, sans-serif;
+@mixin h2 {
+  font-family: Mont, sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 31px;
+  letter-spacing: -0.01em;
+
+  @include respond-to(tablet) {
     font-size: 32px;
-    font-weight: 800;
     line-height: 41px;
-    letter-spacing: -0.01em;
-
   }
+}
 
-  h3 {
-    font-family: Mont, sans-serif;
+@mixin h3 {
+  font-family: Mont, sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 26px;
+  letter-spacing: 0;
+
+  @include respond-to(tablet) {
     font-size: 22px;
-    font-weight: 800;
     line-height: 31px;
-    letter-spacing: 0;
-
   }
+}
 
-  h4 {
-    font-family: Mont, sans-serif;
+@mixin h4 {
+  font-family: Mont, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0;
+
+  @include respond-to(tablet) {
     font-size: 20px;
-    font-weight: 700;
     line-height: 26px;
-    letter-spacing: 0;
-
   }
+}
 
+@mixin body-text {
+  font-family: Mont, sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+@mixin small-text {
+  font-family: Mont, sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 0;
+  font-weight: 700;
+}
+
+@mixin button-text {
+  font-family: Mont, sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+@mixin button {
+  @include button-text;
+  width: 176px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  outline: none;
+  cursor: pointer;
+
+  color: $c-white;
+  background-color: $c-accent;
+
+  transition: background $duration-default ease;
+
+  &:hover {
+    background-color: $c-accent-hover;
+  }
 }

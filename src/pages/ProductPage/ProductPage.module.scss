@@ -1,3 +1,23 @@
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/vars';
+
 .block {
     grid-column: 1 / -1;
+}
+
+.top_block {
+    margin: 24px 0 32px 0;
+
+    @include respond-to(tablet) {
+        margin: 40px 0 40px 0;
+    }
+}
+
+.title {
+    @include h1;
+}
+
+.amount_models {
+    @include body-text;
+    color: $c-secondary;
 }

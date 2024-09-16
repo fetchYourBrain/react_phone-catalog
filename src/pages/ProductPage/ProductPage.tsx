@@ -32,7 +32,10 @@ export const ProductPage = () => {
 
   return (
     <div className={styles.block}>
-      <h1>{title}</h1>
+      <div className={styles.top_block}>
+        <h1 className={styles.title}>{title}</h1>
+        <p className={styles.amount_models}>92 models</p>
+      </div>
       <ProductList />
     </div>
   );

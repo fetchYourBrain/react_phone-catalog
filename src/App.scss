@@ -18,3 +18,10 @@ html {
   min-height: calc(100vh - map-get($header-heights, desktop) - map-get($footer-heights, tablet-desktop));
   }
 }
+
+
+#root {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}

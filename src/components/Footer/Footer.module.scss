@@ -1,12 +1,18 @@
 @import '../../App.scss';
-@import '../../constants/constSCSS.scss';
-@import '../../reset.scss';
 
-.container {
-  width: 100vw;
+.footer {
+  width: 100%;
   margin-top: 64px;
-  padding: 32px 16px;
   border-top: 1px solid #3B3E4A;
+  
+  @include respond-to(desktop) {
+    display: flex;
+    justify-content: center;
+  }
+
+}
+.container {
+  padding: 32px 16px;
   background: $c-black;
   display: flex;
   flex-direction: column;
@@ -15,11 +21,15 @@
   @include respond-to(tablet) {
     justify-content: space-between;
     flex-direction: row;
-    padding: 32px 24px;
+    padding: 32px
   }
 
   @include respond-to(desktop) {
-    padding: 32px 0px;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 1136px;
+    padding: 32px
   }
 }
 
@@ -38,7 +48,7 @@
   @include respond-to(tablet) {
     align-items: center;
     flex-direction: row;
-    gap: 13px;
+    gap: 14px;
   }
 
   @include respond-to(desktop) {

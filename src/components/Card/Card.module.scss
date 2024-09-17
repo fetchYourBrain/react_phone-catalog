@@ -85,6 +85,8 @@
 
 .add_to_cart_button {
   @include button;
+  width: 176px;
+  height: 40px;
 }
 
 .heart_icon_button {

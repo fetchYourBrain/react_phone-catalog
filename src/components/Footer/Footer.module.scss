@@ -12,10 +12,10 @@
 
 }
 .container {
-  padding: 32px 16px;
-  background: $c-black;
   display: flex;
   flex-direction: column;
+  padding: 32px 16px;
+  background: $c-black;
   gap: 32px;
 
   @include respond-to(tablet) {
@@ -83,8 +83,17 @@
     border: none;
     background-color: $c-elements;
     font-size: 24px;
-    color: white;
     cursor: pointer;
+    text-align: center;
+    line-height: 32px;
+
+    &:hover {
+      background-color: $c-icons;
+    }
+
+    img {
+      vertical-align: middle;
+    }
   }
 }
   

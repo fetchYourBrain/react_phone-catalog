@@ -22,7 +22,7 @@
     width: 0;
     left: 0;
     bottom: 0;
-    transition: width 0.3s ease;
+    transition: width $duration-default $easing-default;
   }
 
   &:active,

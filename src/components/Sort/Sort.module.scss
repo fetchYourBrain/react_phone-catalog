@@ -14,7 +14,7 @@
   padding-left: 12px;
   user-select: none;
   border: 1px solid transparent;
-  transition: border-color $duration-default ease;
+  transition: border-color $duration-default $easing-default;
   background-color: $c-surface-two;
   color: $c-white;
   cursor: pointer;
@@ -34,7 +34,7 @@
   height: 16px;
   border: none;
   box-shadow: none;
-  transition: transform $duration-default ease;
+  transition: transform $duration-default $easing-default;
 }
 
 .iconOpen {
@@ -63,7 +63,7 @@
   padding-left: 12px;
   color: $c-secondary;
   background-color: $c-black;
-  transition: background-color $duration-default ease;
+  transition: background-color $duration-default $easing-default;
   cursor: pointer;
 }
 

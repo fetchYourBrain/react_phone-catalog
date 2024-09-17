@@ -33,8 +33,6 @@
     }
 }
 
-.category {}
-
 .img_container {
     width: 288px;
     height: 288px;
@@ -49,7 +47,7 @@
         position: absolute;
         right: -20%;
         bottom: -30%;
-        transition: all .3s ease;
+        transition: all $duration-default $easing-default;
     }
 
     &:hover {

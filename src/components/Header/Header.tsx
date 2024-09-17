@@ -1,22 +1,20 @@
 import styles from "./Header.module.scss";
-import logo from "../../../public/img/icons/logo.svg";
 import burgerIcon from "../../../public/img/icons/burger-menu-icon.svg";
 import favoritesIcon from "../../../public/img/icons/favorites-icon.svg";
 import cartIcon from "../../../public/img/icons/cart-logo.svg";
 import { NavItem } from "../NavItem/NavItem";
 import { NAV_ITEMS } from "../../constants/constJS";
 import { IconLink } from "../IconLink/IconLink";
+import { RoutesLink } from "../../types/routes";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
         <div className={styles.logoContainer}>
-          <IconLink
-            src={logo}
-            alt="The logo of Nice Gadgets"
-            className={styles.logoLink}
-          />
+          <Link to={RoutesLink.HomePage}>
+          <div className={styles.logo_icon}></div></Link>
         </div>
 
         <nav className={styles.navContainer}>
@@ -30,7 +28,8 @@ export const Header = () => {
         <div className={styles.iconsBlock}>
           <div className={styles.favorites}>
             <IconLink
-              src={favoritesIcon}
+              to={RoutesLink.FavoritesPage}
+              iconSrc={favoritesIcon}
               alt="The icon of favorites page"
               className={styles.favoritesButton}
             />
@@ -38,7 +37,8 @@ export const Header = () => {
 
           <div className={styles.cart}>
             <IconLink
-              src={cartIcon}
+              to={RoutesLink.CartPage}
+              iconSrc={cartIcon}
               alt="The icon of cart page"
               className={styles.cartButton}
             />
@@ -46,7 +46,8 @@ export const Header = () => {
 
           <div className={styles.burgerIcon}>
             <IconLink
-              src={burgerIcon}
+              to={RoutesLink.FavoritesPage}
+              iconSrc={burgerIcon}
               alt="burger-menu-icon"
               className={styles.iconLink}
             />

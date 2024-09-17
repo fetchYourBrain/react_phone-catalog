@@ -1,5 +1,6 @@
 import { GoBackButton } from "../../components/Buttons/GoBackButton/GoBackButton";
 import styles from "./CartPage.module.scss";
+import { CartButton } from "../../components/Buttons/CartButton/CartButton";
 import { CartItem } from "../../components/Cart/CartItem";
 
 const testingStorageArray: number[] = [1, 2, 3, 4, 5];

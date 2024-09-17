@@ -61,7 +61,7 @@
   background-image: url(../../../public/img/icons/close_card_item_button.svg);
   height: 16px;
   width: 16px;
-  transition: background-image $duration-default ease;
+  transition: background-image $duration-default $easing-default;
 
   &:hover {
     background-image: url(../../../public/img/icons/close_card_item_button_active.svg);

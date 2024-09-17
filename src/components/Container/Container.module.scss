@@ -1,14 +1,13 @@
 @import '../../App.scss';
 
 .container {
-    box-sizing: content-box;
+    box-sizing: border-box;
     max-width: 100%;
     display: grid;
     margin: 0 auto;
     grid-template-columns: repeat(4, 1fr);
     column-gap: 16px;
     padding: 0 16px;
-    box-sizing: content-box;
 
     @include respond-to(tablet) {
         max-width: 592px;

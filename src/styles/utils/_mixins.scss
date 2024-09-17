@@ -95,8 +95,6 @@
 
 @mixin button {
   @include button-text;
-  width: 176px;
-  height: 40px;
 
   display: flex;
   align-items: center;

@@ -1,7 +1,7 @@
-import { CartItem } from "../../components/CartItem/CartItem";
 import { GoBackButton } from "../../components/Buttons/GoBackButton/GoBackButton";
 import styles from "./CartPage.module.scss";
 import { CartButton } from "../../components/Buttons/CartButton/CartButton";
+import { CartItem } from "../../components/Cart/CartItem";
 
 const testingStorageArray: number[] = [1, 2, 3, 4, 5];
 
@@ -14,7 +14,7 @@ export const CartPage = () => {
         <h1 className={styles.title}>Cart</h1>
         <div className="cart-items-block">
           {testingStorageArray.map((item) => (
-            <CartItem item={item} key={item} />
+            <CartItem key={item} />
           ))}
         </div>
         <div className={styles.total}>

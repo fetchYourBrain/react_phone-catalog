@@ -2,13 +2,24 @@
 
 .cart_item {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
 
   @include respond-to(tablet) {
     flex-direction: row;
   }
+}
+
+.cart_item:not(last-child) {
+  padding-bottom: 16px;
+
+&:last-child {
+  padding-bottom: 32px;
+
+  @include respond-to(desktop) {
+    padding-bottom: 0;
+  }
+}
 }
 
 .container {
@@ -70,11 +81,9 @@
 }
 
 .title {
-  font-family: Mont, sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 21px;
-  width: 128px;
+  min-width: 128px;
+
+  @include body-text;
 
   @include respond-to(tablet) {
     width: 176px;
@@ -139,9 +148,8 @@
   background-color: $c-surface-two;
   border: none;
   cursor: pointer;
-
-
 }
+
 .add, 
 .subtract {
   width: 16px;

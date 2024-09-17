@@ -20,9 +20,9 @@ export const CartItem = () => {
               alt="Image of the phone"
             />
           </div>
-          <h3 className={styles.title}>
+          <p className={styles.title}>
             Apple iPhone 14 Pro 128GB Silver (MQ023)
-          </h3>
+          </p>
         </div>
         <div className={styles.amount}>
           <div className={styles.counter}>

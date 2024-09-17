@@ -1,0 +1,73 @@
+@import '../../App.scss';
+
+.container {
+  position: relative;
+  width: 176px;
+}
+
+.trigger {
+  @include body-text;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px;
+  padding-left: 12px;
+  user-select: none;
+  border: 1px solid transparent;
+  transition: border-color $duration-default $easing-default;
+  background-color: $c-surface-two;
+  color: $c-white;
+  cursor: pointer;
+}
+
+.trigger:hover {
+  border: 1px solid $c-secondary;
+  background-color: $c-icons;
+}
+
+.open {
+  border-color: $c-accent;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  border: none;
+  box-shadow: none;
+  transition: transform $duration-default $easing-default;
+}
+
+.iconOpen {
+  transform: rotate(180deg);
+}
+
+.menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding: 0;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1;
+  border: 1px solid $c-secondary;
+  margin-top: 4px;
+  list-style: none;
+}
+
+.item {
+  @include body-text;
+  width: 174px;
+  height: 32px;
+  padding: 6px;
+  padding-left: 12px;
+  color: $c-secondary;
+  background-color: $c-black;
+  transition: background-color $duration-default $easing-default;
+  cursor: pointer;
+}
+
+.item:hover {
+  background-color: $c-surface-two;
+  color: $c-white;
+}

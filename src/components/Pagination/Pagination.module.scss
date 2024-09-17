@@ -1,0 +1,31 @@
+@import '../../App.scss';
+
+.block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-column: 1 / -1;
+    margin-top: 40px;
+    user-select: none;
+}
+
+.list {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.item {
+    cursor: pointer;
+    @include button-text;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 32px;
+    min-width: 32px;
+    background-color: $c-surface;
+
+    &.active {
+        background-color: $c-accent;
+    }
+}

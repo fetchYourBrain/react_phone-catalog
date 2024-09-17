@@ -8,5 +8,15 @@ export const ProductDetails = () => {
 
   const visibleProduct = products.find((product) => product.id === id);
 
-  return <div className={styles.block}>{visibleProduct?.name}</div>;
+  return (
+    <div className={styles.block}>
+      <h2 className={styles.title}>{visibleProduct?.name}</h2>
+
+      {/* <ProductsRow
+        products={recommended}
+        title="You may also like"
+        hasDiscount={true}
+      /> */}
+    </div>
+  );
 };

@@ -1,6 +1,7 @@
 @import '../../App.scss';
 
 .container {
+    box-sizing: content-box;
     max-width: 100%;
     display: grid;
     margin: 0 auto;

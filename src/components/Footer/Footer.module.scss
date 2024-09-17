@@ -1,0 +1,99 @@
+@import '../../App.scss';
+
+.footer {
+    width: 100%;
+    margin-top: 64px;
+    border-top: 1px solid #3B3E4A;
+
+    @include respond-to(desktop) {
+        display: flex;
+        justify-content: center;
+    }
+
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 32px 16px;
+    background: $c-black;
+    gap: 32px;
+
+    @include respond-to(tablet) {
+        justify-content: space-between;
+        flex-direction: row;
+        padding: 32px
+    }
+
+    @include respond-to(desktop) {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 1136px;
+        padding: 32px
+    }
+}
+
+.logo_container {
+    width: 89px;
+    height: 32px;
+    color: $c-white;
+    display: flex;
+}
+
+.navigation {
+    flex-direction: column;
+    display: flex;
+    gap: 16px;
+
+    @include respond-to(tablet) {
+        align-items: center;
+        flex-direction: row;
+        gap: 14px;
+    }
+
+    @include respond-to(desktop) {
+        gap: 106px;
+    }
+
+    a {
+        text-decoration: none;
+        text-transform: uppercase;
+        color: $c-white;
+        font-weight: 800;
+        font-size: 12px;
+        line-height: 11px;
+        cursor: pointer;
+    }
+}
+
+.back_to_top {
+    justify-content: center;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+
+    .back_to_top_title {
+        font-size: 12px;
+        color: #7A7D8C;
+    }
+
+    .back_to_top_btn {
+        height: 32px;
+        width: 32px;
+        border: none;
+        background-color: $c-elements;
+        font-size: 24px;
+        cursor: pointer;
+        text-align: center;
+        line-height: 32px;
+
+        &:hover {
+            background-color: $c-icons;
+        }
+
+        img {
+            vertical-align: middle;
+        }
+    }
+}

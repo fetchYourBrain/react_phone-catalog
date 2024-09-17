@@ -1,3 +1,9 @@
+@import '../../styles/utils/mixins';
+
 .block {
     grid-column: 1 / -1;
+}
+
+.title {
+    @include h2;
 }

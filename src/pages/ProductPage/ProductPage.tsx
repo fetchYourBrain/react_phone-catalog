@@ -4,18 +4,17 @@ import { Page } from "../../types/pages";
 import { NotFoundPage } from "../NotFoundPage/NotFoundPage";
 import { ProductList } from "../../components/ProductList/ProductList";
 import { useEffect } from "react";
-import { useAppDispatch } from "../../hooks/helperToolkit";
+import { useAppDispatch, useAppSelector } from "../../hooks/helperToolkit";
 import { fetchProductList } from "../../slices/allProductSlice";
 
 export const ProductPage = () => {
   const { products } = useParams();
   const dispatch = useAppDispatch();
 
+  const items = useAppSelector((state) => state.productList.products);
+
   const isValidPage = Object.values(Page).includes(products as Page);
 
-  if (!isValidPage) {
-    return <NotFoundPage />;
-  }
   const title =
     products === Page.Phones
       ? "Phones"
@@ -28,13 +27,17 @@ export const ProductPage = () => {
     if (products) {
       dispatch(fetchProductList(products));
     }
-  }, [products, title]);
+  }, [products]);
+
+  if (!isValidPage) {
+    return <NotFoundPage />;
+  }
 
   return (
     <div className={styles.block}>
       <div className={styles.top_block}>
         <h1 className={styles.title}>{title}</h1>
-        <p className={styles.amount_models}>92 models</p>
+        <p className={styles.amount_models}>{items.length} models</p>
       </div>
       <ProductList />
     </div>

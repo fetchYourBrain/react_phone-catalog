@@ -6,6 +6,7 @@ import { RoutesLink } from "../../types/routes";
 interface Props {
   name: string;
   path: RoutesLink;
+  onClick?: () => void;
 }
 
 const styledActive = ({ isActive }: { isActive: boolean }) => {
@@ -13,10 +14,11 @@ const styledActive = ({ isActive }: { isActive: boolean }) => {
     [styles.active]: isActive,
   });
 };
-export const NavItem: React.FC<Props> = ({ name, path }) => {
+
+export const NavItem: React.FC<Props> = ({ name, path, onClick }) => {
   return (
     <li>
-      <NavLink to={path} className={styledActive}>
+      <NavLink to={path} className={styledActive} onClick={onClick}>
         {name}
       </NavLink>
     </li>

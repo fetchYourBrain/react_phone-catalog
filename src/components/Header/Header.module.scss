@@ -123,3 +123,19 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
+
+.side_menu {
+  position: fixed;
+  top: 0;
+  left: -110%;
+  width: 100vw;
+  height: 100vh;
+  background-color: $c-black;
+  transition: left $duration-default ease-in-out;
+  z-index: 2;
+  overflow: auto;
+}
+
+.side_menu.open {
+  left: 0;
+}

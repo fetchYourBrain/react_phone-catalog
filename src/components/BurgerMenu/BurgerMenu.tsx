@@ -1,54 +1,75 @@
+import React from 'react';
+import classNames from 'classnames';
 import styles from './BurgerMenu.module.scss';
-import logo from "../../../public/img/icons/logo.svg";
 import closeButton from '../../../public/img/icons/close-button-icon.svg';
 import heartIcon from '../../../public/img/icons/heart-icon.svg';
 import cartIcon from '../../../public/img/icons/cart-logo.svg';
 import { IconLink } from "../IconLink/IconLink";
 import { NAV_ITEMS } from '../../constants/constJS';
 import { NavItem } from '../NavItem/NavItem';
+import { RoutesLink } from "../../types/routes";
+import { Link, useLocation } from "react-router-dom";
 
-export const BurgerMenu: React.FC = () => {
+interface BurgerMenuProps {
+  onClose: () => void;
+}
+
+const styledActive = (path: string, currentPath: string) => 
+  classNames(styles.button, {
+    [styles.active]: currentPath === path,
+  });
+
+export const BurgerMenu: React.FC<BurgerMenuProps> = ({ onClose }) => {
+  const location = useLocation();
+
   return (
     <>
-    <div className={styles.top}>
-      <div className={styles.container}>
-        <div className={styles.logo}>
-          <IconLink
-            src={logo}
-            alt="The logo of Nice Gadgets"
-            className={styles.logoLink}
-          />
-        </div>
+      <div className={styles.top} onClick={onClose}>
+        <div className={styles.container}>
+          <div className={styles.logo}>
+            <Link to={RoutesLink.HomePage}>
+              <div className={styles.logo_icon}></div>
+            </Link>
+          </div>
 
-          <div className={styles.close}>
+          <div className={styles.close} onClick={onClose}>
             <IconLink
-              src={closeButton}
+              to="#"
+              iconSrc={closeButton}
               alt="Close menu button"
               className={styles.icon}
             />
           </div>
+        </div>
       </div>
-    </div>
 
-    <nav className={styles.nav}>
-      <ul className={styles.list}>
-        {NAV_ITEMS.map((item) => (
-          <NavItem key={item.name} {...item} />
-        ))}
-      </ul>
-    </nav>
+      <nav className={styles.nav}>
+        <ul className={styles.list}>
+          {NAV_ITEMS.map((item) => (
+            <NavItem key={item.name} {...item} onClick={onClose} />
+          ))}
+        </ul>
+      </nav>
 
-    <div className={styles.bottom}>
-        <div className={styles.button}>
+      <div className={styles.bottom}>
+        <div
+          className={styledActive(RoutesLink.FavoritesPage, location.pathname)}
+          onClick={onClose}
+        >
           <IconLink
-            src={heartIcon}
+            to={RoutesLink.FavoritesPage}
+            iconSrc={heartIcon}
             alt="Favorites"
             className={styles.icon}
           />
         </div>
-        <div className={styles.button}>
+        <div
+          className={styledActive(RoutesLink.CartPage, location.pathname)}
+          onClick={onClose}
+        >
           <IconLink
-            src={cartIcon}
+            to={RoutesLink.CartPage}
+            iconSrc={cartIcon}
             alt="Cart"
             className={styles.icon}
           />

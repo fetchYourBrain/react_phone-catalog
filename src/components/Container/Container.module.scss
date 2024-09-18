@@ -2,21 +2,18 @@
 
 .container {
     box-sizing: border-box;
-    max-width: 100%;
+    justify-content: center;
     display: grid;
-    margin: 0 auto;
     grid-template-columns: repeat(4, 1fr);
     column-gap: 16px;
     padding: 0 16px;
 
     @include respond-to(tablet) {
-        max-width: 592px;
         padding: 0 24px;
         grid-template-columns: repeat(12, 1fr);
     }
 
     @include respond-to(desktop) {
-        max-width: 1136px;
         padding: 0 32px;
         grid-template-columns: repeat(24, 32px);
     }

@@ -1,0 +1,52 @@
+@import '../../App.scss';
+
+.breadcrumbs {
+  grid-column: 1/-1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  margin-right: 8px;
+}
+
+.crumb_container {
+  display: flex;
+  align-items: center;
+}
+
+.crumb {
+  @include small-text;
+  display: flex;
+  align-items: center;
+  color: $c-secondary;
+  text-transform: capitalize;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    vertical-align: baseline;
+    display: inline-block;
+  }
+}
+
+.crumb_container:not(:last-child) .crumb::after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  margin: 0 8px;
+  background-image: url(../../../public/img/icons/Breadcrumbs/arrow-right.svg);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.home_icon {
+  background-image: url(../../../public/img/icons/Breadcrumbs/home-icon.svg);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}

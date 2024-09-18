@@ -1,20 +1,26 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { Phone } from "../types/phone";
 import { getAllProducts } from "../api";
+import { SortTypes } from "../types/sort";
+import { perPage } from "../types/perpage";
+import { Devices } from "../types/devices";
 
 type StateProps = {
-  products: Phone[];
+  products: Devices[];
   loading: boolean;
   error: boolean;
+  sort: SortTypes;
+  productsPerPage: perPage;
 };
 
 const initialState: StateProps = {
   products: [],
   loading: false,
   error: false,
+  sort: SortTypes.Newest,
+  productsPerPage: "16",
 };
 
-export const fetchProductList = createAsyncThunk<Phone[], string>(
+export const fetchProductList = createAsyncThunk<Devices[], string>(
   "allProducts/fetchProductList",
   async (params, { rejectWithValue }) => {
     try {
@@ -29,7 +35,14 @@ export const fetchProductList = createAsyncThunk<Phone[], string>(
 export const allProductSlice = createSlice({
   name: "allProducts",
   initialState,
-  reducers: {},
+  reducers: {
+    setSortType: (state, action: PayloadAction<SortTypes>) => {
+      state.sort = action.payload;
+    },
+    setProductsPerPage: (state, action: PayloadAction<perPage>) => {
+      state.productsPerPage = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchProductList.pending, (state) => {
@@ -38,7 +51,7 @@ export const allProductSlice = createSlice({
       })
       .addCase(
         fetchProductList.fulfilled,
-        (state, action: PayloadAction<Phone[]>) => {
+        (state, action: PayloadAction<Devices[]>) => {
           state.products = action.payload;
           state.loading = false;
         }
@@ -51,4 +64,5 @@ export const allProductSlice = createSlice({
   },
 });
 
+export const { setSortType, setProductsPerPage } = allProductSlice.actions;
 export default allProductSlice.reducer;

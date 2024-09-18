@@ -36,3 +36,18 @@ export const CATEGORIES = [
     backgroundColor: "#D53C51",
   },
 ];
+
+export const SORT_OPTIONS = [
+  {
+    value: "newest",
+    label: "Newest",
+  },
+  {
+    value: "alphabetically",
+    label: "Alphabetically",
+  },
+  {
+    value: "cheapest",
+    label: "Cheapest",
+  },
+];

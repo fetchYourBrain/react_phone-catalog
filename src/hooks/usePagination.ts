@@ -4,16 +4,16 @@ import { Phone } from "../types/phone";
 export const usePagination = (products: Phone[], itemsPerPage: number) => {
   const [currentPage, setCurrentPage] = useState(1);
   const productPerPage = itemsPerPage;
-  const pagesAmount = Math.ceil(products.length / productPerPage);
+  const totalPages = Math.ceil(products.length / productPerPage);
 
   const firstIndex = (currentPage - 1) * productPerPage;
   const lastIndex = currentPage * productPerPage;
   const visibleProducts = products.slice(firstIndex, lastIndex);
 
-  const numbers = [...Array(pagesAmount + 1).keys()].slice(1);
+  const numbers = [...Array(totalPages + 1).keys()].slice(1);
 
   const nextPage = () => {
-    if (currentPage < pagesAmount) {
+    if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
     }
   };
@@ -25,7 +25,7 @@ export const usePagination = (products: Phone[], itemsPerPage: number) => {
   };
 
   const changeCurrentPage = (id: number) => {
-    if (id >= 1 && id <= pagesAmount) {
+    if (id >= 1 && id <= totalPages) {
       setCurrentPage(id);
     }
   };

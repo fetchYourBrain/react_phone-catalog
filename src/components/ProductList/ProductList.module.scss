@@ -6,10 +6,10 @@
     column-gap: 16px;
     align-items: center;
     justify-content: center;
-    grid-template-columns: repeat(1, 287px);
+    grid-template-columns: repeat(1, 1fr);
 
     @include respond-to(tablet) {
-        grid-template-columns: repeat(2, 288px);
+        grid-template-columns: repeat(auto, 1fr);
     }
 
     @include respond-to(desktop) {

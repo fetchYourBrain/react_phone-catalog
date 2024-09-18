@@ -4,7 +4,7 @@ import styles from "./Pagination.module.scss";
 interface Props {
   nextPage: () => void;
   prevPage: () => void;
-  numbers: number[];
+  numbers: number[] ;
   changeCurrentPage: (id: number) => void;
   currentPage: number;
 }

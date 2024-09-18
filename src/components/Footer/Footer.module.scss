@@ -1,9 +1,17 @@
 @import '../../App.scss';
 
 .footer {
+    position:relative;
     width: 100%;
     margin-top: 64px;
     border-top: 1px solid #3B3E4A;
+    height: map-get($footer-heights, mobile);
+    bottom: 0;
+
+    @include respond-to(tablet) {
+      height: map-get($footer-heights, tablet-desktop);
+
+    }
 
     @include respond-to(desktop) {
         display: flex;

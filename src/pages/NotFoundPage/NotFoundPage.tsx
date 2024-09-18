@@ -18,7 +18,7 @@ export const NotFoundPage: React.FC = () => {
         The page you&apos;re looking for doesn&apos;t exist or has been moved.
       </p>
       <Link to="/" className={styles.go_back}>
-        Go Back Home &#8594;
+        Go Back Home
       </Link>
     </div>
   );

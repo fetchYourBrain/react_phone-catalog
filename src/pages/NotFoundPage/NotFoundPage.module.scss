@@ -61,23 +61,17 @@
 }
 
 .go_back {
+  @include button;
 
   min-width: 240px;
-  max-width: 500px;
+  max-width: 480px;
   width: 100%;
-  display: inline-block;
-  padding: 13.5px;
-  background-color: $c-accent;
+  height: 48px;
 
-  text-decoration: none;
-  color: $c-white;
-  font-size: 14px;
-  ;
-  line-height: 1.5;
-  font-weight: 700;
-  transition: background-color 0.3s;
-
-  &:hover {
-    background-color: $c-accent-hover;
+  &::after {
+    content: url('../../../public/img/icons/arrow-right.svg');
+    margin-left: 5px;
+    width: 16px;
+    height: 16px;
   }
 }

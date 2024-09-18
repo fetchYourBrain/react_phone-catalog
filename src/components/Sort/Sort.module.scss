@@ -1,5 +1,15 @@
 @import '../../App.scss';
 
+.block{
+  margin-bottom: 24px;
+}
+
+.title {
+  @include small-text;
+  color: $c-secondary;
+  margin-bottom: 4px;
+}
+
 .container {
   position: relative;
   width: 176px;
@@ -10,8 +20,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 9px;
-  padding-left: 12px;
+  padding: 9px 12px;
   user-select: none;
   border: 1px solid transparent;
   transition: border-color $duration-default $easing-default;

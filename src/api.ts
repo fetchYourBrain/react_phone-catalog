@@ -1,7 +1,7 @@
-import { Phone } from "./types/phone";
+import { Devices } from "./types/devices";
 import { Product } from "./types/products";
 
-const BASE_URL = "http://localhost:5173/api";
+const BASE_URL = "./api";
 
 function wait(delay: number): Promise<void> {
   return new Promise((resolve) => {
@@ -18,8 +18,8 @@ function get<T>(url: string): Promise<T> {
 }
 
 export const getProducts = () => get<Product[]>("/products");
-export const getAllProducts = (params: string) => get<Phone[]>(`/${params}`);
+export const getAllProducts = (params: string) => get<Devices[]>(`/${params}`);
 export const getProductById = (id: string) =>
-  get<Phone[]>("/phones").then((products) =>
+  get<Devices[]>("/phones").then((products) =>
     products.find((product) => product.id === id)
   );

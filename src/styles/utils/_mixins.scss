@@ -15,6 +15,20 @@
   }
 }
 
+@mixin page-spacing {
+  margin-bottom: 64px;
+  margin-top: 24px;
+
+  @include respond-to(tablet) {
+    margin-top: 32px;
+  }
+
+  @include respond-to(desktop) {
+    margin-bottom: 80px;
+    margin-top: 56px;
+  }
+}
+
 // HEADINGS
 
 @mixin h1 {

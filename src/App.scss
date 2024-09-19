@@ -7,13 +7,4 @@ html {
   font-family: Mont, sans-serif;
   background-color: $c-black;
   color: $c-white;
-  min-height: calc(100vh - map-get($header-heights, mobile-tablet) - map-get($footer-heights, mobile));
-
-  @include respond-to(tablet) {
-  min-height: calc(100vh - map-get($header-heights, mobile-tablet) - map-get($footer-heights, tablet-desktop));
-  }
-
-  @include respond-to(desktop) {
-  min-height: calc(100vh - map-get($header-heights, desktop) - map-get($footer-heights, tablet-desktop));
-  }
 }

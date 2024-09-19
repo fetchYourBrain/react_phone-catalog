@@ -25,6 +25,18 @@ $footer-heights: (
   tablet-desktop: 96px
 );
 
+$top-margin: (
+  mobile: 24px,
+  tablet: 32px,
+  desktop: 56px,
+);
+
+
+$bottom-margin: (
+  mobile: 64px,
+  tablet-desktop: 80px
+);
+
 // TRANSITION
 
 $duration-default: .3s;

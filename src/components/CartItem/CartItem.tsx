@@ -1,64 +1,88 @@
-import { useState } from "react";
 import styles from "./CartItem.module.scss";
 import classNames from "classnames";
+import { CartProduct } from "../../types/CartProduct ";
+import { useAppDispatch } from "../../hooks/helperToolkit";
+import { removeItem, updateItemQuantity } from "../../slices/cartSlice";
 
-export const CartItem = () => {
-  const [count, setCount] = useState(1);
-  const price = 999;
-  const value = count * price;
+interface Props {
+  item: CartProduct;
+}
+
+export const CartItem: React.FC<Props> = ({ item }) => {
+  const dispatch = useAppDispatch();
+  const quantity = item.quantity || 1;
+
+  const { id, name, price, image } = item;
+
+  const removeCartItemHandler = () => {
+    dispatch(removeItem(id));
+  };
+
+  const handleIncrease = () => {
+    dispatch(updateItemQuantity({ id: item.id, quantity: item.quantity + 1 }));
+  };
+
+  const handleDecrease = () => {
+    if (quantity > 1) {
+      dispatch(updateItemQuantity({ id: item.id, quantity: quantity - 1 }));
+    }
+  };
+
   return (
     <div className={styles.cart_item}>
       <div className={styles.container}>
         <div className={styles.item}>
-          <button className={styles.button} aria-label="Remove item">
+          <button
+            className={styles.button}
+            aria-label="Remove item"
+            onClick={removeCartItemHandler}
+          >
             <div className={styles.button_image} />
           </button>
           <div className={styles.image_container}>
             <img
               className={styles.image}
-              src="../public/img/phones/apple-iphone-14/purple/00.webp"
+              src={`${image}`}
               alt="Image of the phone"
             />
           </div>
-          <p className={styles.title}>
-            Apple iPhone 14 Pro 128GB Silver (MQ023)
-          </p>
+          <p className={styles.title}>{name}</p>
         </div>
         <div className={styles.amount}>
           <div className={styles.counter}>
             <div
               className={classNames(styles.subtract_container, {
-                [styles.active]: count > 1,
+                [styles.active]: quantity > 1,
               })}
             >
               <button
-                disabled={count <= 1}
+                disabled={quantity <= 1}
                 aria-label="Decrease quantity"
                 className={classNames(styles.change_button, {
-                  [styles.active]: count > 1,
+                  [styles.active]: quantity > 1,
                 })}
-                onClick={() => setCount((prev) => prev - 1)}
+                onClick={handleDecrease} 
               >
                 <div
                   className={classNames(styles.subtract, {
-                    [styles.active]: count > 1,
+                    [styles.active]: quantity > 1,
                   })}
                 ></div>
               </button>
             </div>
-            <div className={styles.count}>{count}</div>
+            <div className={styles.count}>{quantity}</div>
             <div className={styles.add_container}>
               <button
-              aria-label="Increase quantity"
+                aria-label="Increase quantity"
                 className={styles.change_button}
-                onClick={() => setCount((prev) => prev + 1)}
+                onClick={handleIncrease}
               >
                 <div className={styles.add}></div>
               </button>
             </div>
           </div>
           <div className={styles.value}>
-            <h3>${value}</h3>
+            <h3>${price}</h3>
           </div>
         </div>
       </div>

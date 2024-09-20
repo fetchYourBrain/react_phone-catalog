@@ -14,6 +14,7 @@ interface Props {
   hasDiscount: boolean;
   itemId: string,
   category: string,
+  id: number,
   
 }
 
@@ -27,7 +28,8 @@ export const Card: React.FC<Props> = ({
   ram,
   hasDiscount,
   itemId,
-  category
+  category,
+  id
 }) => {
   const dispatch = useAppDispatch();
 

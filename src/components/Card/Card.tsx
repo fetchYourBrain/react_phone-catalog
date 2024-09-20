@@ -9,7 +9,6 @@ interface Props {
   screen: string;
   capacity: string;
   ram: string;
-  id: number;
   hasDiscount: boolean;
   itemId: string,
   category: string,
@@ -24,7 +23,6 @@ export const Card: React.FC<Props> = ({
   fullPrice,
   screen,
   ram,
-  id,
   hasDiscount,
   itemId,
   category

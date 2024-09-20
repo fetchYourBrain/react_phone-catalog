@@ -2,7 +2,7 @@ import { MergedDevice } from "../types/devices";
 import { SortTypes } from "../types/sort";
 
 export const getSortedProducts = (sort: SortTypes, products: MergedDevice[]) => {
-  let sortedProducts = [...products];
+  const sortedProducts = [...products];
   switch (sort) {
     case SortTypes.Newest:
       return sortedProducts.sort((a, b) => b.year - a.year);

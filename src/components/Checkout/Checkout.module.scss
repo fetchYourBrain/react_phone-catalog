@@ -1,0 +1,87 @@
+@import '../../App.scss';
+
+.container {
+  width: 287px;
+  margin: 40px 16px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: $c-surface;
+
+  @include respond-to(tablet) {
+    width: 592px;
+  }
+
+  @include respond-to(desktop) {
+    width: 752px;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title {
+  @include h3;
+  font-weight: bold;
+  margin-bottom: 16px;
+  text-align: center;
+
+  @include respond-to(tablet) {
+    @include h2;
+  }
+
+  @include respond-to(desktop) {
+    @include h2;
+  }
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.label {
+  @include body-text;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.input {
+  @include small-text;
+  padding: 10px;
+  color: $c-black;
+  border: 1px solid $c-secondary;
+  background-color: $c-white;
+  font-size: 16px;
+}
+
+.button {
+  @include button;
+  padding: 10px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+
+}
+
+.group {
+  flex: 1;
+  margin-bottom: 0;
+
+  &:first-child {
+    flex: 2;
+  }
+
+  &:last-child {
+    flex: 1;
+  }
+
+  .input {
+    width: 100%;
+  }
+}

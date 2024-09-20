@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "./Card.module.scss";
+import { useAppDispatch } from "../../hooks/helperToolkit";
+import { addItem } from "../../slices/cartSlice";
 
 interface Props {
   name: string;
@@ -27,6 +29,19 @@ export const Card: React.FC<Props> = ({
   itemId,
   category
 }) => {
+  const dispatch = useAppDispatch();
+
+const addToCartHandler = () => {
+  const product = {
+    id,
+    name,
+    price,
+    image,
+  };
+
+  dispatch(addItem(product));
+}
+
   return (
     <div className={styles.card}>
       <div className={styles.image}>
@@ -60,8 +75,8 @@ export const Card: React.FC<Props> = ({
         </div>
       </div>
 
-      <div className={styles.buttons}>
-        <a href="#" className={styles.add_to_cart_button}>
+      <div className={styles.buttons} onClick={addToCartHandler}>
+        <a className={styles.add_to_cart_button}>
           Add to cart
         </a>
         <a href="#" className={styles.heart_icon_button}>

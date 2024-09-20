@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Devices } from "../types/devices";
+import { MergedDevice } from "../types/devices";
 
-export const usePagination = (products: Devices[], itemsPerPage: number) => {
+export const usePagination = (products: MergedDevice[], itemsPerPage: number) => {
   const [currentPage, setCurrentPage] = useState(1);
   const productPerPage = itemsPerPage;
   const totalPages = Math.ceil(products.length / productPerPage);

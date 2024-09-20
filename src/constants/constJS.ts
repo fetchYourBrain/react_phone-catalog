@@ -1,4 +1,5 @@
 import { RoutesLink } from "../types/routes";
+import { SortTypes } from "../types/sort";
 
 export const NAV_ITEMS = [
   {
@@ -39,15 +40,22 @@ export const CATEGORIES = [
 
 export const SORT_OPTIONS = [
   {
-    value: "newest",
     label: "Newest",
+    value: SortTypes.Newest,
   },
   {
-    value: "alphabetically",
     label: "Alphabetically",
+    value: SortTypes.Alphabetically,
   },
   {
-    value: "cheapest",
     label: "Cheapest",
+    value: SortTypes.Cheapest,
   },
+];
+
+export const ITEMS_PER_PAGE = [
+  { label: "4", value: 4 },
+  { label: "8", value: 8 },
+  { label: "16", value: 16 },
+  { label: "All", value: "All" },
 ];

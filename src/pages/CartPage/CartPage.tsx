@@ -1,13 +1,15 @@
+import { useState, useEffect } from 'react';
 import { GoBackButton } from "../../components/Buttons/GoBackButton/GoBackButton";
 import styles from "./CartPage.module.scss";
 import { CartItem } from "../../components/CartItem/CartItem";
 import { useAppDispatch, useAppSelector } from "../../hooks/helperToolkit";
-import { useEffect } from "react";
 import { loadCardFromStorage } from "../../slices/cartSlice";
+import { CheckoutProcess } from '../../components/Checkout/Checkout';
 
 export const CartPage = () => {
   const dispatch = useAppDispatch();
   const cartItems = useAppSelector((state) => state.cart);
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
 
   useEffect(() => {
     dispatch(loadCardFromStorage());
@@ -20,6 +22,22 @@ export const CartPage = () => {
     }
     return acc;
   }, 0);
+
+  useEffect(() => {
+    document.body.style.overflow = isCheckoutOpen ? 'hidden' : 'unset';
+    
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isCheckoutOpen]);
+
+  const handleCheckoutClick = () => {
+    setIsCheckoutOpen(true);
+  };
+
+  const handleCloseCheckout = () => {
+    setIsCheckoutOpen(false);
+  };
 
   return (
     <div className={styles.cart}>
@@ -34,8 +52,8 @@ export const CartPage = () => {
             <div>
               {cartItems.items.map((item) => (
                 <CartItem 
-                item={item} 
-                key={item.id} 
+                  item={item} 
+                  key={item.id} 
                 />
               ))}
             </div>
@@ -50,13 +68,21 @@ export const CartPage = () => {
 
               <hr className={styles.line} />
 
-              <button className={styles.main_button}>
+              <button className={styles.main_button} onClick={handleCheckoutClick}>
                 <p className={styles.button_text}>Checkout</p>
               </button>
             </div>
           </div>
         )}
       </div>
+
+      {isCheckoutOpen && (
+        <div className={styles.modalOverlay} >
+          <div className={styles.modalContent} >
+            <CheckoutProcess onClose={handleCloseCheckout} />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

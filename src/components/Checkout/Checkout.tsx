@@ -1,64 +1,62 @@
 import { useState, useEffect } from 'react';
-import styles from './Checkout.module.scss';
-import { FormFields } from '../../types/formFields';
-import { InputType } from '../../types/inputTypes';
-import { PlaceholderText } from '../../types/placeholder';
 import { SuccessMessage } from '../SuccessMessage/SuccessMessage';
-import { patterns } from '../../types/patterns';
-import { formatCreditCardNumber, formatExpirationDate } from '../../forms/formatInputFields';
+import { useFormHandling } from '../../forms/useFormHandling';
+import { formFieldsData } from '../../forms/formFields';
+import styles from './Checkout.module.scss';
+import closeButton from '../../../public/img/icons/close-button-icon.svg';
 
-const formFieldsData = [
-  { id: FormFields.FirstName, type: InputType.Text, placeholder: PlaceholderText.FirstName },
-  { id: FormFields.LastName, type: InputType.Text, placeholder: PlaceholderText.LastName },
-  { id: FormFields.MobilePhone, type: InputType.Tel, placeholder: PlaceholderText.PhoneNumber, pattern: patterns.phoneNumber },
-  { id: FormFields.Address, type: InputType.Text, placeholder: PlaceholderText.Address },
-  { id: FormFields.CreditCard, type: InputType.Text, placeholder: PlaceholderText.CreditCard, pattern: patterns.creditCard },
-  { id: FormFields.ExpirationDate, type: InputType.Text, placeholder: PlaceholderText.ExpirationDate, pattern: patterns.expirationDate, maxLength: 5 },
-  { id: FormFields.CVV, type: InputType.Text, placeholder: PlaceholderText.CVV, pattern: patterns.cvv, maxLength: 3 },
-];
+interface CheckoutProcessProps {
+  onClose: () => void;
+}
 
-export const CheckoutProcess = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [formValues, setFormValues] = useState<{ [key: string]: string }>({});
-  
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { id, value } = event.target;
-    let formattedValue = value;
-  
-    if (id === FormFields.ExpirationDate) {
-      formattedValue = formatExpirationDate(value);
-    } else if (id === FormFields.CreditCard) {
-      formattedValue = formatCreditCardNumber(value);
-    }
-  
-    setFormValues(prev => ({ ...prev, [id]: formattedValue }));
-  };
+export const CheckoutProcess: React.FC<CheckoutProcessProps> = ({ onClose }) => {
+  const [isSuccessMessageOpen, setIsSuccessMessageOpen] = useState(false);
+  const [isCheckoutVisible, setIsCheckoutVisible] = useState(true);
+
+  const {
+    formValues,
+    formErrors,
+    handleInputChange,
+    handleInputBlur,
+    validateFieldsOnSubmit
+  } = useFormHandling();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    if (!validateFieldsOnSubmit()) {
+      return;
+    }
+
+    setIsCheckoutVisible(false);
+
     setTimeout(() => {
-      setIsModalOpen(true);
+      setIsSuccessMessageOpen(true);
     }, 1000);
   };
 
   const handleModalClose = () => {
-    setIsModalOpen(false);
+    setIsSuccessMessageOpen(false);
+    onClose();
   };
 
   useEffect(() => {
-    if (isModalOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
+    document.body.style.overflow = isSuccessMessageOpen ? 'hidden' : 'unset';
+
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [isModalOpen]);
+  }, [isSuccessMessageOpen]);
+
+  if (!isCheckoutVisible) {
+    return isSuccessMessageOpen ? <SuccessMessage onCloseMessage={handleModalClose} /> : null;
+  }
 
   return (
     <div className={styles.container}>
+      <button className={styles.closeButton} onClick={onClose}>
+        <img src={closeButton} className={styles.closeImage} alt="Close modal" />
+      </button>
       <h1 className={styles.title}>Payment & Delivery</h1>
       <form onSubmit={handleSubmit} className={styles.form}>
         {formFieldsData.slice(0, 5).map(({ id, type, placeholder, pattern }) => (
@@ -70,10 +68,12 @@ export const CheckoutProcess = () => {
               placeholder={placeholder}
               required
               pattern={pattern}
-              className={styles.input}
+              className={`${styles.input} ${formErrors[id] ? styles.errorInput : ''}`}
               onChange={handleInputChange}
+              onBlur={handleInputBlur}
               value={formValues[id] || ''}
             />
+            {formErrors[id] && <span className={styles.errorText}>{formErrors[id]}</span>}
           </div>
         ))}
         <div className={styles.row}>
@@ -87,17 +87,19 @@ export const CheckoutProcess = () => {
                 required
                 pattern={pattern}
                 maxLength={maxLength}
-                className={styles.input}
+                className={`${styles.input} ${formErrors[id] ? styles.errorInput : ''}`}
                 onChange={handleInputChange}
+                onBlur={handleInputBlur}
                 value={formValues[id] || ''}
               />
+              {formErrors[id] && <span className={styles.errorText}>{formErrors[id]}</span>}
             </div>
           ))}
         </div>
-        <button type="submit" className={styles.button}>Checkout</button>
+        <button type="submit" className={styles.button}>Complete Purchase</button>
       </form>
 
-      {isModalOpen && <SuccessMessage onClose={handleModalClose} />}
+      {isSuccessMessageOpen && <SuccessMessage onCloseMessage={handleModalClose} />}
     </div>
   );
 };

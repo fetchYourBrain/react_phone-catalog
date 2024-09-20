@@ -81,7 +81,7 @@ const addToCartHandler = () => {
           Add to cart
         </a>
         <a href="#" className={styles.heart_icon_button}>
-          <img src="/img/icons/heart-icon.svg" alt="Heart Icon" />
+          <img src="img/icons/heart-icon.svg" alt="Heart Icon" />
         </a>
       </div>
     </div>

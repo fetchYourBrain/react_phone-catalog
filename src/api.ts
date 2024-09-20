@@ -20,6 +20,6 @@ function get<T>(url: string): Promise<T> {
 export const getProducts = () => get<Product[]>("products");
 export const getAllProducts = (params: string) => get<Devices[]>(`${params}`);
 export const getProductById = (id: string) =>
-  get<Devices[]>("/phones").then((products) =>
+  get<Devices[]>("phones").then((products) =>
     products.find((product) => product.id === id)
   );

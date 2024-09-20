@@ -23,17 +23,17 @@ export const NAV_ITEMS = [
 export const CATEGORIES = [
   {
     name: "Phones",
-    img: "/img/category-phones.webp",
+    img: "img/category-phones.webp",
     backgroundColor: "#6D6474",
   },
   {
     name: "Tablets",
-    img: "/img/category-tablets.png",
+    img: "img/category-tablets.png",
     backgroundColor: "#8D8D92",
   },
   {
     name: "Accessories",
-    img: "/img/category-accessories.png",
+    img: "img/category-accessories.png",
     backgroundColor: "#D53C51",
   },
 ];

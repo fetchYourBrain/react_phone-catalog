@@ -14,8 +14,8 @@ export const Root = () => {
       <Routes>
         <Route path={RoutesLink.HomePage} element={<App />}>
           <Route path="/" element={<HomePage />} />
-          <Route path="/:products" element={<ProductPage />} />
-          <Route path="/:products/:id" element={<ProductDetails />} />
+          <Route path="/:category" element={<ProductPage />} />
+          <Route path="/:category/:id" element={<ProductDetails />} />
           <Route path={RoutesLink.CartPage} element={<CartPage />} />
           <Route path={RoutesLink.FavoritesPage} element={<FavoritePage />} />
           <Route path="*" element={<NotFoundPage />} />

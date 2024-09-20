@@ -3,27 +3,24 @@ import styles from "./Sort.module.scss";
 import arrow from "../../../public/img/icons/arrow.svg";
 
 type Option = {
-  value: string | number;
+  value: string | number; // Adjust based on your actual types
   label: string;
 };
 
 interface SortProps {
   options: Option[];
-  // eslint-disable-next-line no-unused-vars
-  onChange: (value: string) => void;
+  onChange: (value: string | number) => void; // Reflect the possible values
   title: string;
   selectedValue: string | number;
 }
 
-export const Sort: React.FC<SortProps> = ({ options, onChange, title,selectedValue }) => {
+export const Sort: React.FC<SortProps> = ({ options, onChange, title, selectedValue }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-
   const handleOptionClick = (obj: Option) => {
-    onChange(String(obj.value));
+    onChange(obj.value); // Use the value directly
     setIsOpen(false);
   };
-
 
   return (
     <div className={styles.block}>

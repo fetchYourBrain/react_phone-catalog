@@ -9,8 +9,11 @@ interface Props {
   screen: string;
   capacity: string;
   ram: string;
-  id: string;
+  id: number;
   hasDiscount: boolean;
+  itemId: string,
+  category: string,
+  
 }
 
 export const Card: React.FC<Props> = ({
@@ -23,13 +26,15 @@ export const Card: React.FC<Props> = ({
   ram,
   id,
   hasDiscount,
+  itemId,
+  category
 }) => {
   return (
     <div className={styles.card}>
       <div className={styles.image}>
         <img className={styles.card_image} src={image} alt={name} />
       </div>
-      <Link to={`${id}`}>
+      <Link to={`/${category}/${itemId}`}>
         <h3 className={styles.title}>{name}</h3>
       </Link>
 

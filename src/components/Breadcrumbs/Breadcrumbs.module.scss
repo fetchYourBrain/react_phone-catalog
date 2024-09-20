@@ -7,6 +7,12 @@
   justify-content: flex-start;
   flex-wrap: nowrap;
   margin-right: 8px;
+  margin-bottom: 24px;
+
+  @include respond-to(tablet) {
+    margin-bottom: 40px;
+  }
+
 }
 
 .crumb_container {
@@ -16,6 +22,7 @@
 
 .crumb {
   @include small-text;
+  line-height: 20px;
   display: flex;
   align-items: center;
   color: $c-secondary;
@@ -25,7 +32,6 @@
     text-decoration: none;
     color: inherit;
     text-align: center;
-    vertical-align: baseline;
     display: inline-block;
   }
 }

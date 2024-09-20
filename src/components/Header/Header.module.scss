@@ -18,18 +18,14 @@
   align-items: center;
   min-width: 320px;
   padding-left: 16px;
-  margin-bottom: 24px;
   border-bottom: 1px solid $c-elements;
 
 
   @include respond-to(tablet) {
     justify-content: start;
-    margin-bottom: 32px;
   }
   @include respond-to(desktop) {
     padding-left: 24px;
-    margin-bottom: 56px;
-
   }
 }
 

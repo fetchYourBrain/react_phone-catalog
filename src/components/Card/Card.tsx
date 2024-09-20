@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "./Card.module.scss";
 import { useAppDispatch } from "../../hooks/helperToolkit";
-import { addItem } from "../../slices/cartSlice";
+import {  addItemToCart } from "../../slices/cartSlice";
 
 interface Props {
   name: string;
@@ -37,9 +37,10 @@ const addToCartHandler = () => {
     name,
     price,
     image,
+    
   };
 
-  dispatch(addItem(product));
+  dispatch(addItemToCart({ item: product }));
 }
 
   return (

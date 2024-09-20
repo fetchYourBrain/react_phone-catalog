@@ -16,9 +16,7 @@ export const CartPage = () => {
   const totalCount = cartItems.itemsCount;
   const totalPrice = cartItems.items.reduce((acc, item) => {
     if (item.price && item.quantity) {
-      const price = parseFloat(item.price);
-      const quantity = parseInt(item.quantity, 10);
-      return acc + (price * quantity);
+      return acc + (item.price * item.quantity);
     }
     return acc;
   }, 0);

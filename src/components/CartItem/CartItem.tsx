@@ -10,9 +10,7 @@ interface Props {
 
 export const CartItem: React.FC<Props> = ({ item }) => {
   const dispatch = useAppDispatch();
-  const quantity = item.quantity || 1;
-
-  const { id, name, price, image } = item;
+  const { id, name, price, image, quantity } = item;
 
   const removeCartItemHandler = () => {
     dispatch(removeItem(id));
@@ -24,7 +22,7 @@ export const CartItem: React.FC<Props> = ({ item }) => {
 
   const handleDecrease = () => {
     if (quantity > 1) {
-      dispatch(updateItemQuantity({ id: item.id, quantity: quantity - 1 }));
+      dispatch(updateItemQuantity({ id: item.id, quantity: item.quantity - 1 }));
     }
   };
 
@@ -52,25 +50,25 @@ export const CartItem: React.FC<Props> = ({ item }) => {
           <div className={styles.counter}>
             <div
               className={classNames(styles.subtract_container, {
-                [styles.active]: quantity > 1,
+                [styles.active]: item.quantity > 1,
               })}
             >
               <button
-                disabled={quantity <= 1}
+                disabled={item.quantity <= 1}
                 aria-label="Decrease quantity"
                 className={classNames(styles.change_button, {
-                  [styles.active]: quantity > 1,
+                  [styles.active]: item.quantity > 1,
                 })}
                 onClick={handleDecrease} 
               >
                 <div
                   className={classNames(styles.subtract, {
-                    [styles.active]: quantity > 1,
+                    [styles.active]: item.quantity > 1,
                   })}
                 ></div>
               </button>
             </div>
-            <div className={styles.count}>{quantity}</div>
+            <div className={styles.count}>{item.quantity}</div>
             <div className={styles.add_container}>
               <button
                 aria-label="Increase quantity"

@@ -1,0 +1,167 @@
+@import '../../App.scss';
+
+.container {
+  position: relative;
+  width: 287px;
+  padding: 16px;
+  background-color: $c-surface;
+
+  @include respond-to(tablet) {
+    width: 592px;
+    padding: 24px;
+  }
+
+  @include respond-to(desktop) {
+    width: 752px;
+    padding: 24px;
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.closeImage {
+  width: 16px;
+  height: 16px;
+
+  @include respond-to(tablet) {
+    width: 24px;
+    height: 24px;
+  }
+
+  @include respond-to(desktop) {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.title {
+  @include h3;
+  font-weight: bold;
+  margin-bottom: 8px;
+  text-align: center;
+
+  @include respond-to(tablet) {
+    @include h2;
+    margin-bottom: 16px;
+  }
+
+  @include respond-to(desktop) {
+    @include h2;
+    margin-bottom: 16px;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  @include respond-to(tablet) {
+    gap: 12px;
+  }
+
+  @include respond-to(desktop) {
+    gap: 12px;
+  }
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  @include small-text;
+  font-size: 12px;
+  padding: 6px;
+  color: $c-black;
+  border: 2px solid $c-secondary;
+  background-color: $c-white;
+  appearance: none;
+  outline: none;
+
+  &:focus {
+    border-color: $c-accent;
+  }
+
+  @include respond-to(tablet) {
+    @include body-text;
+    padding: 8px;
+  }
+
+  @include respond-to(desktop) {
+    @include body-text;
+    padding: 8px;
+  }
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+
+  @include respond-to(tablet) {
+    gap: 12px;
+  }
+
+  @include respond-to(desktop) {
+    gap: 12px;
+  }
+}
+
+.group {
+  flex: 1;
+
+  &:first-child {
+    flex: 2;
+  }
+
+  &:last-child {
+    flex: 1;
+  }
+
+  .input {
+    width: 100%;
+  }
+}
+
+.button {
+  @include button;
+  @include small-text;
+  padding: 10px;
+
+  @include respond-to(tablet) {
+    @include body-text;
+  }
+
+  @include respond-to(desktop) {
+    @include body-text;
+  }
+}
+
+.errorInput {
+  border-color: $c-red;
+}
+
+.errorText {
+  @include small-text;
+  font-size: 8px;
+  margin-top: 4px;
+  color: $c-red;
+
+  @include respond-to(tablet) {
+    @include small-text;
+    margin-top: 6px;
+  }
+
+  @include respond-to(desktop) {
+    @include body-text;
+    margin-top: 6px;
+  }
+}

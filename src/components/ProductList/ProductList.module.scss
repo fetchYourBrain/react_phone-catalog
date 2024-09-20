@@ -16,3 +16,8 @@
         grid-template-columns: repeat(4, 1fr);
     }
 }
+
+.options {
+    display: flex;
+    gap: 16px;
+}

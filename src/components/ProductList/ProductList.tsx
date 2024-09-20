@@ -1,13 +1,38 @@
-import { useAppSelector } from "../../hooks/helperToolkit";
+import { useAppDispatch, useAppSelector } from "../../hooks/helperToolkit";
 import { Card } from "../Card/Card";
 import styles from "./ProductList.module.scss";
 import { usePagination } from "../../hooks/usePagination";
 import { Pagination } from "../Pagination/Pagination";
+import { SortTypes } from "../../types/sort";
+import { Sort } from "../Sort/Sort";
+import {
+  fetchDevicesList,
+  setProductsPerPage,
+  setSortType,
+} from "../../slices/deviceSlice";
+import { perPage } from "../../types/perpage";
+import { ITEMS_PER_PAGE, SORT_OPTIONS } from "../../constants/constJS";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { getSortedProducts } from "../../features/getSortedProducts";
 
 export const ProductList = () => {
-  const { products, loading, productsPerPage } = useAppSelector(
-    (state) => state.productList
+  const { category } = useParams();
+  const dispatch = useAppDispatch();
+  const { devices, loading, productsPerPage, sort } = useAppSelector(
+    (state) => state.device
   );
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    if (category) {
+      dispatch(fetchDevicesList(category));
+    }
+  }, [category, sort]);
+
+  
+  const sortedProducts = getSortedProducts(sort, devices);
+
   const {
     visibleProducts,
     nextPage,
@@ -15,26 +40,35 @@ export const ProductList = () => {
     numbers,
     changeCurrentPage,
     currentPage,
-  } = usePagination(products, +productsPerPage);
+  } = usePagination(sortedProducts, +productsPerPage);
 
-  // const sortProducts = (sort: SortTypes, products: Devices[]) => {
-  //   let sortedProducts = [...products];
-  //   switch (sort) {
-  //     case SortTypes.Newest:
-  //       return sortedProducts.sort((a, b) => a.year - b.year);
-  //     case SortTypes.Alphabetically:
-  //       return sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
-  //     case SortTypes.Cheapest:
-  //       return sortedProducts.sort((a, b) => b.price - a.price);
-  //     default:
-  //       return 0;
-  //   }
-  // };
 
-  // sortProducts(sort, products);
+  const handleSortType = (sort: SortTypes) => {
+    dispatch(setSortType(sort));
+  };
+
+  const handleProductsPerPage = (option: perPage) => {
+    const value = option === "All" ? devices.length.toString() : option;
+    dispatch(setProductsPerPage(value as perPage));
+  };
+  
 
   return (
     <>
+      <div className={styles.options}>
+        <Sort
+          options={SORT_OPTIONS}
+          onChange={handleSortType}
+          title={"Sort by"}
+          selectedValue={sort}
+        />
+        <Sort
+          options={ITEMS_PER_PAGE}
+          onChange={handleProductsPerPage}
+          title={"Items on page"}
+          selectedValue={productsPerPage}
+        />
+      </div>
       <div className={styles.list}>
         {loading ? (
           <>loading</>
@@ -49,13 +83,14 @@ export const ProductList = () => {
               fullPrice={product.priceRegular}
               screen={product.screen}
               ram={product.ram}
-              id={product.id}
+              itemId={product.itemId}
               hasDiscount={true}
+              category={product.category}
             />
           ))
         )}
       </div>
-      {+productsPerPage !== products.length ? (
+      {+productsPerPage !== devices.length ? (
         <Pagination
           nextPage={nextPage}
           prevPage={prevPage}

@@ -5,13 +5,13 @@ import { Breadcrumbs } from "../../components/Breadcrumbs/Breadcrumbs";
 
 export const ProductDetails = () => {
   const { id } = useParams<{ id: string }>();
-  const products = useAppSelector((state) => state.productList.products);
+  const products = useAppSelector((state) => state.device.devices);
 
-  const visibleProduct = products.find((product) => product.id === id);
+  const visibleProduct = products.find((product) => product.itemId === id);
 
   return (
     <div className={styles.block}>
-      <Breadcrumbs name={visibleProduct?.name}/>
+      <Breadcrumbs name={visibleProduct?.name} />
       <h2 className={styles.title}>{visibleProduct?.name}</h2>
 
       {/* <ProductsRow

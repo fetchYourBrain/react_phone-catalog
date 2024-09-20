@@ -11,8 +11,10 @@ interface Props {
   screen: string;
   capacity: string;
   ram: string;
-  id: string;
   hasDiscount: boolean;
+  itemId: string,
+  category: string,
+  
 }
 
 export const Card: React.FC<Props> = ({
@@ -23,8 +25,9 @@ export const Card: React.FC<Props> = ({
   fullPrice,
   screen,
   ram,
-  id,
   hasDiscount,
+  itemId,
+  category
 }) => {
   const dispatch = useAppDispatch();
 
@@ -44,7 +47,7 @@ const addToCartHandler = () => {
       <div className={styles.image}>
         <img className={styles.card_image} src={image} alt={name} />
       </div>
-      <Link to={`${id}`}>
+      <Link to={`/${category}/${itemId}`}>
         <h3 className={styles.title}>{name}</h3>
       </Link>
 

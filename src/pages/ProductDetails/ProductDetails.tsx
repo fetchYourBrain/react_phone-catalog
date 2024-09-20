@@ -4,6 +4,7 @@ import styles from "./ProductDetails.module.scss";
 import { Breadcrumbs } from "../../components/Breadcrumbs/Breadcrumbs";
 import { useEffect } from "react";
 import { fetchDeviceById } from "../../slices/deviceSlice";
+import { PhoneDescription } from "../../components/PhoneDescription/PhoneDescription";
 
 export const ProductDetails = () => {
   const { id, category } = useParams<{ id: string; category: string }>();
@@ -16,16 +17,36 @@ export const ProductDetails = () => {
     }
   }, [id, category, dispatch]);
 
+  const {
+    name,
+    description,
+    screen,
+    resolution,
+    processor,
+    ram,
+    capacity,
+    camera,
+    zoom,
+    cell
+  } = device;
+  
   return (
     <div className={styles.block}>
       <Breadcrumbs name={device?.name} />
       <h2 className={styles.title}>{device?.name}</h2>
 
-      {/* <ProductsRow
-        products={recommended}
-        title="You may also like"
-        hasDiscount={true}
-      /> */}
+       <PhoneDescription
+        description={description}
+        name={name}
+        screen={screen}
+        resolution={resolution}
+        processor={processor}
+        ram={ram}
+        capacity={capacity}
+        camera={camera}
+        zoom={zoom}
+        cell={cell}
+      />
     </div>
   );
 };

@@ -32,6 +32,7 @@ export const ProductsRow: React.FC<Props> = ({
             itemId={product.itemId}
             hasDiscount={hasDiscount}
             category={product.category}
+            id={product.id}
           />
         ))}
       </div>

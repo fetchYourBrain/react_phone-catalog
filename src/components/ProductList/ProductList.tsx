@@ -86,6 +86,7 @@ export const ProductList = () => {
               itemId={product.itemId}
               hasDiscount={true}
               category={product.category}
+              id={product.id}
             />
           ))
         )}

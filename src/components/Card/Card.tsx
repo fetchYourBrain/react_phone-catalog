@@ -14,6 +14,7 @@ interface Props {
   hasDiscount: boolean;
   itemId: string,
   category: string,
+  id: number,
   
 }
 
@@ -27,7 +28,8 @@ export const Card: React.FC<Props> = ({
   ram,
   hasDiscount,
   itemId,
-  category
+  category,
+  id
 }) => {
   const dispatch = useAppDispatch();
 
@@ -81,7 +83,7 @@ const addToCartHandler = () => {
           Add to cart
         </a>
         <a href="#" className={styles.heart_icon_button}>
-          <img src="/img/icons/heart-icon.svg" alt="Heart Icon" />
+          <img src="img/icons/heart-icon.svg" alt="Heart Icon" />
         </a>
       </div>
     </div>

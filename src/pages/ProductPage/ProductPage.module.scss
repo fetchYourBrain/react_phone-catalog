@@ -6,10 +6,11 @@
 }
 
 .top_block {
-    margin: 24px 0 32px 0;
+    margin-bottom: 32px;
 
     @include respond-to(tablet) {
-        margin: 40px 0 40px 0;
+      margin-bottom: 40px;
+
     }
 }
 

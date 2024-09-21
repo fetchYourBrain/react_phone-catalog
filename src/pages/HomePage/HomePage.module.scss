@@ -1,22 +1,30 @@
 @import '../../App.scss';
 
 .block {
-    grid-column: 1 / -1;
-    width: 100%;
-    overflow: hidden;
+  grid-column: 1 / -1;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 24px;
 
+  @include respond-to(tablet) {
+    margin-top: 32px;
+  }
+
+  @include respond-to(tablet) {
+    margin-top: 56px;
+  }
 }
 
 .title {
-    @include h1;
+  @include h1;
+  margin-bottom: 24px;
+
+  @include respond-to(tablet) {
+    font-size: 48px;
     margin-bottom: 24px;
+  }
 
-    @include respond-to(tablet) {
-        font-size: 48px;
-        margin-bottom: 24px;
-    }
-
-    @include respond-to(desktop) {
-        margin-bottom: 56px;
-    }
+  @include respond-to(desktop) {
+    margin-bottom: 56px;
+  }
 }

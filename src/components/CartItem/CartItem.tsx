@@ -3,6 +3,7 @@ import classNames from "classnames";
 import { CartProduct } from "../../types/CartProduct ";
 import { useAppDispatch } from "../../hooks/helperToolkit";
 import { removeItem, updateItemQuantity } from "../../slices/cartSlice";
+import { Link } from "react-router-dom";
 
 interface Props {
   item: CartProduct;
@@ -10,7 +11,7 @@ interface Props {
 
 export const CartItem: React.FC<Props> = ({ item }) => {
   const dispatch = useAppDispatch();
-  const { id, name, price, image, quantity } = item;
+  const { id, name, price, image, quantity, category, itemId } = item;
 
   const removeCartItemHandler = () => {
     dispatch(removeItem(id));
@@ -25,6 +26,7 @@ export const CartItem: React.FC<Props> = ({ item }) => {
       dispatch(updateItemQuantity({ id: item.id, quantity: item.quantity - 1 }));
     }
   };
+  console.log(item);
 
   return (
     <div className={styles.cart_item}>
@@ -41,10 +43,12 @@ export const CartItem: React.FC<Props> = ({ item }) => {
             <img
               className={styles.image}
               src={`${image}`}
-              alt="Image of the phone"
+              alt={`Image of ${name}`}
             />
           </div>
+      <Link to={`/${category}/${itemId}`}>
           <p className={styles.title}>{name}</p>
+      </Link>
         </div>
         <div className={styles.amount}>
           <div className={styles.counter}>

@@ -39,9 +39,11 @@ const addToCartHandler = () => {
     name,
     price,
     image,
-    
-  };
+    itemId,
+    category,
 
+  };
+console.log(product);
   dispatch(addItemToCart({ item: product }));
 }
 

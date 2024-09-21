@@ -4,4 +4,6 @@ export interface CartProduct  {
   price: number,
   image: string,
   quantity: number, 
+  itemId: string,
+  category: string,
 }

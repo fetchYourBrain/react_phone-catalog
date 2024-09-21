@@ -1,23 +1,44 @@
 @import '../../App.scss';
 
 .list {
-    display: grid;
-    row-gap: 40px;
-    column-gap: 16px;
-    align-items: center;
-    justify-content: center;
-    grid-template-columns: repeat(1, 1fr);
+  width: 100%;
+  display: grid;
+  gap: 16px;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 
-    @include respond-to(tablet) {
-        grid-template-columns: repeat(auto, 1fr);
-    }
+  @include respond-to(tablet) {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
 
-    @include respond-to(desktop) {
-        grid-template-columns: repeat(4, 1fr);
-    }
+  @include respond-to(desktop) {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @include respond-to(tablet) {
+    grid-template-columns: 3fr 2fr;
+  }
+
+  @include respond-to(desktop) {
+    grid-template-columns: 2fr 3fr;
+  }
 }
 
 .options {
-    display: flex;
-    gap: 16px;
+  display: grid;
+  grid-template-columns: minmax(100px, 1fr) minmax(100px, 1fr); // Мобільна версія
+  column-gap: 16px;
+
+  @include respond-to(tablet) {
+    grid-template-columns: minmax(150px, 2fr) minmax(100px, 1fr); // Планшет: трохи більші пропорції для першої колонки
+  }
+
+  @include respond-to(desktop) {
+    grid-template-columns: minmax(272px, 1fr) minmax(100px, 1fr); // Десктоп: більше місця для першої колонки
+  }
 }

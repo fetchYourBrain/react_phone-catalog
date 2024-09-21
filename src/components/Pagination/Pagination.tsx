@@ -20,7 +20,7 @@ export const Pagination: React.FC<Props> = ({
     <nav className={styles.block}>
       <ul className={styles.list}>
         <li className={styles.item} onClick={prevPage}>
-          <img src="/img/icons/arrow-left.svg" alt="" />
+          <img src="img/icons/arrow-left.svg" alt="" />
         </li>
         {numbers.map((n) => (
           <li
@@ -34,7 +34,7 @@ export const Pagination: React.FC<Props> = ({
           </li>
         ))}
         <li className={styles.item} onClick={nextPage}>
-            <img src="/img/icons/arrow-right.svg" alt="" />
+            <img src="img/icons/arrow-right.svg" alt="" />
         </li>
       </ul>
     </nav>

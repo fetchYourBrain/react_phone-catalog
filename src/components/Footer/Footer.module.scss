@@ -83,8 +83,9 @@
 }
 
 .back_to_top_title {
-  font-size: 12px;
-  color: #7A7D8C;
+  @include small-text;
+
+  color: $c-secondary;
 }
 
     .back_to_top_btn {

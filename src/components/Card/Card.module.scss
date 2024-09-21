@@ -87,6 +87,27 @@
   @include button;
   width: 176px;
   height: 40px;
+
+  @include respond-to(tablet) {
+    width: 160px;
+  }
+}
+
+.disabledButton {
+  @include button;
+  width: 176px;
+  height: 40px;
+  background-color: $c-surface-two;
+  cursor: not-allowed;
+
+  &:hover {
+    background-color: $c-surface-two;
+
+  }
+
+  @include respond-to(tablet) {
+    width: 160px;
+  }
 }
 
 .heart_icon_button {

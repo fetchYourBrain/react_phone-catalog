@@ -22,7 +22,7 @@
     width: 100%;
     left: 0;
     bottom: 0;
-    transition: transform 0.3s ease;
+    transition: transform $duration-default $easing-default;
     transform: scale(0);
     transform-origin: center;
   }

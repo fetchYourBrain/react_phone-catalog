@@ -4,12 +4,19 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-self: center;
   height: 440px;
+  width: 100%;
   padding: 32px;
   background-color: $c-surface;
+  cursor: pointer;
 
   @include respond-to(tablet) {
     height: 506px;
+  }
+  transition: transform $duration-default ease;
+  &:hover{
+    transform: scale(1.05);
   }
 
 }
@@ -85,7 +92,7 @@
 
 .add_to_cart_button {
   @include button;
-  width: 176px;
+  width: 100%;
   height: 40px;
 }
 

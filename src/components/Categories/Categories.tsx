@@ -20,7 +20,7 @@ export const Categories = () => {
               className={styles.img_container}
               style={{ backgroundColor: category.backgroundColor }}
             >
-              <img src={category.img} alt="" />
+              <img src={`${category.img}`} alt="" />
             </div>
             <h3 className={styles.name}>{category.name}</h3>
             <div className={styles.amount}>95 models</div>

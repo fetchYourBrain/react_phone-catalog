@@ -10,7 +10,7 @@ function wait(delay: number): Promise<void> {
 }
 
 function get<T>(url: string): Promise<T> {
-  const fullURL = BASE_URL + '/api/' + url + ".json";
+  const fullURL = BASE_URL + 'api/' + url + ".json";
 
   return wait(300)
     .then(() => fetch(fullURL))
@@ -18,8 +18,10 @@ function get<T>(url: string): Promise<T> {
 }
 
 export const getProducts = () => get<Product[]>("products");
+
 export const getAllProducts = (params: string) => get<Devices[]>(`${params}`);
-export const getProductById = (id: string) =>
-  get<Devices[]>("phones").then((products) =>
-    products.find((product) => product.id === id)
-  );
+
+export const getDeviceById = (itemId: string, category: string) => 
+  get<Devices[]>(`${category}`).then(devices => {
+    return devices.find(device => device.id === itemId);
+  });

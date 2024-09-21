@@ -1,5 +1,5 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getAllProducts, getProducts } from "../api";
+import { getAllProducts, getDeviceById, getProducts } from "../api";
 import { SortTypes } from "../types/sort";
 import { perPage } from "../types/perpage";
 import { Devices, MergedDevice } from "../types/devices";
@@ -11,6 +11,7 @@ type StateProps = {
   error: boolean;
   sort: SortTypes;
   productsPerPage: perPage;
+  deviceById: Devices;
 };
 
 const initialState: StateProps = {
@@ -19,6 +20,7 @@ const initialState: StateProps = {
   error: false,
   sort: SortTypes.Newest,
   productsPerPage: 16,
+  deviceById: null,
 };
 
 export const fetchDevicesList = createAsyncThunk<MergedDevice[], string>(
@@ -48,6 +50,17 @@ export const fetchDevicesList = createAsyncThunk<MergedDevice[], string>(
   }
 );
 
+export const fetchDeviceById = createAsyncThunk<Devices | null, { category: string, id: string }>(
+  'product/fetchProducts',
+  async ({category, id}, { rejectWithValue }) => {
+    try {
+      const response = await getDeviceById(id, category);
+      return response;
+    } catch (error) {
+      return rejectWithValue('Failed to fetch product details');
+    }
+  }
+);
 
 export const deviceSlice = createSlice({
   name: "devices",
@@ -77,7 +90,23 @@ export const deviceSlice = createSlice({
         state.devices = [];
         state.loading = false;
         state.error = true;
-      });
+      })
+      .addCase(fetchDeviceById.pending, (state) => {
+        state.loading = true;
+        state.error = false;
+      })
+      .addCase(
+        fetchDeviceById.fulfilled,
+        (state, action: PayloadAction<Devices>) => {
+          state.deviceById = action.payload;
+          state.loading = false;
+        }
+      )
+      .addCase(fetchDeviceById.rejected, (state) => {
+        state.deviceById = null;
+        state.loading = false;
+        state.error = true;
+      })
   },
 });
 

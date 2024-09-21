@@ -1,14 +1,11 @@
-import { useState } from 'react';
+import { useState } from "react";
 import styles from "./Header.module.scss";
-import burgerIcon from "../../../public/img/icons/burger-menu-icon.svg";
-import favoritesIcon from "../../../public/img/icons/favorites-icon.svg";
-import cartIcon from "../../../public/img/icons/cart-logo.svg";
 import { NavItem } from "../NavItem/NavItem";
 import { NAV_ITEMS } from "../../constants/constJS";
 import { IconLink } from "../IconLink/IconLink";
 import { RoutesLink } from "../../types/routes";
 import { Link } from "react-router-dom";
-import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
+import { BurgerMenu } from "../BurgerMenu/BurgerMenu";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -43,7 +40,7 @@ export const Header = () => {
             <div className={styles.favorites}>
               <IconLink
                 to={RoutesLink.FavoritesPage}
-                iconSrc={favoritesIcon}
+                iconSrc={"img/icons/favorites-icon.svg"}
                 alt="The icon of favorites page"
                 className={styles.favoritesButton}
               />
@@ -52,7 +49,7 @@ export const Header = () => {
             <div className={styles.cart}>
               <IconLink
                 to={RoutesLink.CartPage}
-                iconSrc={cartIcon}
+                iconSrc={"img/icons/cart-logo.svg"}
                 alt="The icon of cart page"
                 className={styles.cartButton}
               />
@@ -61,7 +58,7 @@ export const Header = () => {
             <div className={styles.burgerIcon} onClick={toggleMenu}>
               <IconLink
                 to="#"
-                iconSrc={burgerIcon}
+                iconSrc={"img/icons/burger-menu-icon.svg"}
                 alt="burger-menu-icon"
                 className={styles.iconLink}
               />
@@ -70,7 +67,7 @@ export const Header = () => {
         </div>
       </header>
 
-      <div className={`${styles.side_menu} ${isMenuOpen ? styles.open : ''}`}>
+      <div className={`${styles.side_menu} ${isMenuOpen ? styles.open : ""}`}>
         <div className={styles.menu_content}>
           <BurgerMenu onClose={closeMenu} />
         </div>

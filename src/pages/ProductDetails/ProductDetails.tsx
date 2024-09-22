@@ -8,27 +8,28 @@ import { Breadcrumbs } from "../../components/Breadcrumbs/Breadcrumbs";
 
 export const ProductDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const products = useAppSelector((state) => state.device.devices);
   const navigate = useNavigate();
-  // const products = useAppSelector((state) => state.productList.products);
+  const products = useAppSelector((state) => state.device.devices);
 
   const visibleProduct = products.find((product) => product.itemId === id);
-  // const visibleProduct = products.find((product) => product.id === id);
+
+  console.log(id);
   
-    const {
-      name,
-      images,
-      priceRegular,
-      priceDiscount,
-      color,
-      colorsAvailable,
-      capacity,
-      capacityAvailable,
-      screen,
-      resolution,
-      processor,
-      ram,
-    } = visibleProduct;
+  const {
+    name,
+    images,
+    priceRegular,
+    priceDiscount,
+    color,
+    colorsAvailable,
+    capacity,
+    capacityAvailable,
+    screen,
+    resolution,
+    processor,
+    ram,
+  } = visibleProduct;
+
 
   // Стан для вибраного кольору, ємності та головного зображення
   const [selectedColor, setSelectedColor] = useState(color);
@@ -42,33 +43,28 @@ export const ProductDetails: React.FC = () => {
     );
   };
 
-  // Встановлюємо перше зображення як головне
-  useEffect(() => {
-    if (visibleProduct) {
-      setMainImage(visibleProduct.images[0]);
-    }
-  }, [visibleProduct]);
-
-
   // Функція для обробки зміни кольору або ємності і перенаправлення на нову сторінку
   const handleProductChange = (newColor: string, newCapacity: string) => {
     const newProduct = findProductByAttributes(newColor, newCapacity);
+
     if (newProduct) {
+      // Оновлюємо стан вибраного кольору та ємності
+      setSelectedColor(newColor);
+      setSelectedCapacity(newCapacity);
+
+      // Навігація на нову сторінку з правильним id
       navigate(`/product/${newProduct.id}`);
-      // Після навігації React автоматично перезавантажить компонент з новим продуктом
     }
   };
 
   // Обробка зміни кольору
   const handleColorChange = (newColor: string) => {
-    setSelectedColor(newColor);
-    handleProductChange(newColor, selectedCapacity); // Перенаправлення при зміні кольору
+    handleProductChange(newColor, selectedCapacity);
   };
 
   // Обробка зміни ємності
   const handleCapacityChange = (newCapacity: string) => {
-    setSelectedCapacity(newCapacity);
-    handleProductChange(selectedColor, newCapacity); // Перенаправлення при зміні ємності
+    handleProductChange(selectedColor, newCapacity);
   };
 
   // Обробка кліку по мініатюрі зображення
@@ -76,11 +72,17 @@ export const ProductDetails: React.FC = () => {
     setMainImage(image);
   };
 
+    // Встановлюємо перше зображення як головне
+    useEffect(() => {
+      if (visibleProduct) {
+        setMainImage(visibleProduct.images[0]);
+      }
+    }, [visibleProduct]);
+
   return (
     <div className={styles.block}>
       <Breadcrumbs name={visibleProduct?.name} />
       <GoBackButton />
-      {/* <h2 className={styles.title}>{visibleProduct?.name}</h2> */}
       <h2 className={styles.title}>
         {name}
       </h2>
@@ -114,7 +116,7 @@ export const ProductDetails: React.FC = () => {
         <li>
           <div className={styles.colors_title_box}>
             <p className={styles.colors_title}>Available colors</p>
-            <p className={styles.product_id}>ID: {id}</p>
+            <p className={styles.product_id}>ID: {visibleProduct.id}</p>
           </div>
           <ul className={styles.color_list}>
             {colorsAvailable.map(colorOption => (

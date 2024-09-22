@@ -3,7 +3,6 @@
 .block {
   grid-column: 1 / -1;
   width: 100%;
-  overflow: hidden;
   margin-top: 24px;
 
   @include respond-to(tablet) {
@@ -17,6 +16,8 @@
 
 .title {
   @include h1;
+
+  position: relative;
   margin-bottom: 24px;
 
   @include respond-to(tablet) {

@@ -1,9 +1,5 @@
-@import '../../styles/utils/mixins';
+@import '../../App.scss';
 
 .block {
-    grid-column: 1 / -1;
-}
-
-.title {
-    @include h2;
+  grid-column: 1 / -1;
 }

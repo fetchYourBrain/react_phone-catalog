@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { FormFields } from '../types/formFields';
 import { formatExpirationDate, formatCreditCardNumber } from './formatInputFields';
-import { formFieldsData } from './formFieldsмValues';
+import { formFieldsData } from './formFieldsValues';
 
 export const useFormHandling = () => {
   const [formValues, setFormValues] = useState<{ [key: string]: string }>({});

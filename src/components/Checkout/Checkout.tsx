@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { SuccessMessage } from '../SuccessMessage/SuccessMessage';
 import { useFormHandling } from '../../forms/useFormHandling';
-import { formFieldsData } from '../../forms/formFieldsмValues';
+import { formFieldsData } from '../../forms/formFieldsValues';
 import styles from './Checkout.module.scss';
 import closeButton from '../../../public/img/icons/close-button-icon.svg';
 

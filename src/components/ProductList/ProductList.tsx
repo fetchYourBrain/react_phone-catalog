@@ -13,11 +13,12 @@ import {
 import { perPage } from "../../types/perpage";
 import { ITEMS_PER_PAGE, SORT_OPTIONS } from "../../constants/constJS";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import { getSortedProducts } from "../../features/getSortedProducts";
 
 export const ProductList = () => {
   const { category } = useParams();
+  const [searchParams] = useSearchParams()
   const dispatch = useAppDispatch();
   const { devices, loading, productsPerPage, sort } = useAppSelector(
     (state) => state.device
@@ -31,6 +32,7 @@ export const ProductList = () => {
   }, [category, sort]);
 
   const sortedProducts = getSortedProducts(sort, devices);
+  const pageFromQuery = searchParams.get('page') || 1
 
   const {
     visibleProducts,
@@ -39,7 +41,7 @@ export const ProductList = () => {
     numbers,
     changeCurrentPage,
     currentPage,
-  } = usePagination(sortedProducts, +productsPerPage);
+  } = usePagination(sortedProducts, +productsPerPage, +pageFromQuery);
 
   const handleSortType = (sort: SortTypes) => {
     dispatch(setSortType(sort));

@@ -15,6 +15,7 @@ export const ProductDetails = () => {
     if (id && category) {
       dispatch(fetchDeviceById({ id, category }));
     }
+
   }, [id, category, dispatch]);
   
   return (
@@ -24,8 +25,8 @@ export const ProductDetails = () => {
 
        <DescriptionDetails/>
 
-      {/*<ProductsRow
-        products={recommended}
+      {/* <ProductsRow
+        products={devices}
         title="You may also like"
         hasDiscount={true}
       />*/}

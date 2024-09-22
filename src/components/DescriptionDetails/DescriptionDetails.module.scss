@@ -1,13 +1,13 @@
 @import '../../styles/utils/mixins';
 
-h3 {
+.section_title {
   @include h3;
   padding-bottom: 16px;
   border-bottom: 1px solid $c-elements;
 
 }
 
-h4 {
+.paragraph_title {
   @include h4;
   margin-bottom: 16px;
 }

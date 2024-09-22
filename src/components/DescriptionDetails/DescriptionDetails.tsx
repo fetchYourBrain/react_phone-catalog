@@ -1,23 +1,15 @@
+import { useAppSelector } from "../../hooks/helperToolkit";
 import styles from "./DescriptionDetails.module.scss";
 
-export const DescriptionDetails = ({
-  description,
-  name,
-  screen,
-  resolution,
-  processor,
-  ram,
-  capacity,
-  camera,
-  zoom,
-  cell
-}) => {
-  const productDescription = description.map((section) => ({
+export const DescriptionDetails = () => {
+  const deviceById = useAppSelector((state) => state.device.deviceById)
+
+  const productDescription = deviceById?.description.map((section) => ({
     ...section,
     text: section.text.map((paragraph) =>
-      paragraph.replace(/{productName}/g, name)
+      paragraph.replace(/{productName}/g, deviceById?.name)
     ),
-  }));
+  })) || [];
 
   return (
     <section className={styles.section}>
@@ -40,35 +32,35 @@ export const DescriptionDetails = ({
             <tbody>
               <tr>
                 <td>Screen</td>
-                <td>{screen}</td>
+                <td>{deviceById?.screen}</td>
               </tr>
               <tr>
                 <td>Resolution</td>
-                <td>{resolution}</td>
+                <td>{deviceById?.resolution}</td>
               </tr>
               <tr>
                 <td>Processor</td>
-                <td>{processor}</td>
+                <td>{deviceById?.processor}</td>
               </tr>
               <tr>
                 <td>RAM</td>
-                <td>{ram}</td>
+                <td>{deviceById?.ram}</td>
               </tr>
               <tr>
                 <td>Built-in memory</td>
-                <td>{capacity}</td>
+                <td>{deviceById?.capacity}</td>
               </tr>
               <tr>
                 <td>Camera</td>
-                <td>{camera}</td>
+                <td>{deviceById?.camera}</td>
               </tr>
               <tr>
                 <td>Zoom</td>
-                <td>{zoom}</td>
+                <td>{deviceById?.zoom}</td>
               </tr>
               <tr>
                 <td>Cell</td>
-                <td>{cell.join(', ')}</td>
+                <td>{deviceById?.cell.join(', ')}</td>
               </tr>
             </tbody>
           </table>

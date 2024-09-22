@@ -9,44 +9,20 @@ import { DescriptionDetails } from "../../components/DescriptionDetails/Descript
 export const ProductDetails = () => {
   const { id, category } = useParams<{ id: string; category: string }>();
   const dispatch = useAppDispatch();
-  const device = useAppSelector((state) => state.device.deviceById);
+  const { deviceById } = useAppSelector((state) => state.device)
 
   useEffect(() => {
     if (id && category) {
       dispatch(fetchDeviceById({ id, category }));
     }
   }, [id, category, dispatch]);
-
-  const {
-    name,
-    description,
-    screen,
-    resolution,
-    processor,
-    ram,
-    capacity,
-    camera,
-    zoom,
-    cell
-  } = device;
   
   return (
     <div className={styles.block}>
-      <Breadcrumbs name={device?.name} />
-      <h2 className={styles.title}>{device?.name}</h2>
+      <Breadcrumbs name={deviceById?.name} />
+      <h2 className={styles.title}>{deviceById?.name}</h2>
 
-       <DescriptionDetails
-        description={description}
-        name={name}
-        screen={screen}
-        resolution={resolution}
-        processor={processor}
-        ram={ram}
-        capacity={capacity}
-        camera={camera}
-        zoom={zoom}
-        cell={cell}
-      />
+       <DescriptionDetails/>
 
       {/*<ProductsRow
         products={recommended}

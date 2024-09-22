@@ -14,7 +14,6 @@
   @include respond-to(desktop) {
     width: 752px;
     padding: 32px 52px;
-
   }
 }
 
@@ -115,7 +114,7 @@
   &:-webkit-autofill {
     background-color: $c-secondary !important;
     -webkit-text-fill-color: $c-white !important;
-    box-shadow: 0 0 0px 1000px $c-secondary inset !important;
+    box-shadow: 0 0 0px 50px $c-secondary inset !important;
   }
 
   @include respond-to(tablet) {

@@ -35,7 +35,9 @@ export const Breadcrumbs: React.FC<Props> = ({ name }) => {
   return (
     <div className={styles.breadcrumbs}>
       <Link to={RoutesLink.HomePage}>
+      <div className={styles.icon_container}>
         <div className={styles.home_icon}></div>
+      </div>
       </Link>
       {crumbs}
     </div>

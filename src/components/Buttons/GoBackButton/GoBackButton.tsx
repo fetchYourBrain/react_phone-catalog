@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import styles from './GoBackButton.module.scss';
+import { RoutesLink } from "../../../types/routes";
 
 export const GoBackButton = () => {
   return (
-    <Link to='#' className={styles.go_back}>
+    <Link to={RoutesLink.HomePage} className={styles.go_back}>
       <div className={styles.svg_container}>
       <svg
         width="6"

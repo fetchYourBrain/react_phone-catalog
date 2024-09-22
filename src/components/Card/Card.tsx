@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import styles from "./Card.module.scss";
 import { useAppDispatch } from "../../hooks/helperToolkit";
 import {  addItemToCart } from "../../slices/cartSlice";
+import { useState } from "react";
 
 interface Props {
   name: string;
@@ -31,9 +32,14 @@ export const Card: React.FC<Props> = ({
   category,
   id
 }) => {
+  const [isClicked, setIsClicked] = useState<boolean>(false);
   const dispatch = useAppDispatch();
 
 const addToCartHandler = () => {
+  if (isClicked) {
+    return;
+  };
+
   const product = {
     id,
     name,
@@ -45,6 +51,7 @@ const addToCartHandler = () => {
   };
 console.log(product);
   dispatch(addItemToCart({ item: product }));
+  setIsClicked(true);
 }
 
   return (
@@ -81,9 +88,13 @@ console.log(product);
       </div>
 
       <div className={styles.buttons} onClick={addToCartHandler}>
-        <a className={styles.add_to_cart_button}>
-          Add to cart
-        </a>
+      <button
+          onClick={addToCartHandler}
+          className={isClicked ? styles.disabledButton : styles.add_to_cart_button}
+          disabled={isClicked}
+        >
+          {isClicked ? "Added to Cart" : "Add to cart"}
+        </button>
         <a href="#" className={styles.heart_icon_button}>
           <img src="img/icons/heart-icon.svg" alt="Heart Icon" />
         </a>

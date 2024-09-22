@@ -4,15 +4,10 @@ import styles from './SuccessMessage.module.scss';
 import { RoutesLink } from '../../types/routes';
 import checkCircle from '../../../public/animations/success-message.json';
 
-interface SuccessMessageProps {
-  onCloseMessage: () => void;
-}
-
-export const SuccessMessage: React.FC<SuccessMessageProps> = ({ onCloseMessage }) => {
+export const SuccessMessage: React.FC = () => {
   const navigate = useNavigate();
 
   const handleButtonClick = () => {
-    onCloseMessage(); 
     navigate(RoutesLink.PhonesPage);
   };
 

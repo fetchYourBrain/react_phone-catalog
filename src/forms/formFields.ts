@@ -1,14 +1,14 @@
 import { FormFields } from '../types/formFields';
 import { InputType } from '../types/inputTypes';
-import { PlaceholderText } from '../types/placeholder';
 import { patterns } from '../types/patterns';
+import { PlaceholderText } from '../types/placeholder';
 
 export const formFieldsData = [
-  { id: FormFields.FirstName, type: InputType.Text, placeholder: PlaceholderText.FirstName },
-  { id: FormFields.LastName, type: InputType.Text, placeholder: PlaceholderText.LastName },
-  { id: FormFields.MobilePhone, type: InputType.Tel, placeholder: PlaceholderText.PhoneNumber, pattern: patterns.phoneNumber },
-  { id: FormFields.Address, type: InputType.Text, placeholder: PlaceholderText.Address },
-  { id: FormFields.CreditCard, type: InputType.Text, placeholder: PlaceholderText.CreditCard, pattern: patterns.creditCard },
-  { id: FormFields.ExpirationDate, type: InputType.Text, placeholder: PlaceholderText.ExpirationDate, pattern: patterns.expirationDate, maxLength: 5 },
-  { id: FormFields.CVV, type: InputType.Text, placeholder: PlaceholderText.CVV, pattern: patterns.cvv, maxLength: 3 },
+  { id: FormFields.FirstName, type: InputType.Text, label: 'First Name' },
+  { id: FormFields.LastName, type: InputType.Text, label: 'Last Name' },
+  { id: FormFields.MobilePhone, type: InputType.Tel, label: 'Phone Number', pattern: patterns.phoneNumber },
+  { id: FormFields.Address, type: InputType.Text, label: 'Address' },
+  { id: FormFields.CreditCard, type: InputType.Text, label: 'Credit Card', pattern: patterns.creditCard, placeholder: PlaceholderText.CreditCard },
+  { id: FormFields.ExpirationDate, type: InputType.Text, label: 'Expiration Date', pattern: patterns.expirationDate, placeholder: PlaceholderText.ExpirationDate, maxLength: 5, },
+  { id: FormFields.CVV, type: InputType.Text, label: 'CVV', pattern: patterns.cvv, placeholder: PlaceholderText.CVV, maxLength: 3, },
 ];

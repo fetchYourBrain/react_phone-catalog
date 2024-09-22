@@ -1,12 +1,9 @@
-import React from 'react';
-import classNames from 'classnames';
-import styles from './BurgerMenu.module.scss';
-import closeButton from '../../../public/img/icons/close-button-icon.svg';
-import heartIcon from '../../../public/img/icons/heart-icon.svg';
-import cartIcon from '../../../public/img/icons/cart-logo.svg';
+import React from "react";
+import classNames from "classnames";
+import styles from "./BurgerMenu.module.scss";
 import { IconLink } from "../IconLink/IconLink";
-import { NAV_ITEMS } from '../../constants/constJS';
-import { NavItem } from '../NavItem/NavItem';
+import { NAV_ITEMS } from "../../constants/constJS";
+import { NavItem } from "../NavItem/NavItem";
 import { RoutesLink } from "../../types/routes";
 import { Link, useLocation } from "react-router-dom";
 
@@ -14,7 +11,7 @@ interface BurgerMenuProps {
   onClose: () => void;
 }
 
-const styledActive = (path: string, currentPath: string) => 
+const styledActive = (path: string, currentPath: string) =>
   classNames(styles.button, {
     [styles.active]: currentPath === path,
   });
@@ -35,7 +32,7 @@ export const BurgerMenu: React.FC<BurgerMenuProps> = ({ onClose }) => {
           <div className={styles.close} onClick={onClose}>
             <IconLink
               to="#"
-              iconSrc={closeButton}
+              iconSrc="img/icons/close-button-icon.svg"
               alt="Close menu button"
               className={styles.icon}
             />
@@ -58,7 +55,7 @@ export const BurgerMenu: React.FC<BurgerMenuProps> = ({ onClose }) => {
         >
           <IconLink
             to={RoutesLink.FavoritesPage}
-            iconSrc={heartIcon}
+            iconSrc="img/icons/heart-icon.svg"
             alt="Favorites"
             className={styles.icon}
           />
@@ -69,7 +66,7 @@ export const BurgerMenu: React.FC<BurgerMenuProps> = ({ onClose }) => {
         >
           <IconLink
             to={RoutesLink.CartPage}
-            iconSrc={cartIcon}
+            iconSrc="img/icons/cart-logo.svg"
             alt="Cart"
             className={styles.icon}
           />

@@ -23,13 +23,6 @@ export const ProductList = () => {
     (state) => state.device
   );
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    if (category) {
-      dispatch(fetchDevicesList(category));
-    }
-  }, [category, sort]);
-
   const sortedProducts = getSortedProducts(sort, devices);
 
   const {
@@ -40,6 +33,13 @@ export const ProductList = () => {
     changeCurrentPage,
     currentPage,
   } = usePagination(sortedProducts, +productsPerPage);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    if (category) {
+      dispatch(fetchDevicesList(category));
+    }
+  }, [category, sort]);
 
   const handleSortType = (sort: SortTypes) => {
     dispatch(setSortType(sort));

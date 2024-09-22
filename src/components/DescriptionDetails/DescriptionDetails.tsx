@@ -1,6 +1,6 @@
-import styles from "./PhoneDescription.module.scss";
+import styles from "./DescriptionDetails.module.scss";
 
-export const PhoneDescription = ({
+export const DescriptionDetails = ({
   description,
   name,
   screen,
@@ -28,7 +28,7 @@ export const PhoneDescription = ({
             <div key={section.title} className={styles.about_block}>
               <h4>{section.title}</h4>
               {section.text.map((paragraph, i) => (
-                <p key={`${section.title}-${i}`}>{paragraph}</p>
+                <p key={`${section.title}-${i}`} className={styles.text_description}>{paragraph}</p>
               ))}
             </div>
           ))}

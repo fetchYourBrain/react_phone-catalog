@@ -7,11 +7,16 @@ h3 {
 
 }
 
+h4 {
+  @include h4;
+  margin-bottom: 16px;
+}
+
 .section {
   margin: 56px 0px;
 
   @include respond-to(tablet) {
-    margin-top: 64px;
+    margin-bottom: 64px;
   }
 }
 
@@ -36,21 +41,23 @@ h3 {
   flex-direction: column;
   gap: 32px;
   font-size: 16px;
-  max-width: 600px;
 
-  h4 {
-    @include h4;
-    margin-bottom: 16px;
+  @include respond-to(desktop) {
+    width: 560px;
   }
+}
 
-  p {
-    @include body-text;
-    color: $c-secondary;
-  }
+.text_description {
+  @include body-text;
+  color: $c-secondary;
 }
 
 .tech_specs {
   flex-grow: 1;
+
+  @include respond-to(desktop) {
+    width: 512px;
+  }
 }
 
 table {

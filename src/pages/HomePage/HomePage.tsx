@@ -5,6 +5,8 @@ import { fetchProducts } from "../../slices/productSlice";
 import { ProductsRow } from "../../components/ProductsRow/ProductsRow";
 import { Categories } from "../../components/Categories/Categories";
 import { getHotPrices, getNewModels } from "../../features/getPromoProducts";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../firebase";
 import { Banner } from "../../components/Banner/Banner";
 
 export const HomePage = () => {
@@ -18,6 +20,17 @@ export const HomePage = () => {
   useEffect(() => {
     getProducts();
   }, []);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const uid = user.uid;
+        console.log("uid", uid);
+      } else {
+        console.log("user is logged out");
+      }
+    });
+  }, [onAuthStateChanged]);
 
   const hotPrices = getHotPrices(products);
   const newProducts = getNewModels(products);

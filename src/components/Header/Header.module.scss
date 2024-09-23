@@ -65,6 +65,33 @@
   }
 }
 
+.auth{
+  display: flex;
+  gap: 12px;
+}
+.auth_container{
+  padding: 0 8px;
+}
+.signout{
+  @include small-text;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-right: 12px;
+  padding: 8px 0;
+  line-height: 0.9;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 4%;
+  color: $c-secondary;
+
+  transition: color $duration-default $easing-default;
+  &:hover{
+    color: $c-white;
+  }
+}
+
+
 .iconsBlock {
   display: flex;
   justify-content: center;

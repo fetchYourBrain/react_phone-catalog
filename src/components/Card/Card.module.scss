@@ -109,6 +109,8 @@
 
   @include respond-to(tablet) {
     width: 100%;
+    min-width: 160px;
+    
   }
 }
 

@@ -6,7 +6,6 @@ import { GoBackButton } from "../../components/Buttons/GoBackButton/GoBackButton
 import { Breadcrumbs } from "../../components/Breadcrumbs/Breadcrumbs";
 import { fetchDeviceById, fetchDevicesList } from "../../slices/deviceSlice";
 import { Loader } from "../../components/Loader/Loader";
-import { DescriptionDetails } from "../../components/DescriptionDetails/DescriptionDetails";
 import { VariantDetails } from "../../components/VariantDetails/VariantDetails";
 
 export const ProductDetails: React.FC = () => {
@@ -90,8 +89,6 @@ export const ProductDetails: React.FC = () => {
           handleCapacityChange={handleCapacityChange}
           handleImageClick={handleImageClick}
         />
-
-        <DescriptionDetails />
       </div>
     </>
   );

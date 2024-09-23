@@ -34,11 +34,6 @@
     width: 24px;
     height: 24px;
   }
-
-  @include respond-to(desktop) {
-    width: 24px;
-    height: 24px;
-  }
 }
 
 .title {
@@ -48,11 +43,6 @@
   text-align: center;
 
   @include respond-to(tablet) {
-    @include h2;
-    margin-bottom: 16px;
-  }
-
-  @include respond-to(desktop) {
     @include h2;
     margin-bottom: 16px;
   }
@@ -86,10 +76,6 @@
   @include respond-to(tablet) {
     @include body-text;
   }
-
-  @include respond-to(desktop) {
-    @include body-text;
-  }
 }
 
 .input {
@@ -121,11 +107,6 @@
     @include body-text;
     padding: 8px;
   }
-
-  @include respond-to(desktop) {
-    @include body-text;
-    padding: 8px;
-  }
 }
 
 .row {
@@ -134,11 +115,6 @@
   gap: 8px;
 
   @include respond-to(tablet) {
-    padding-bottom: 16px;
-    gap: 12px;
-  }
-
-  @include respond-to(desktop) {
     padding-bottom: 16px;
     gap: 12px;
   }
@@ -172,15 +148,15 @@
   width: 156px;
 
   @include respond-to(tablet) {
-    height: 44px;
-    width: 252px;
     @include body-text;
+    width: 252px;
+    height: 44px;
   }
 
   @include respond-to(desktop) {
+    @include body-text;
     width: 352px;
     height: 54px;
-    @include body-text;
   }
 }
 
@@ -201,6 +177,5 @@
 
   @include respond-to(desktop) {
     @include body-text;
-    margin-top: 6px;
   }
 }

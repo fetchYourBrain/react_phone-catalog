@@ -1,0 +1,30 @@
+@import '../../App.scss';
+
+.skeleton {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 32px;
+  background-color: $c-surface;
+  height: 440px;
+
+  @include respond-to(tablet) {
+    height: 506px;
+  }
+}
+
+.title {
+  margin-top: auto;
+}
+
+.price,
+.line,
+.buttons {
+  margin-top: 8px;
+}
+
+.specifications {
+  margin-top: 8px;
+
+}

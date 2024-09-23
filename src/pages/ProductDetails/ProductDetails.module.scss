@@ -2,4 +2,26 @@
 
 .block {
   grid-column: 1 / -1;
+
+  @include respond-to(tablet) {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: start;
+    column-gap: 16px;
+  }
+
+  @include respond-to(desktop) {
+    grid-template-columns: repeat(24, 32px);
+  }
+}
+
+.title {
+  @include h2;
+  grid-column: 1 / -1;
+  margin-top: 16px;
+  margin-bottom: 32px;
+
+  @include respond-to (tablet) {
+    margin-bottom: 40px;
+  }
 }

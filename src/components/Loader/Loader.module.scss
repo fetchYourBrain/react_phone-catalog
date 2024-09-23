@@ -4,7 +4,11 @@
   grid-column: 1 / -1;
   display: grid;
   place-items: center;
-  height: 20vh;
+  height: 100vh - map-get($header-heights, mobile);
+  
+  @include respond-to(tablet) {
+    height: 100vh - map-get($header-heights, tablet-desktop);
+  }
 }
 
 .loader {

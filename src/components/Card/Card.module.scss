@@ -10,6 +10,7 @@
   padding: 32px;
   background-color: $c-surface;
   cursor: pointer;
+  width: 100%;
 
   @include respond-to(tablet) {
     height: 506px;
@@ -96,7 +97,7 @@
   height: 40px;
 
   @include respond-to(tablet) {
-    width: 160px;
+    width: 100%;
   }
 }
 

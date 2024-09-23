@@ -56,10 +56,10 @@ console.log(product);
 
   return (
     <div className={styles.card}>
-      <div className={styles.image}>
+      <Link to={`/${category}/${itemId}`} className={styles.image}>
         <img className={styles.card_image} src={image} alt={name} />
-      </div>
-      <Link to={`/${category}/${itemId}`}>
+      </Link>
+      <Link to={`/${category}/${itemId}`} className={styles.card_title}>
         <h3 className={styles.title}>{name}</h3>
       </Link>
 
@@ -95,9 +95,9 @@ console.log(product);
         >
           {isClicked ? "Added to Cart" : "Add to cart"}
         </button>
-        <a href="#" className={styles.heart_icon_button}>
+        <button className={styles.heart_icon_button}>
           <img src="img/icons/heart-icon.svg" alt="Heart Icon" />
-        </a>
+        </button>
       </div>
     </div>
   );

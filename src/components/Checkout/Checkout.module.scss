@@ -3,17 +3,17 @@
 .container {
   position: relative;
   width: 287px;
-  padding: 16px;
+  padding: 16px 24px;
   background-color: $c-surface;
 
   @include respond-to(tablet) {
     width: 592px;
-    padding: 24px;
+    padding: 24px 42px;
   }
 
   @include respond-to(desktop) {
     width: 752px;
-    padding: 24px;
+    padding: 32px 52px;
   }
 }
 
@@ -34,25 +34,15 @@
     width: 24px;
     height: 24px;
   }
-
-  @include respond-to(desktop) {
-    width: 24px;
-    height: 24px;
-  }
 }
 
 .title {
   @include h3;
   font-weight: bold;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   text-align: center;
 
   @include respond-to(tablet) {
-    @include h2;
-    margin-bottom: 16px;
-  }
-
-  @include respond-to(desktop) {
     @include h2;
     margin-bottom: 16px;
   }
@@ -61,14 +51,14 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
 
   @include respond-to(tablet) {
     gap: 12px;
   }
 
   @include respond-to(desktop) {
-    gap: 12px;
+    gap: 16px;
   }
 }
 
@@ -77,26 +67,43 @@
   flex-direction: column;
 }
 
+.label {
+  @include small-text;
+  font-size: 12px;
+  color: $c-white;
+  padding-bottom: 4px;
+
+  @include respond-to(tablet) {
+    @include body-text;
+  }
+}
+
 .input {
   @include small-text;
   font-size: 12px;
   padding: 6px;
-  color: $c-black;
-  border: 2px solid $c-secondary;
-  background-color: $c-white;
+  color: $c-white;
+  border: 2px solid $c-surface-two;
+  background-color: $c-black;
   appearance: none;
   outline: none;
 
   &:focus {
     border-color: $c-accent;
+    background-color: $c-secondary;
+  }
+
+  &::placeholder {
+    color: $c-secondary;
+  }
+
+  &:-webkit-autofill {
+    background-color: $c-secondary !important;
+    -webkit-text-fill-color: $c-white !important;
+    box-shadow: 0 0 0px 50px $c-secondary inset !important;
   }
 
   @include respond-to(tablet) {
-    @include body-text;
-    padding: 8px;
-  }
-
-  @include respond-to(desktop) {
     @include body-text;
     padding: 8px;
   }
@@ -104,13 +111,11 @@
 
 .row {
   display: flex;
+  padding-bottom: 8px;
   gap: 8px;
 
   @include respond-to(tablet) {
-    gap: 12px;
-  }
-
-  @include respond-to(desktop) {
+    padding-bottom: 16px;
     gap: 12px;
   }
 }
@@ -131,17 +136,27 @@
   }
 }
 
+.button_container {
+  display: flex;
+  justify-content: center;
+}
+
 .button {
   @include button;
   @include small-text;
   padding: 10px;
+  width: 156px;
 
   @include respond-to(tablet) {
     @include body-text;
+    width: 252px;
+    height: 44px;
   }
 
   @include respond-to(desktop) {
     @include body-text;
+    width: 352px;
+    height: 54px;
   }
 }
 
@@ -162,6 +177,5 @@
 
   @include respond-to(desktop) {
     @include body-text;
-    margin-top: 6px;
   }
 }

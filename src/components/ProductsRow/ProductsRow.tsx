@@ -13,6 +13,7 @@ export const ProductsRow: React.FC<Props> = ({ products, hasDiscount }) => {
     <div className={styles.block}>
       <div className={styles.top_block}></div>
       <div className={styles.row}>
+
         {!hasDiscount ? (
           <Carousel title="Brand new models">
             {products.map((product) => (

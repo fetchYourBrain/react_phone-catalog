@@ -33,6 +33,11 @@
     color: inherit;
     text-align: center;
     display: inline-block;
+
+    transition: color $duration-default $easing-default;
+    &:hover{
+      color: $c-white;
+    }
   }
 }
 
@@ -41,38 +46,37 @@
   width: 16px;
   height: 16px;
   margin: 0 8px;
-  background-image: url(../../../public/img/icons/Breadcrumbs/arrow-right.svg);
+  background-image: url(img/icons/Breadcrumbs/arrow-right.svg);
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
+}
+.icon_container {
+  height: 24px;
+  width: 100%;
+  height: 24px;
+  display: flex;
+  align-items: center;
 }
 
 .home_icon {
-  background-image: url(../../../public/img/icons/Breadcrumbs/home-icon.svg);
+  background-image: url(img/icons/Breadcrumbs/home-icon.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+}
+
+
+
+.icon_container::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  margin: 0 8px;
+  background-image: url(img/icons/Breadcrumbs/arrow-right.svg);
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  margin-right: 8px;
-  height: 100%;
-  min-width: 100%;
-}
 
-
-.icon_container {
-  min-width: 16px;
-  height: 16px;
-  display: flex;
-}
-
-.icon_container::after {
-  display: block;
-  content: '';
-  width: 16px;
-  height: 16px;
-  margin-left: 8px;
-  margin-right: 8px;
-  background-image: url(../../../public/img/icons/Breadcrumbs/arrow-right.svg);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
 }

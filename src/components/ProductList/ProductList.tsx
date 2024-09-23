@@ -15,6 +15,7 @@ import { ITEMS_PER_PAGE, SORT_OPTIONS } from "../../constants/constJS";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getSortedProducts } from "../../features/getSortedProducts";
+import { CardSkeleton } from "../CardSkeleton/CardSkeleton";
 
 export const ProductList = () => {
   const { category } = useParams();
@@ -22,13 +23,6 @@ export const ProductList = () => {
   const { devices, loading, productsPerPage, sort } = useAppSelector(
     (state) => state.device
   );
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    if (category) {
-      dispatch(fetchDevicesList(category));
-    }
-  }, [category, sort]);
 
   const sortedProducts = getSortedProducts(sort, devices);
 
@@ -40,6 +34,13 @@ export const ProductList = () => {
     changeCurrentPage,
     currentPage,
   } = usePagination(sortedProducts, +productsPerPage);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    if (category) {
+      dispatch(fetchDevicesList(category));
+    }
+  }, [category, sort]);
 
   const handleSortType = (sort: SortTypes) => {
     dispatch(setSortType(sort));
@@ -71,7 +72,9 @@ export const ProductList = () => {
 
       <div className={styles.list}>
         {loading ? (
-          <>loading</>
+          Array.from({ length: +productsPerPage }).map((_, index) => (
+            <CardSkeleton key={index} />
+          ))
         ) : (
           visibleProducts.map((product) => (
             <Card
@@ -105,3 +108,4 @@ export const ProductList = () => {
     </>
   );
 };
+

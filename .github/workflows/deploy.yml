@@ -19,6 +19,8 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build project
+        env:
+          VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
         run: npm run build
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

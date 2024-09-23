@@ -1,6 +1,7 @@
 @import '../../App.scss';
 
 .container {
+  min-width: 320px;
   box-sizing: border-box;
   justify-content: center;
   display: grid;

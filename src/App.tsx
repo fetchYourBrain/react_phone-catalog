@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom";
 import { Container } from "./components/Container/Container";
 import { Footer } from "./components/Footer/Footer";
 
+
 export const App = () => {
   return (
     <>

@@ -6,10 +6,18 @@
   justify-content: flex-start;
   align-self: center;
   height: 440px;
-  width: 100%;
   padding: 32px;
   background-color: $c-surface;
   cursor: pointer;
+
+  // @include respond-to(tablet) {
+  //   width: 237px;
+  // }
+
+  // @include respond-to(desktop) {
+  //   width: 272px;
+  // }
+  
 
   @include respond-to(tablet) {
     height: 506px;
@@ -100,7 +108,7 @@
   height: 40px;
 
   @include respond-to(tablet) {
-    width: 160px;
+    width: 100%;
   }
 }
 

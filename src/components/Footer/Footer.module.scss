@@ -1,20 +1,19 @@
 @import '../../App.scss';
 
 .footer {
-    position: relative;
     width: 100%;
     border-top: 1px solid #3B3E4A;
     height: map-get($footer-heights, mobile);
-    bottom: 0;
+    margin-top: map-get($bottom-margin, mobile);
 
     @include respond-to(tablet) {
       height: map-get($footer-heights, tablet-desktop);
-
     }
 
     @include respond-to(desktop) {
         display: flex;
         justify-content: center;
+
     }
 
 }
@@ -81,12 +80,18 @@
     gap: 16px;
     align-items: center;
 
-    .back_to_top_title {
-        font-size: 12px;
-        color: #7A7D8C;
-    }
+}
+
+.back_to_top_title {
+  @include small-text;
+
+  color: $c-secondary;
+}
 
     .back_to_top_btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
         height: 32px;
         width: 32px;
         border: none;
@@ -99,9 +104,4 @@
         &:hover {
             background-color: $c-icons;
         }
-
-        img {
-            vertical-align: middle;
-        }
     }
-}

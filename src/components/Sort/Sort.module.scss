@@ -12,7 +12,6 @@
 
 .container {
   position: relative;
-  width: 176px;
 }
 
 .trigger {
@@ -60,6 +59,7 @@
   overflow-y: auto;
   z-index: 1;
   border: 1px solid $c-secondary;
+  background-color: $c-black;
   margin-top: 4px;
   list-style: none;
 }
@@ -71,7 +71,6 @@
   padding: 6px;
   padding-left: 12px;
   color: $c-secondary;
-  background-color: $c-black;
   transition: background-color $duration-default $easing-default;
   cursor: pointer;
 }

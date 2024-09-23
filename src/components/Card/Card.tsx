@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import styles from "./Card.module.scss";
 import { useAppDispatch } from "../../hooks/helperToolkit";
 import {  addItemToCart } from "../../slices/cartSlice";
+import { useState } from "react";
 
 interface Props {
   name: string;
@@ -31,26 +32,34 @@ export const Card: React.FC<Props> = ({
   category,
   id
 }) => {
+  const [isClicked, setIsClicked] = useState<boolean>(false);
   const dispatch = useAppDispatch();
 
 const addToCartHandler = () => {
+  if (isClicked) {
+    return;
+  };
+
   const product = {
     id,
     name,
     price,
     image,
-    
-  };
+    itemId,
+    category,
 
+  };
+console.log(product);
   dispatch(addItemToCart({ item: product }));
+  setIsClicked(true);
 }
 
   return (
     <div className={styles.card}>
-      <div className={styles.image}>
+      <Link to={`/${category}/${itemId}`} className={styles.image}>
         <img className={styles.card_image} src={image} alt={name} />
-      </div>
-      <Link to={`/${category}/${itemId}`}>
+      </Link>
+      <Link to={`/${category}/${itemId}`} className={styles.card_title}>
         <h3 className={styles.title}>{name}</h3>
       </Link>
 
@@ -79,12 +88,16 @@ const addToCartHandler = () => {
       </div>
 
       <div className={styles.buttons} onClick={addToCartHandler}>
-        <a className={styles.add_to_cart_button}>
-          Add to cart
-        </a>
-        <a href="#" className={styles.heart_icon_button}>
+      <button
+          onClick={addToCartHandler}
+          className={isClicked ? styles.disabledButton : styles.add_to_cart_button}
+          disabled={isClicked}
+        >
+          {isClicked ? "Added to Cart" : "Add to cart"}
+        </button>
+        <button className={styles.heart_icon_button}>
           <img src="img/icons/heart-icon.svg" alt="Heart Icon" />
-        </a>
+        </button>
       </div>
     </div>
   );

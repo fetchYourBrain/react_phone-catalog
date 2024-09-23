@@ -23,14 +23,6 @@ export const ProductList = () => {
     (state) => state.device
   );
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    if (category) {
-      dispatch(fetchDevicesList(category));
-    }
-  }, [category, sort]);
-
-  
   const sortedProducts = getSortedProducts(sort, devices);
 
   const {
@@ -42,6 +34,12 @@ export const ProductList = () => {
     currentPage,
   } = usePagination(sortedProducts, +productsPerPage);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    if (category) {
+      dispatch(fetchDevicesList(category));
+    }
+  }, [category, sort]);
 
   const handleSortType = (sort: SortTypes) => {
     dispatch(setSortType(sort));
@@ -51,24 +49,26 @@ export const ProductList = () => {
     const value = option === "All" ? devices.length.toString() : option;
     dispatch(setProductsPerPage(value as perPage));
   };
-  
 
   return (
     <>
-      <div className={styles.options}>
-        <Sort
-          options={SORT_OPTIONS}
-          onChange={handleSortType}
-          title={"Sort by"}
-          selectedValue={sort}
-        />
-        <Sort
-          options={ITEMS_PER_PAGE}
-          onChange={handleProductsPerPage}
-          title={"Items on page"}
-          selectedValue={productsPerPage}
-        />
+      <div className={styles.container}>
+        <div className={styles.options}>
+          <Sort
+            options={SORT_OPTIONS}
+            onChange={handleSortType}
+            title={"Sort by"}
+            selectedValue={sort}
+          />
+          <Sort
+            options={ITEMS_PER_PAGE}
+            onChange={handleProductsPerPage}
+            title={"Items on page"}
+            selectedValue={productsPerPage}
+          />
+        </div>
       </div>
+
       <div className={styles.list}>
         {loading ? (
           <>loading</>

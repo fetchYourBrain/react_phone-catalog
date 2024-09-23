@@ -6,6 +6,7 @@
   z-index: 1;
   top: 0;
   height: map-get($header-heights, mobile);
+  margin-bottom: 24px;
 
   @include respond-to(tablet) {
   height: map-get($header-heights, tablet-desktop);

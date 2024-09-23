@@ -2,46 +2,55 @@
 
 .slider_container {
   position: relative;
-  grid-column: 1/-1;
-  overflow: hidden;
+  
+
 
   :global {
 
+    .slick-track {
+      display: flex;
+      gap: 16px;
 
-    // .slick-dots {
-    //   bottom: -30px;
+      overflow: visible;
 
-    //   li {
-    //     margin: 0 4px;
+      @include respond-to(desktop) {
+        overflow: hidden;
+      }
+    }
 
-    //     button {
-    //       &::before {
-    //         font-size: 12px;
-    //         color: #ccc;
-    //         opacity: 1;
-    //       }
-    //     }
+    .slick-slide {
+      padding: 0 8px;
+      min-width: 212px;
+    
+      // @include respond-to(tablet) {
+      // min-width: 237px;
+      // }
+    
+      // @include respond-to(desktop) {
+      // min-width: 272px;
+    
+      // }
 
-    //     &.slick-active button::before {
-    //       color: #333;
-    //     }
-    //   }
-    // }
+    }
 
-    .slick-slide:not(:last-child) {
-      padding-right: 16px;
-
+    .slick-list {
+      margin: 0 -8px;
     }
   }
 }
 
-.slide {
-  transition: transform 0.3s ease;
+// .slide {
+//   width: 100%;
 
-  &:global(.slick-center) {
-    transform: scale(1.05);
-  }
-}
+//   @include respond-to(tablet) {
+//   width: 100%;
+//   }
+
+//   @include respond-to(desktop) {
+//     width: 100%;
+
+//   }
+// }
 
 
 .title_container {
@@ -95,9 +104,9 @@
   background-color: inherit;
   border: none;
 
-    &:hover {
-        background-color: $c-icons;
-    }
+  &:hover {
+    background-color: $c-icons;
+  }
 }
 
 
@@ -113,7 +122,13 @@
 .prev {
   background-image: url(/public/img/icons/arrow-left.svg);
 }
+
 .next {
   background-image: url(/public/img/icons/arrow-right.svg);
 }
 
+
+
+button.slick-arrow .slick-next::before {
+  display: none;
+}

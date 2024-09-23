@@ -15,6 +15,7 @@ import { ITEMS_PER_PAGE, SORT_OPTIONS } from "../../constants/constJS";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getSortedProducts } from "../../features/getSortedProducts";
+import { CardSkeleton } from "../CardSkeleton/CardSkeleton";
 
 export const ProductList = () => {
   const { category } = useParams();
@@ -71,7 +72,9 @@ export const ProductList = () => {
 
       <div className={styles.list}>
         {loading ? (
-          <>loading</>
+          Array.from({ length: +productsPerPage }).map((_, index) => (
+            <CardSkeleton key={index} />
+          ))
         ) : (
           visibleProducts.map((product) => (
             <Card
@@ -105,3 +108,4 @@ export const ProductList = () => {
     </>
   );
 };
+

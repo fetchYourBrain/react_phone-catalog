@@ -1,0 +1,71 @@
+@import '../../App.scss';
+
+.block {
+  grid-column: 1 / -1;
+}
+
+.top_block {
+  margin-bottom: 32px;
+
+  @include respond-to(tablet) {
+    margin-bottom: 40px;
+  }
+}
+
+.title {
+  @include h1;
+}
+
+.amount_models {
+  @include body-text;
+  color: $c-secondary;
+}
+
+.list {
+  width: 100%;
+  display: grid;
+  gap: 16px;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+  @include respond-to(tablet) {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+
+  @include respond-to(desktop) {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+}
+
+.noFavorites {
+  grid-column: 1 / -1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+
+
+  @include respond-to(tablet) {
+    padding-top: 60px;
+  }
+}
+
+.noFavoritesImage {
+  width: 256px;
+  background-color: $c-white;
+  border-radius: 30px;
+  height: auto;
+
+  @include respond-to(tablet) {
+    width: 480px;
+  }
+}
+
+.noFavoritesText {
+  @include h2;
+  font-size: 18px;
+  margin-top: 32px;
+  color: $c-white;
+}

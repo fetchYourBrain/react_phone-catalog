@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import styles from "./Card.module.scss";
-import { useAppDispatch } from "../../hooks/helperToolkit";
-import { addItemToCart } from "../../slices/cartSlice";
-import { useState } from "react";
+import { useAppDispatch, useAppSelector } from "../../hooks/helperToolkit";
+import {  addItemToCart } from "../../slices/cartSlice";
+import { useEffect, useState } from "react";
+import { addItemToFavorites, removeItemFromFavorites } from "../../slices/favoritesSlice";
 import { auth } from "../../firebase";
 
 interface Props {
@@ -34,13 +35,17 @@ export const Card: React.FC<Props> = ({
 }) => {
   const user = auth.currentUser;
   const [isClicked, setIsClicked] = useState<boolean>(false);
+  const favorites = useAppSelector((state) => state.favorites.items);
+  const isFavorited = favorites.some(item => item.id === id);
+  const cartItems = useAppSelector((state) => state.cart.items);
+  const isInCart = cartItems.some((item) => item.id === id);
   const dispatch = useAppDispatch();
 
-  const addToCartHandler = () => {
-    if (isClicked) {
-      return;
-    }
+  useEffect(() => {
+    setIsClicked(isInCart);
+  }, [isInCart]);
 
+  const addToCartHandler = () => {
     const product = {
       id,
       name,
@@ -49,10 +54,31 @@ export const Card: React.FC<Props> = ({
       itemId,
       category,
     };
-    console.log(product);
+
+  console.log(product);
     dispatch(addItemToCart({ item: product }));
     setIsClicked(true);
-  };
+  }
+
+  const toggleFavoritesHandler = () => {
+    const product = {
+      id,
+      name,
+      price,
+      image,
+      itemId,
+      category,
+      ram,
+      screen,
+      capacity
+    };
+
+    if (isFavorited) {
+      dispatch(removeItemFromFavorites(id));
+    } else {
+      dispatch(addItemToFavorites({ item: product }));
+    }
+  }
 
   return (
     <div className={styles.card}>
@@ -87,20 +113,19 @@ export const Card: React.FC<Props> = ({
         </div>
       </div>
 
-      <div className={styles.buttons} onClick={addToCartHandler}>
-        <button
+      <div className={styles.buttons} >
+      <button
           onClick={addToCartHandler}
-          className={
-            isClicked ? styles.disabledButton : styles.add_to_cart_button
-          }
-          disabled={isClicked}
+          className={styles.add_to_cart_button}
         >
           {isClicked ? "Added to Cart" : "Add to cart"}
         </button>
         {user && (
-          <button className={styles.heart_icon_button}>
-            <img src="img/icons/heart-icon.svg" alt="Heart Icon" />
-          </button>
+          <button
+          onClick={toggleFavoritesHandler} 
+          className={isFavorited ? styles.favorited_button : styles.heart_icon_button}>
+        <img src={isFavorited ? "img/icons/red-heart.svg" : "img/icons/heart-icon.svg"} alt="Heart Icon" />
+      </button>
         )}
       </div>
     </div>

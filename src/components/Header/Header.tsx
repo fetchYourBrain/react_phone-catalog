@@ -4,13 +4,18 @@ import { NavItem, styledActive } from "../NavItem/NavItem";
 import { NAV_ITEMS } from "../../constants/constJS";
 import { IconLink } from "../IconLink/IconLink";
 import { RoutesLink } from "../../types/routes";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
 import { BurgerMenu } from "../BurgerMenu/BurgerMenu";
+import { useAppSelector } from "../../hooks/helperToolkit";
 import { auth } from "../../firebase";
 import { signOut } from "firebase/auth";
 
 export const Header = () => {
+  const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const favoritesCount = useAppSelector((state) => state.favorites.items.length);
+  const cartItemCount = useAppSelector((state) => state.cart.items.length);
   const user = auth.currentUser;
 
   const toggleMenu = () => {
@@ -30,6 +35,9 @@ export const Header = () => {
       })
       .catch(() => {});
   };
+
+  const isFavoritesPage = location.pathname === RoutesLink.FavoritesPage;
+  const isCartPage = location.pathname === RoutesLink.CartPage;
 
   return (
     <>
@@ -55,13 +63,16 @@ export const Header = () => {
                 <button onClick={handleLogout} className={styles.signout}>
                   Sign out
                 </button>
-                <div className={styles.favorites}>
+                <div className={`${styles.favorites} ${isFavoritesPage ? styles.active : ""}`} >
                   <IconLink
                     to={RoutesLink.FavoritesPage}
                     iconSrc={"img/icons/favorites-icon.svg"}
                     alt="The icon of favorites page"
                     className={styles.favoritesButton}
                   />
+              {favoritesCount > 0 && (
+                <span className={styles.countBadge}>{favoritesCount}</span>
+              )}
                 </div>
               </>
             ) : (
@@ -83,13 +94,16 @@ export const Header = () => {
               </>
             )}
 
-            <div className={styles.cart}>
+            <div className={`${styles.cart} ${isCartPage ? styles.active : ""}`} >
               <IconLink
                 to={RoutesLink.CartPage}
                 iconSrc={"img/icons/cart-logo.svg"}
                 alt="The icon of cart page"
                 className={styles.cartButton}
               />
+              {cartItemCount > 0 && (
+                <span className={styles.countBadge}>{cartItemCount}</span>
+              )}
             </div>
 
             <div className={styles.burgerIcon} onClick={toggleMenu}>

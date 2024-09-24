@@ -3,17 +3,20 @@
 .list {
   width: 100%;
   display: grid;
-  min-height: 50vh;
   gap: 16px;
-  justify-content: center;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: 1fr;
+  justify-items: start;
 
-  @include respond-to(tablet) {
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  @include respond-to(desktop) {
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 

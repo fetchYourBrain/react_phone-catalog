@@ -19,9 +19,11 @@ interface Props {
   themeHandler: () => void;
 }
 
+interface Props {
+  themeHandler: () => void;
+}
+
 export const Header: React.FC<Props> = ({ themeHandler }) => {
-  const location = useLocation();
-  const dispatch = useDispatch();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, loading } = useAuth();
   const favoritesCount = useAppSelector(

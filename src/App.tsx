@@ -3,6 +3,7 @@ import { Header } from "./components/Header/Header";
 import { Outlet } from "react-router-dom";
 import { Container } from "./components/Container/Container";
 import { Footer } from "./components/Footer/Footer";
+import { useAuth } from "./context/AuthContext";
 import { useState } from "react";
 import './Themes.scss';
 

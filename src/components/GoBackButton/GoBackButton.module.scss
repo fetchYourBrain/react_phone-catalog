@@ -4,13 +4,19 @@
   display: flex;
   align-items: center;
   background-color: inherit;
+  font-size: 12px;
+  font-weight: 700;
   border: none;
   color: $c-white;
   font-family: Mont, sans-serif;
   cursor: pointer;
   width: 66px;
   height: 16px;
-  transition: background-color $duration-default $easing-default;
+  transition: color $duration-default $easing-default;
+
+  path {
+    transition: fill $duration-default $easing-default;
+  }
 
   &:hover {
     color: $c-accent-hover;
@@ -31,13 +37,4 @@
   svg{
     margin: auto 0;
   }
-}
-
-.text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 16px;
 }

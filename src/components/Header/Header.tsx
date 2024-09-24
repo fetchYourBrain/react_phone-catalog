@@ -12,6 +12,7 @@ import { useDispatch } from "react-redux";
 import { loadFavoritesFromStorage } from "../../slices/favoritesSlice";
 import { loadCardFromStorage } from "../../slices/cartSlice";
 import { useAuth } from "../../context/AuthContext";
+import { auth } from "../../firebase";
 
 
 export const Header = () => {

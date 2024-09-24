@@ -7,6 +7,7 @@ import { Breadcrumbs } from "../../components/Breadcrumbs/Breadcrumbs";
 import { fetchDeviceById, fetchDevicesList } from "../../slices/deviceSlice";
 import { Loader } from "../../components/Loader/Loader";
 import { VariantDetails } from "../../components/VariantDetails/VariantDetails";
+import { DescriptionDetails } from "../../components/DescriptionDetails/DescriptionDetails";
 
 export const ProductDetails: React.FC = () => {
   const { id, category } = useParams<{ id: string; category: string }>();
@@ -89,6 +90,8 @@ export const ProductDetails: React.FC = () => {
           handleCapacityChange={handleCapacityChange}
           handleImageClick={handleImageClick}
         />
+
+        <DescriptionDetails />
       </div>
     </>
   );

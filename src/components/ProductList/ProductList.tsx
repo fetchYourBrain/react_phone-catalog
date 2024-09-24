@@ -19,6 +19,7 @@ import { CardSkeleton } from "../CardSkeleton/CardSkeleton";
 
 export const ProductList = () => {
   const { category } = useParams();
+  const [searchParams] = useSearchParams()
   const dispatch = useAppDispatch();
   const { devices, loading, productsPerPage, sort } = useAppSelector(
     (state) => state.device
@@ -26,6 +27,9 @@ export const ProductList = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
 
+  const sortedProducts = getSortedProducts(sort, devices);
+  const pageFromQuery = searchParams.get('page') || 1
+        
   const finalSort = searchParams.get('sort') as SortTypes || sort;
   const finalProductsPerPage = searchParams.get('perPage') || productsPerPage.toString();
 
@@ -38,7 +42,7 @@ export const ProductList = () => {
     numbers,
     changeCurrentPage,
     currentPage,
-  } = usePagination(sortedProducts, +finalProductsPerPage);
+  } = usePagination(sortedProducts, +productsPerPage, +pageFromQuery);
 
   useEffect(() => {
     window.scrollTo(0, 0);

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Header.module.scss";
 import { NavItem, styledActive } from "../NavItem/NavItem";
 import { NAV_ITEMS } from "../../constants/constJS";
@@ -9,14 +9,24 @@ import { BurgerMenu } from "../BurgerMenu/BurgerMenu";
 import { useAppSelector } from "../../hooks/helperToolkit";
 import { auth } from "../../firebase";
 import { signOut } from "firebase/auth";
+import { useDispatch } from "react-redux";
+import { loadFavoritesFromStorage } from "../../slices/favoritesSlice";
+import { loadCardFromStorage } from "../../slices/cartSlice";
 
 export const Header = () => {
+  const user = auth.currentUser;
   const location = useLocation();
+  const dispatch = useDispatch();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const favoritesCount = useAppSelector((state) => state.favorites.items.length);
   const cartItemCount = useAppSelector((state) => state.cart.items.length);
-  const user = auth.currentUser;
+
+  
+  useEffect(() => {
+    dispatch(loadFavoritesFromStorage());
+    dispatch(loadCardFromStorage());
+  }, [dispatch]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);

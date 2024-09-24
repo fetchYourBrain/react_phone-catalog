@@ -47,7 +47,7 @@ export const FavoritePage = () => {
                 alt="No favorites"
                 className={styles.noFavoritesImage}
               />
-              <p className={styles.noFavoritesText}>You haven&apos;t added any favourites yet.</p>
+              <p className={styles.noFavoritesText}>Empty favourites, empty paws. <br /> Help this cat find some joy!</p>
             </div>
           )}
         </div>

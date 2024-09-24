@@ -29,7 +29,7 @@
   flex-direction: column;
   gap: 16px;
   padding: 16px;
-  background-color: $c-surface;
+  background-color: var(--c-surface);
 
   @include respond-to(tablet) {
     flex-direction: row;
@@ -128,7 +128,7 @@
   justify-content: center;
   align-items: center;
   background-color: inherit;
-  border: $c-surface-two;
+  border: var(--c-surface-two);
   width: 32px;
   height: 32px;
   cursor: pointer;
@@ -147,7 +147,7 @@
   height: 32px;
   background-repeat: no-repeat;
   background-size: contain;
-  background-color: $c-surface-two;
+  background-color: var(--c-surface-two);
   border: none;
   cursor: pointer;
 }
@@ -182,11 +182,11 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-color: inherit;
-  border: 1px solid $c-elements;
+  border: 1px solid var(--c-elements);
   cursor: pointer;
   
     &.active  {
-    background-color: $c-surface-two;
+    background-color: var(--c-surface-two);
   }
 
 }

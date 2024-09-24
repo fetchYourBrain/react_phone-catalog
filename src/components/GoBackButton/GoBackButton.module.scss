@@ -7,7 +7,7 @@
   font-size: 12px;
   font-weight: 700;
   border: none;
-  color: $c-white;
+  color: var(--c-white);
   font-family: Mont, sans-serif;
   cursor: pointer;
   width: 66px;
@@ -19,10 +19,10 @@
   }
 
   &:hover {
-    color: $c-accent-hover;
+    color: var(--c-accent-hover);
 
     path {
-      fill: $c-accent-hover
+      fill: var(--c-accent-hover)
     }
   }
 }

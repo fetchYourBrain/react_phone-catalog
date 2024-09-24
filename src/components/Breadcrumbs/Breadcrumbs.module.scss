@@ -25,7 +25,7 @@
   line-height: 20px;
   display: flex;
   align-items: center;
-  color: $c-secondary;
+  color: var(--c-secondary);
   text-transform: capitalize;
 
   a {
@@ -36,7 +36,7 @@
 
     transition: color $duration-default $easing-default;
     &:hover{
-      color: $c-white;
+      color: var(--c-white);
     }
   }
 }

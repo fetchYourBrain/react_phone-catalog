@@ -4,7 +4,7 @@
   position: relative;
   width: 287px;
   padding: 16px 24px;
-  background-color: $c-surface;
+  background-color: var(--c-surface);
 
   @include respond-to(tablet) {
     width: 592px;
@@ -70,7 +70,7 @@
 .label {
   @include small-text;
   font-size: 12px;
-  color: $c-white;
+  color: var(--c-white);
   padding-bottom: 4px;
 
   @include respond-to(tablet) {
@@ -82,25 +82,25 @@
   @include small-text;
   font-size: 12px;
   padding: 6px;
-  color: $c-white;
-  border: 2px solid $c-surface-two;
-  background-color: $c-black;
+  color: var(--c-white);
+  border: 2px solid var(--c-surface-two);
+  background-color: var(--c-black);
   appearance: none;
   outline: none;
 
   &:focus {
-    border-color: $c-accent;
-    background-color: $c-secondary;
+    border-color: var(--c-accent);
+    background-color: var(--c-secondary);
   }
 
   &::placeholder {
-    color: $c-secondary;
+    color: var(--c-secondary);
   }
 
   &:-webkit-autofill {
-    background-color: $c-secondary !important;
-    -webkit-text-fill-color: $c-white !important;
-    box-shadow: 0 0 0px 50px $c-secondary inset !important;
+    background-color: var(--c-secondary) !important;
+    -webkit-text-fill-color: var(--c-white) !important;
+    box-shadow: 0 0 0px 50px var(--c-secondary) inset !important;
   }
 
   @include respond-to(tablet) {
@@ -161,14 +161,14 @@
 }
 
 .errorInput {
-  border-color: $c-red;
+  border-color: var(--c-red);
 }
 
 .errorText {
   @include small-text;
   font-size: 8px;
   margin-top: 4px;
-  color: $c-red;
+  color: var(--c-red);
 
   @include respond-to(tablet) {
     @include small-text;

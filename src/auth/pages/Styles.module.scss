@@ -21,21 +21,21 @@
     input {
         @include body-text;
         padding: 10px;
-        color: $c-white;
-        border: 1px solid $c-surface-two;
-        background-color: $c-black;
+        color: var(--c-white);
+        border: 1px solid var(--c-surface-two);
+        background-color: var(--c-black);
         appearance: none;
         outline: none;
 
         &:focus {
-            border-color: $c-accent;
-            background-color: $c-secondary;
+            border-color: var(--c-accent);
+            background-color: var(--c-secondary);
         }
     }
 }
 
 .container {
-    background-color: $c-surface;
+    background-color: var(--c-surface);
     padding: 32px;
     max-width: 350px;
     width: 100%;
@@ -70,7 +70,7 @@
     align-items: center;
 
     a {
-        color: $c-accent;
+        color: var(--c-accent);
     }
 }
 .error{

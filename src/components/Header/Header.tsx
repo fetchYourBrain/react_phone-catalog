@@ -15,9 +15,15 @@ import { useAuth } from "../../context/AuthContext";
 import { auth } from "../../firebase";
 import Skeleton from "react-loading-skeleton";
 
-export const Header = () => {
-  const location = useLocation();
-  const dispatch = useDispatch();
+interface Props {
+  themeHandler: () => void;
+}
+
+interface Props {
+  themeHandler: () => void;
+}
+
+export const Header: React.FC<Props> = ({ themeHandler }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, loading } = useAuth();
   const favoritesCount = useAppSelector(
@@ -63,6 +69,7 @@ export const Header = () => {
               <div className={styles.logo_icon}></div>
             </Link>
           </div>
+          <button onClick={themeHandler}>Click me!</button>
 
           <nav className={styles.navContainer}>
             <ul className={styles.navigation}>

@@ -5,6 +5,7 @@ import { fetchProducts } from "../../slices/productSlice";
 import { ProductsRow } from "../../components/ProductsRow/ProductsRow";
 import { Categories } from "../../components/Categories/Categories";
 import { getHotPrices, getNewModels } from "../../features/getPromoProducts";
+import { Banner } from "../../components/Banner/Banner";
 
 export const HomePage = () => {
   const dispatch = useAppDispatch();
@@ -18,15 +19,17 @@ export const HomePage = () => {
     getProducts();
   }, []);
 
+
   const hotPrices = getHotPrices(products);
   const newProducts = getNewModels(products);
 
   return (
     <div className={styles.block}>
       <h1 className={styles.title}>Welcome to Nice Gadgets store!</h1>
-      <ProductsRow title="Brand new models" products={newProducts} hasDiscount={false}/>
-      <Categories />
-      <ProductsRow title="Hot prices" products={hotPrices} hasDiscount={true}/>
+      <Banner />
+      <ProductsRow  products={newProducts} hasDiscount={false}/>
+      <Categories/>
+      <ProductsRow products={hotPrices} hasDiscount={true}/>
     </div>
   );
 };

@@ -1,14 +1,34 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Header.module.scss";
-import { NavItem } from "../NavItem/NavItem";
+import { NavItem, styledActive } from "../NavItem/NavItem";
 import { NAV_ITEMS } from "../../constants/constJS";
 import { IconLink } from "../IconLink/IconLink";
 import { RoutesLink } from "../../types/routes";
-import { Link } from "react-router-dom";
+import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
 import { BurgerMenu } from "../BurgerMenu/BurgerMenu";
+import { useAppSelector } from "../../hooks/helperToolkit";
+import { signOut } from "firebase/auth";
+import { useDispatch } from "react-redux";
+import { loadFavoritesFromStorage } from "../../slices/favoritesSlice";
+import { loadCardFromStorage } from "../../slices/cartSlice";
+import { useAuth } from "../../context/AuthContext";
+import { auth } from "../../firebase";
+
 
 export const Header = () => {
+  const location = useLocation();
+  const dispatch = useDispatch();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const {user} = useAuth();
+  const favoritesCount = useAppSelector((state) => state.favorites.items.length);
+  const cartItemCount = useAppSelector((state) => state.cart.items.length);
+  
+  
+    useEffect(() => {
+    dispatch(loadFavoritesFromStorage());
+    dispatch(loadCardFromStorage());
+  }, [dispatch]);
+  
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -17,6 +37,19 @@ export const Header = () => {
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
+
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    signOut(auth)
+      .then(() => {
+        navigate("/");
+      })
+      .catch(() => {});
+  };
+
+  const isFavoritesPage = location.pathname === RoutesLink.FavoritesPage;
+  const isCartPage = location.pathname === RoutesLink.CartPage;
 
   return (
     <>
@@ -37,22 +70,52 @@ export const Header = () => {
           </nav>
 
           <div className={styles.iconsBlock}>
-            <div className={styles.favorites}>
-              <IconLink
-                to={RoutesLink.FavoritesPage}
-                iconSrc={"img/icons/favorites-icon.svg"}
-                alt="The icon of favorites page"
-                className={styles.favoritesButton}
-              />
-            </div>
+            {user ? (
+              <>
+                <button onClick={handleLogout} className={styles.signout}>
+                  Sign out
+                </button>
+                <div className={`${styles.favorites} ${isFavoritesPage ? styles.active : ""}`} >
+                  <IconLink
+                    to={RoutesLink.FavoritesPage}
+                    iconSrc={"img/icons/favorites-icon.svg"}
+                    alt="The icon of favorites page"
+                    className={styles.favoritesButton}
+                  />
+              {favoritesCount > 0 && (
+                <span className={styles.countBadge}>{favoritesCount}</span>
+              )}
+                </div>
+              </>
+            ) : (
+              <>
+                <nav className={styles.auth_container}>
+                  <ul className={styles.auth}>
+                    <li>
+                      <NavLink to="/signup" className={styledActive}>
+                        Sign up
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/login" className={styledActive}>
+                        Log in
+                      </NavLink>
+                    </li>
+                  </ul>
+                </nav>
+              </>
+            )}
 
-            <div className={styles.cart}>
+            <div className={`${styles.cart} ${isCartPage ? styles.active : ""}`} >
               <IconLink
                 to={RoutesLink.CartPage}
                 iconSrc={"img/icons/cart-logo.svg"}
                 alt="The icon of cart page"
                 className={styles.cartButton}
               />
+              {cartItemCount > 0 && (
+                <span className={styles.countBadge}>{cartItemCount}</span>
+              )}
             </div>
 
             <div className={styles.burgerIcon} onClick={toggleMenu}>

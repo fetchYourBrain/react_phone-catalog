@@ -13,16 +13,16 @@ const cartSlice = createSlice({
       const { item } = action.payload;
       const existingItem = state.items.find((i) => i.id === item.id);
       if (existingItem) {
-        existingItem.quantity += 1;
+          existingItem.quantity += 1;
       } else {
-        state.items.push({ ...item, quantity: 0 });
+          state.items.push({ ...item, quantity: 1 });
       }
       state.itemsCount = state.items.reduce(
-        (acc, curr) => acc + curr.quantity,
-        0
+          (acc, curr) => acc + curr.quantity,
+          0
       );
       localStorage.setItem("cart", JSON.stringify(state));
-    },
+  },
 
     removeItem: (state, action) => {
       state.items = state.items.filter((item) => item.id !== action.payload);

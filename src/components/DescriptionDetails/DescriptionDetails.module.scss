@@ -1,0 +1,84 @@
+@import '../../styles/utils/mixins';
+
+.section_title {
+  @include h3;
+  padding-bottom: 16px;
+  border-bottom: 1px solid $c-elements;
+
+}
+
+.paragraph_title {
+  @include h4;
+  margin-bottom: 16px;
+}
+
+.section {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  margin-bottom: 56px;
+
+  @include respond-to(tablet) {
+    margin-bottom: 64px;
+  }
+
+  @include respond-to(desktop) {
+    gap: 0;
+    display: grid;
+    grid-template-columns: repeat(24, 32px);
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  font-size: 16px;
+
+  @include respond-to(desktop) {
+    grid-column: 1/17;
+  }
+}
+
+.text_description {
+  @include body-text;
+  color: $c-secondary;
+}
+
+.tech_specs {
+
+  @include respond-to(desktop) {
+    grid-column: 19/26;
+  }
+}
+
+table {
+  width: 100%;
+  margin-top: 25px;
+}
+
+tbody {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+tr {
+  display: flex;
+  justify-content: space-between;
+  height: 21px;
+}
+
+td {
+  @include body-text;
+
+  &:first-child {
+    color: $c-secondary;
+  }
+
+  &:last-child {
+    text-align: right;
+    color: $c-white;
+  }
+}

@@ -1,0 +1,46 @@
+@import '../../App.scss';
+
+.slick-dots {
+  position: relative;
+  height: 24px;
+  bottom: 0;
+  li {
+    margin: 0 4px;
+
+    button {
+      &::before {
+        content: '';
+        display: block;
+        background-image: url(/public/img/banner/dot.svg);
+        width: 24px;
+        height: 24px;
+        transition: all 0.3s ease;
+      }
+    }
+
+    &.slick-active {
+      button::before {
+        background-image: url(/public/img/banner/active-dot.svg);
+
+      }
+    }
+  }
+}
+
+.slick-track {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+  .slick-prev,
+  .slick-next,
+  .slick-next:before,
+  .slick-prev:before {
+    display: none !important;
+    @include respond-to(tablet) {
+      display: block !important;
+    }
+  }

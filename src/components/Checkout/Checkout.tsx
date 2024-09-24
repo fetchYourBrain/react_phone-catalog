@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { SuccessMessage } from '../SuccessMessage/SuccessMessage';
 import { useFormHandling } from '../../forms/useFormHandling';
-import { formFieldsData } from '../../forms/formFields';
+import { formFieldsData } from '../../forms/formFieldsValues';
 import styles from './Checkout.module.scss';
 import closeButton from '../../../public/img/icons/close-button-icon.svg';
 
@@ -35,21 +35,8 @@ export const CheckoutProcess: React.FC<CheckoutProcessProps> = ({ onClose }) => 
     }, 1000);
   };
 
-  const handleModalClose = () => {
-    setIsSuccessMessageOpen(false);
-    onClose();
-  };
-
-  useEffect(() => {
-    document.body.style.overflow = isSuccessMessageOpen ? 'hidden' : 'unset';
-
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isSuccessMessageOpen]);
-
   if (!isCheckoutVisible) {
-    return isSuccessMessageOpen ? <SuccessMessage onCloseMessage={handleModalClose} /> : null;
+    return isSuccessMessageOpen ? <SuccessMessage /> : null;
   }
 
   return (
@@ -59,15 +46,16 @@ export const CheckoutProcess: React.FC<CheckoutProcessProps> = ({ onClose }) => 
       </button>
       <h1 className={styles.title}>Payment & Delivery</h1>
       <form onSubmit={handleSubmit} className={styles.form}>
-        {formFieldsData.slice(0, 5).map(({ id, type, placeholder, pattern }) => (
+        {formFieldsData.slice(0, 5).map(({ id, type, label, pattern, placeholder }) => (
           <div key={id} className={styles.inputGroup}>
+            <label htmlFor={id} className={styles.label}>{label}</label>
             <input
               id={id}
               name={id}
               type={type}
-              placeholder={placeholder}
               required
               pattern={pattern}
+              placeholder={placeholder}
               className={`${styles.input} ${formErrors[id] ? styles.errorInput : ''}`}
               onChange={handleInputChange}
               onBlur={handleInputBlur}
@@ -77,16 +65,17 @@ export const CheckoutProcess: React.FC<CheckoutProcessProps> = ({ onClose }) => 
           </div>
         ))}
         <div className={styles.row}>
-          {formFieldsData.slice(5).map(({ id, type, placeholder, pattern, maxLength }) => (
+          {formFieldsData.slice(5).map(({ id, type, label, pattern, maxLength, placeholder }) => (
             <div key={id} className={styles.group}>
+              <label htmlFor={id} className={styles.label}>{label}</label>
               <input
                 id={id}
                 name={id}
                 type={type}
-                placeholder={placeholder}
                 required
                 pattern={pattern}
                 maxLength={maxLength}
+                placeholder={placeholder}
                 className={`${styles.input} ${formErrors[id] ? styles.errorInput : ''}`}
                 onChange={handleInputChange}
                 onBlur={handleInputBlur}
@@ -96,10 +85,12 @@ export const CheckoutProcess: React.FC<CheckoutProcessProps> = ({ onClose }) => 
             </div>
           ))}
         </div>
-        <button type="submit" className={styles.button}>Complete Purchase</button>
+        <div className={styles.button_container}>
+          <button type="submit" className={styles.button}>Complete Purchase</button>
+        </div>
       </form>
 
-      {isSuccessMessageOpen && <SuccessMessage onCloseMessage={handleModalClose} />}
+      {isSuccessMessageOpen && <SuccessMessage />}
     </div>
   );
 };

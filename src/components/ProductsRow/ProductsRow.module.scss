@@ -15,12 +15,3 @@
 .top_block {
     margin-bottom: 24px;
 }
-
-.title {
-    @include h2;
-}
-
-.row {
-    display: flex;
-    gap: 16px;
-}

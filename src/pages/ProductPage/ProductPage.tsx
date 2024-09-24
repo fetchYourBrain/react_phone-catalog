@@ -1,3 +1,5 @@
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 import { useParams } from "react-router-dom";
 import styles from "./ProductPage.module.scss";
 import { Page } from "../../types/pages";
@@ -8,14 +10,16 @@ import { Breadcrumbs } from "../../components/Breadcrumbs/Breadcrumbs";
 
 export const ProductPage = () => {
   const { category } = useParams();
+  const { devices, loading } = useAppSelector((state) => state.device);
 
-  const { devices } = useAppSelector((state) => state.device);
+  const baseColor = '#0F1121';
+  const highlightColor = '#4A4D58';
 
   const isValidPage = Object.values(Page).includes(category as Page);
 
   const title =
     category === Page.Phones
-      ? "Phones"
+      ? "Mobile phones"
       : category === Page.Tablets
       ? "Tablets"
       : "Accessories";
@@ -30,7 +34,15 @@ export const ProductPage = () => {
       <div className={styles.block}>
         <div className={styles.top_block}>
           <h1 className={styles.title}>{title}</h1>
-          <p className={styles.amount_models}>{devices.length} models</p>
+          {loading ? (
+            <Skeleton
+              width={100}
+              height={18}
+              baseColor={baseColor}
+              highlightColor={highlightColor}/>
+          ) : (
+            <p className={styles.amount_models}>{devices.length} models</p>
+          )}
         </div>
         <ProductList />
       </div>

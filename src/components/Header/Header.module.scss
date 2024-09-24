@@ -65,6 +65,33 @@
   }
 }
 
+.auth{
+  display: flex;
+  gap: 12px;
+}
+.auth_container{
+  padding: 0 8px;
+}
+.signout{
+  @include small-text;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-right: 12px;
+  padding: 8px 0;
+  line-height: 0.9;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 4%;
+  color: $c-secondary;
+
+  transition: color $duration-default $easing-default;
+  &:hover{
+    color: $c-white;
+  }
+}
+
+
 .iconsBlock {
   display: flex;
   justify-content: center;
@@ -76,6 +103,7 @@
 .cart {
   display: none;
   cursor: pointer;
+  position: relative;
 
   @include respond-to(tablet) {
     display: flex;
@@ -93,6 +121,28 @@
   @include respond-to(desktop) {
     width: 64px;
     height: 64px;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    background-color: $c-white;
+    height: 2px;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    transition: transform $duration-default $easing-default;
+    transform: scale(0);
+  }
+
+  &:hover,
+  &.active {
+    color: $c-white;
+
+    &::after {
+      transform: scale(1);
+    }
   }
 }
 
@@ -140,4 +190,28 @@
 
 .side_menu.open {
   left: 0;
+}
+
+.countBadge {
+  @include small-text;
+  background-color: $c-red;
+  color: $c-white;
+  font-size: 9px;
+  width: 14px;
+  height: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: absolute;
+  border: 1px solid $c-black; 
+  top: 9px;
+  right: 9px;
+  bottom: auto;
+  left: auto;   
+
+  @include respond-to(desktop){
+    top: 17px;
+    right: 17px;
+  }
 }

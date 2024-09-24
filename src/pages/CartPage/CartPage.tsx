@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
-import { GoBackButton } from "../../components/Buttons/GoBackButton/GoBackButton";
+import { GoBackButton } from "../../components/GoBackButton/GoBackButton";
 import styles from "./CartPage.module.scss";
 import { CartItem } from "../../components/CartItem/CartItem";
 import { useAppDispatch, useAppSelector } from "../../hooks/helperToolkit";
 import { loadCardFromStorage } from "../../slices/cartSlice";
 import { CheckoutProcess } from '../../components/Checkout/Checkout';
+import { CartEmpty } from '../../components/CartEmpty/CartEmpty';
 
 export const CartPage = () => {
   const dispatch = useAppDispatch();
@@ -46,7 +47,7 @@ export const CartPage = () => {
 
         <h1 className={styles.title}>Cart</h1>
         {totalCount === 0 ? (
-          <div className={styles.emptyCart}>Ваш кошик порожній</div>
+          <CartEmpty />
         ) : (
           <div className={styles.cart_block_container}>
             <div>

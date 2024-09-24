@@ -2,6 +2,7 @@ import React from "react";
 import cn from "classnames";
 import styles from "./VariantDetails.module.scss";
 import { Devices, MergedDevice } from "../../types/devices";
+import { auth } from "../../firebase";
 
 interface Props {
   currentDevice: MergedDevice;
@@ -14,8 +15,7 @@ interface Props {
   handleImageClick: (image: string) => void;
 }
 
-
-export const VariantDetails: React.FC<Props> = ({ 
+export const VariantDetails: React.FC<Props> = ({
   currentDevice,
   deviceById,
   mainImage,
@@ -23,24 +23,20 @@ export const VariantDetails: React.FC<Props> = ({
   selectedColor,
   handleColorChange,
   handleCapacityChange,
-  handleImageClick
-  }) => {
+  handleImageClick,
+}) => {
+  const user = auth.currentUser;
 
-  // Функція для перевірки дійсності кольору
   const isValidCssColor = (color: string) => {
     const styleColor = new Option().style;
     styleColor.color = color;
-    return styleColor.color !== '';
+    return styleColor.color !== "";
   };
-  
+
   return (
     <>
       <div className={styles.container_image}>
-        <img
-          src={mainImage}
-          alt={deviceById?.name}
-          className={styles.image}
-        />
+        <img src={mainImage} alt={deviceById?.name} className={styles.image} />
       </div>
 
       <ul className={styles.collection}>
@@ -85,8 +81,7 @@ export const VariantDetails: React.FC<Props> = ({
                     ? colorOption
                     : "black",
                 }}
-              >
-              </div>
+              ></div>
             </li>
           ))}
         </ul>
@@ -107,18 +102,16 @@ export const VariantDetails: React.FC<Props> = ({
         </ul>
 
         <div className={styles.price}>
-          <p className={styles.discount_price}>
-            ${deviceById?.priceDiscount}
-          </p>
+          <p className={styles.discount_price}>${deviceById?.priceDiscount}</p>
           <p className={styles.regular_price}>${deviceById?.priceRegular}</p>
         </div>
         <div className={styles.buttons}>
-          <button className={styles.add_to_cart_button}>
-            Add to cart
-          </button>
-          <button className={styles.heart_icon_button}>
-            <img src="public\img\icons\heart-icon.svg" alt="Heart Icon" />
-          </button>
+          <button className={styles.add_to_cart_button}>Add to cart</button>
+          {user && (
+            <button className={styles.heart_icon_button}>
+              <img src="img/icons/heart-icon.svg" alt="Heart Icon" />
+            </button>
+          )}
         </div>
 
         <section className={styles.specs}>
@@ -141,5 +134,5 @@ export const VariantDetails: React.FC<Props> = ({
         </section>
       </div>
     </>
-  )
-}
+  );
+};

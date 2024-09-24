@@ -19,7 +19,7 @@ export const ProductPage = () => {
 
   const title =
     category === Page.Phones
-      ? "Phones"
+      ? "Mobile phones"
       : category === Page.Tablets
       ? "Tablets"
       : "Accessories";

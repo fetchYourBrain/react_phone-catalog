@@ -71,28 +71,26 @@ export const ProductList = React.memo(() => {
       </div>
 
       <div className={styles.list}>
-        {loading ? (
-          Array.from({ length: +productsPerPage }).map((_, index) => (
-            <CardSkeleton key={index} />
-          ))
-        ) : (
-          visibleProducts.map((product) => (
-            <Card
-              key={product.id}
-              name={product.name}
-              image={product.images[0]}
-              capacity={product.capacity}
-              price={product.priceDiscount}
-              fullPrice={product.priceRegular}
-              screen={product.screen}
-              ram={product.ram}
-              itemId={product.itemId}
-              hasDiscount={true}
-              category={product.category}
-              id={product.id}
-            />
-          ))
-        )}
+        {loading
+          ? Array.from({ length: +productsPerPage }).map((_, index) => (
+              <CardSkeleton key={index} />
+            ))
+          : visibleProducts.map((product) => (
+              <Card
+                key={product.id}
+                name={product.name}
+                image={product.images[0]}
+                capacity={product.capacity}
+                price={product.priceDiscount}
+                fullPrice={product.priceRegular}
+                screen={product.screen}
+                ram={product.ram}
+                itemId={product.itemId}
+                hasDiscount={true}
+                category={product.category}
+                id={product.id}
+              />
+            ))}
       </div>
       {+productsPerPage !== devices.length ? (
         <Pagination
@@ -107,5 +105,4 @@ export const ProductList = React.memo(() => {
       )}
     </>
   );
-};
-
+});

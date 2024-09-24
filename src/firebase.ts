@@ -2,10 +2,9 @@ import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider, getAuth } from "firebase/auth";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
-console.log(API_KEY); 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDhsToALdlwQKdi8rCEOjbZPrvXGcTbwv4",
+  apiKey: API_KEY,
   authDomain: "nicegadgets-auth.firebaseapp.com",
   projectId: "nicegadgets-auth",
   storageBucket: "nicegadgets-auth.appspot.com",

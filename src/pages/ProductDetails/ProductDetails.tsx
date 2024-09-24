@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styles from "./ProductDetails.module.scss";
 import { useAppDispatch, useAppSelector } from "../../hooks/helperToolkit";
-import { GoBackButton } from "../../components/Buttons/GoBackButton/GoBackButton";
+import { GoBackButton } from "../../components/GoBackButton/GoBackButton";
 import { Breadcrumbs } from "../../components/Breadcrumbs/Breadcrumbs";
 import { fetchDeviceById, fetchDevicesList } from "../../slices/deviceSlice";
 import { Loader } from "../../components/Loader/Loader";

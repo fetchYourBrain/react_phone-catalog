@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { GoBackButton } from "../../components/Buttons/GoBackButton/GoBackButton";
+import { GoBackButton } from "../../components/GoBackButton/GoBackButton";
 import styles from "./CartPage.module.scss";
 import { CartItem } from "../../components/CartItem/CartItem";
 import { useAppDispatch, useAppSelector } from "../../hooks/helperToolkit";

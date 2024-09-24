@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import styles from "./Styles.module.scss";
 import { auth } from "../../firebase.ts";
+import { RoutesLink } from "../../types/routes.ts";
 
 export const Signup = () => {
   const navigate = useNavigate();
@@ -53,7 +54,7 @@ export const Signup = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
-        navigate("/login");
+        navigate(RoutesLink.HomePage);
       })
       .catch((error) => {
         const errorCode = error.code;

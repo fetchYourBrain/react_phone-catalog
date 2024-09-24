@@ -3,14 +3,12 @@
 .slider_container {
   position: relative;
   
-
-
   :global {
 
     .slick-track {
       display: flex;
+      justify-content: flex-start;
       gap: 16px;
-
       overflow: visible;
 
       @include respond-to(desktop) {
@@ -19,18 +17,7 @@
     }
 
     .slick-slide {
-      padding: 0 8px;
       min-width: 212px;
-    
-      // @include respond-to(tablet) {
-      // min-width: 237px;
-      // }
-    
-      // @include respond-to(desktop) {
-      // min-width: 272px;
-    
-      // }
-
     }
 
     .slick-list {
@@ -38,21 +25,6 @@
     }
   }
 }
-
-// .slide {
-//   width: 100%;
-
-//   @include respond-to(tablet) {
-//   width: 100%;
-//   }
-
-//   @include respond-to(desktop) {
-//     width: 100%;
-
-//   }
-// }
-
-
 .title_container {
   display: flex;
   justify-content: space-between;
@@ -103,6 +75,7 @@
   height: 100%;
   background-color: inherit;
   border: none;
+  cursor: pointer;
 
   &:hover {
     background-color: $c-icons;

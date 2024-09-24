@@ -18,7 +18,7 @@
 
 .amount_models {
   @include body-text;
-  color: $c-secondary;
+  color: var(--c-secondary);
 }
 
 .list {
@@ -59,7 +59,7 @@
 
 .noFavoritesImage {
   width: 256px;
-  background-color: $c-white;
+  background-color: var(--c-white);
   border-radius: 30px;
   height: auto;
 
@@ -72,5 +72,5 @@
   @include h2;
   font-size: 18px;
   margin-top: 32px;
-  color: $c-white;
+  color: var(--c-white);
 }

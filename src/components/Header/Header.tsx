@@ -6,9 +6,8 @@ import { IconLink } from "../IconLink/IconLink";
 import { RoutesLink } from "../../types/routes";
 import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
 import { BurgerMenu } from "../BurgerMenu/BurgerMenu";
-import { useAppSelector } from "../../hooks/helperToolkit";
+import { useAppDispatch, useAppSelector } from "../../hooks/helperToolkit";
 import { signOut } from "firebase/auth";
-import { useDispatch } from "react-redux";
 import { loadFavoritesFromStorage } from "../../slices/favoritesSlice";
 import { loadCardFromStorage } from "../../slices/cartSlice";
 import { useAuth } from "../../context/AuthContext";
@@ -24,6 +23,8 @@ interface Props {
 }
 
 export const Header: React.FC<Props> = ({ themeHandler }) => {
+  const location = useLocation();
+  const dispatch = useAppDispatch();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, loading } = useAuth();
   const favoritesCount = useAppSelector(
@@ -83,11 +84,11 @@ export const Header: React.FC<Props> = ({ themeHandler }) => {
             {loading ? (
               <div className={styles.loader}>
                 <Skeleton
-                baseColor={baseColor}
-                highlightColor={highlightColor}
-                height={20}
-                width={100}
-              />
+                  baseColor={baseColor}
+                  highlightColor={highlightColor}
+                  height={20}
+                  width={100}
+                />
               </div>
             ) : user ? (
               <>

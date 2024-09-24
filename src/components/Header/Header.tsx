@@ -8,10 +8,11 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { BurgerMenu } from "../BurgerMenu/BurgerMenu";
 import { auth } from "../../firebase";
 import { signOut } from "firebase/auth";
+import { useAuth } from "../../context/AuthContext";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const user = auth.currentUser;
+  const {user} = useAuth();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);

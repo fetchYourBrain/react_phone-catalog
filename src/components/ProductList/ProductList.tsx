@@ -19,7 +19,6 @@ import { CardSkeleton } from "../CardSkeleton/CardSkeleton";
 
 export const ProductList = () => {
   const { category } = useParams();
-  const [searchParams] = useSearchParams()
   const dispatch = useAppDispatch();
   const { devices, loading, productsPerPage, sort } = useAppSelector(
     (state) => state.device
@@ -27,11 +26,11 @@ export const ProductList = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const sortedProducts = getSortedProducts(sort, devices);
-  const pageFromQuery = searchParams.get('page') || 1
-        
-  const finalSort = searchParams.get('sort') as SortTypes || sort;
-  const finalProductsPerPage = searchParams.get('perPage') || productsPerPage.toString();
+  const pageFromQuery = searchParams.get("page") || 1;
+
+  const finalSort = (searchParams.get("sort") as SortTypes) || sort;
+  const finalProductsPerPage =
+    searchParams.get("perPage") || productsPerPage.toString();
 
   const sortedProducts = getSortedProducts(finalSort, devices);
 
@@ -54,16 +53,16 @@ export const ProductList = () => {
   const handleSortType = (sort: SortTypes) => {
     dispatch(setSortType(sort));
 
-    searchParams.set('sort', sort);
-    setSearchParams(searchParams)
+    searchParams.set("sort", sort);
+    setSearchParams(searchParams);
   };
 
   const handleProductsPerPage = (option: perPage) => {
     const value = option === "All" ? devices.length.toString() : option;
     dispatch(setProductsPerPage(value as perPage));
 
-    searchParams.set('perPage', value.toString());
-    setSearchParams(searchParams)
+    searchParams.set("perPage", value.toString());
+    setSearchParams(searchParams);
   };
 
   return (

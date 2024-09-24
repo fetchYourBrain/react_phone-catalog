@@ -1,14 +1,17 @@
 import { useState } from "react";
 import styles from "./Header.module.scss";
-import { NavItem } from "../NavItem/NavItem";
+import { NavItem, styledActive } from "../NavItem/NavItem";
 import { NAV_ITEMS } from "../../constants/constJS";
 import { IconLink } from "../IconLink/IconLink";
 import { RoutesLink } from "../../types/routes";
-import { Link } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { BurgerMenu } from "../BurgerMenu/BurgerMenu";
+import { auth } from "../../firebase";
+import { signOut } from "firebase/auth";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const user = auth.currentUser;
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -16,6 +19,16 @@ export const Header = () => {
 
   const closeMenu = () => {
     setIsMenuOpen(false);
+  };
+
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    signOut(auth)
+      .then(() => {
+        navigate("/");
+      })
+      .catch((error) => {});
   };
 
   return (
@@ -37,14 +50,38 @@ export const Header = () => {
           </nav>
 
           <div className={styles.iconsBlock}>
-            <div className={styles.favorites}>
-              <IconLink
-                to={RoutesLink.FavoritesPage}
-                iconSrc={"img/icons/favorites-icon.svg"}
-                alt="The icon of favorites page"
-                className={styles.favoritesButton}
-              />
-            </div>
+            {user ? (
+              <>
+                <button onClick={handleLogout} className={styles.signout}>
+                  Sign out
+                </button>
+                <div className={styles.favorites}>
+                  <IconLink
+                    to={RoutesLink.FavoritesPage}
+                    iconSrc={"img/icons/favorites-icon.svg"}
+                    alt="The icon of favorites page"
+                    className={styles.favoritesButton}
+                  />
+                </div>
+              </>
+            ) : (
+              <>
+                <nav className={styles.auth_container}>
+                  <ul className={styles.auth}>
+                    <li>
+                      <NavLink to="/signup" className={styledActive}>
+                        Sign up
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/login" className={styledActive}>
+                        Log in
+                      </NavLink>
+                    </li>
+                  </ul>
+                </nav>
+              </>
+            )}
 
             <div className={styles.cart}>
               <IconLink

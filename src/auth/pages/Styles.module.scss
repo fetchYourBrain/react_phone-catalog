@@ -1,0 +1,82 @@
+@import '../../App.scss';
+
+.block {
+    grid-column: 1 / -1;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input_block {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    label {
+        @include small-text;
+        margin-bottom: 4px;
+    }
+
+    input {
+        @include body-text;
+        padding: 10px;
+        color: $c-white;
+        border: 1px solid $c-surface-two;
+        background-color: $c-black;
+        appearance: none;
+        outline: none;
+
+        &:focus {
+            border-color: $c-accent;
+            background-color: $c-secondary;
+        }
+    }
+}
+
+.container {
+    background-color: $c-surface;
+    padding: 32px;
+    max-width: 350px;
+    width: 100%;
+}
+
+.title {
+    @include h2;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+
+}
+
+.button {
+    @include button-text;
+    @include button;
+    padding: 10px 40px;
+    margin-bottom: 16px;
+}
+
+.text {
+    @include small-text;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    a {
+        color: $c-accent;
+    }
+}
+.error{
+    @include small-text;
+    text-align: center;
+    text-wrap: wrap;
+    margin-top: 4px;
+    color: rgb(238, 0, 0);
+}

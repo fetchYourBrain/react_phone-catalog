@@ -3,6 +3,7 @@
 .list {
   width: 100%;
   display: grid;
+  min-height: 50vh;
   gap: 16px;
   justify-content: center;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));

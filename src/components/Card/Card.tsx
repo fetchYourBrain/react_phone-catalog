@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import styles from "./Card.module.scss";
 import { useAppDispatch } from "../../hooks/helperToolkit";
-import {  addItemToCart } from "../../slices/cartSlice";
+import { addItemToCart } from "../../slices/cartSlice";
 import { useState } from "react";
+import { auth } from "../../firebase";
 
 interface Props {
   name: string;
@@ -13,10 +14,9 @@ interface Props {
   capacity: string;
   ram: string;
   hasDiscount: boolean;
-  itemId: string,
-  category: string,
-  id: number,
-  
+  itemId: string;
+  category: string;
+  id: number;
 }
 
 export const Card: React.FC<Props> = ({
@@ -30,29 +30,29 @@ export const Card: React.FC<Props> = ({
   hasDiscount,
   itemId,
   category,
-  id
+  id,
 }) => {
+  const user = auth.currentUser;
   const [isClicked, setIsClicked] = useState<boolean>(false);
   const dispatch = useAppDispatch();
 
-const addToCartHandler = () => {
-  if (isClicked) {
-    return;
-  };
+  const addToCartHandler = () => {
+    if (isClicked) {
+      return;
+    }
 
-  const product = {
-    id,
-    name,
-    price,
-    image,
-    itemId,
-    category,
-
+    const product = {
+      id,
+      name,
+      price,
+      image,
+      itemId,
+      category,
+    };
+    console.log(product);
+    dispatch(addItemToCart({ item: product }));
+    setIsClicked(true);
   };
-console.log(product);
-  dispatch(addItemToCart({ item: product }));
-  setIsClicked(true);
-}
 
   return (
     <div className={styles.card}>
@@ -88,16 +88,20 @@ console.log(product);
       </div>
 
       <div className={styles.buttons} onClick={addToCartHandler}>
-      <button
+        <button
           onClick={addToCartHandler}
-          className={isClicked ? styles.disabledButton : styles.add_to_cart_button}
+          className={
+            isClicked ? styles.disabledButton : styles.add_to_cart_button
+          }
           disabled={isClicked}
         >
           {isClicked ? "Added to Cart" : "Add to cart"}
         </button>
-        <button className={styles.heart_icon_button}>
-          <img src="img/icons/heart-icon.svg" alt="Heart Icon" />
-        </button>
+        {user && (
+          <button className={styles.heart_icon_button}>
+            <img src="img/icons/heart-icon.svg" alt="Heart Icon" />
+          </button>
+        )}
       </div>
     </div>
   );

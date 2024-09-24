@@ -1,6 +1,7 @@
 @import '../../../App.scss';
 
 .container {
+  position: relative;
   width: 100%;
   grid-column: 1/-1;
   display: flex;
@@ -8,28 +9,61 @@
   align-items: center;
   background-color: $c-surface;
   gap: 16px;
-  height: 500px;
+  padding: 16px 16px 24px 16px;
+  flex-direction: column;
+  border-radius: 4px;
+
+
+
+  @include respond-to(tablet) {
+    justify-content: space-evenly;
+    padding: 0 40px 0 40px;
+    flex-direction: row;
+
+  }
 
   @include respond-to(desktop) {
     gap: 64px;
+    padding-inline: 96px;
+
   }
 }
 
 .banner_info {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
+  order: 2;
+  padding-block: 30px;
+
+  @include respond-to(tablet) {
+    order: 1;
+    align-items: start;
+    max-width: 197px;
+  }
+
+  @include respond-to(desktop) {
+    max-width: 368px;
+  }
 }
 
 .first {
   display: flex;
-  justify-content: center;
-  align-items: start;
+  align-items: center;
+  justify-content: start;
+  gap: 4px;
 
   margin-bottom: 4px;
 }
 
 .text {
-  @include body-text;
+  font-family: Mont;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+
+
 }
 
 .title {
@@ -38,17 +72,20 @@
   font-weight: 700;
   line-height: 26px;
   color: #F1F2F9; // ПОСТАВИТИ НАШ БІЛИЙ КОЛІР
+  text-align: center;
 
   margin-bottom: 16px;
+
+  @include respond-to(tablet) {
+    text-align: left;
+  }
 
 
   @include respond-to(desktop) {
     font-size: 32px;
     font-weight: 800;
     line-height: 41px;
-
     margin-bottom: 40px;
-
   }
 
 }
@@ -56,9 +93,33 @@
 
 .button {
   @include button;
+  width: 100%;
+  height: 40px;
 
   @include respond-to(tablet) {
     max-width: 176px;
   }
 
+}
+
+.image {
+  // background-image: url(img/banner/banner-1.png);
+  // background-position: center;
+  // background-size: contain;
+  // background-repeat: no-repeat;
+  min-width: 149px;
+  min-height: 151px;
+  order: 1;
+
+  @include respond-to(tablet) {
+    min-width: 149px;
+    min-height: 151px;
+    order: 2;
+
+  }
+
+  @include respond-to(desktop) {
+    min-width: 414px;
+    min-height: 399px;
+  }
 }

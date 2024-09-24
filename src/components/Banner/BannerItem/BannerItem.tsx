@@ -1,21 +1,10 @@
+import { Banner } from "../Banner";
 import styles from "./BannerItem.module.scss";
 
-export const banner_slides = [
-  {
-    imageUrl: "img/banner-accessories.png",
-    altText: "Accessories banner",
-  },
-  {
-    imageUrl: "img/banner-phones.png",
-    altText: "Phones banner",
-  },
-  {
-    imageUrl: "img/banner-tablets.png",
-    altText: "Tablets banner",
-  },
-];
-
-export const BannerItem = () => {
+interface Props {
+  slide: Banner;
+}
+export const BannerItem: React.FC<Props> = ({ slide }) => {
   return (
     <section className={styles.container}>
       <div className={styles.banner_info}>
@@ -25,12 +14,13 @@ export const BannerItem = () => {
             alt="Apple icon"
             className={styles.icon}
           />
-          <p className={styles.text}>iPad air</p>
+          <p className={styles.text}>{slide.model}</p>
         </div>
-        <h3 className={styles.title}>Get up to something wonderful.</h3>
+        <h3 className={styles.title}>{slide.title}</h3>
         <button className={styles.button}>Shop Now</button>
       </div>
       <div className={styles.image}>
+        <img className={styles.image} src={slide.imageUrl} alt={slide.altText} />
       </div>
     </section>
   );

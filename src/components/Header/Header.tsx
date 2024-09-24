@@ -13,22 +13,22 @@ import { loadFavoritesFromStorage } from "../../slices/favoritesSlice";
 import { loadCardFromStorage } from "../../slices/cartSlice";
 import { useAuth } from "../../context/AuthContext";
 import { auth } from "../../firebase";
-
+import Skeleton from "react-loading-skeleton";
 
 export const Header = () => {
   const location = useLocation();
   const dispatch = useDispatch();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const {user} = useAuth();
-  const favoritesCount = useAppSelector((state) => state.favorites.items.length);
+  const { user, loading } = useAuth();
+  const favoritesCount = useAppSelector(
+    (state) => state.favorites.items.length
+  );
   const cartItemCount = useAppSelector((state) => state.cart.items.length);
-  
-  
-    useEffect(() => {
+
+  useEffect(() => {
     dispatch(loadFavoritesFromStorage());
     dispatch(loadCardFromStorage());
   }, [dispatch]);
-  
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -51,6 +51,9 @@ export const Header = () => {
   const isFavoritesPage = location.pathname === RoutesLink.FavoritesPage;
   const isCartPage = location.pathname === RoutesLink.CartPage;
 
+  const baseColor = "#0F1121";
+  const highlightColor = "#4A4D58";
+
   return (
     <>
       <header className={styles.header}>
@@ -70,21 +73,34 @@ export const Header = () => {
           </nav>
 
           <div className={styles.iconsBlock}>
-            {user ? (
+            {loading ? (
+              <div className={styles.loader}>
+                <Skeleton
+                baseColor={baseColor}
+                highlightColor={highlightColor}
+                height={20}
+                width={100}
+              />
+              </div>
+            ) : user ? (
               <>
                 <button onClick={handleLogout} className={styles.signout}>
                   Sign out
                 </button>
-                <div className={`${styles.favorites} ${isFavoritesPage ? styles.active : ""}`} >
+                <div
+                  className={`${styles.favorites} ${
+                    isFavoritesPage ? styles.active : ""
+                  }`}
+                >
                   <IconLink
                     to={RoutesLink.FavoritesPage}
                     iconSrc={"img/icons/favorites-icon.svg"}
                     alt="The icon of favorites page"
                     className={styles.favoritesButton}
                   />
-              {favoritesCount > 0 && (
-                <span className={styles.countBadge}>{favoritesCount}</span>
-              )}
+                  {favoritesCount > 0 && (
+                    <span className={styles.countBadge}>{favoritesCount}</span>
+                  )}
                 </div>
               </>
             ) : (
@@ -106,7 +122,9 @@ export const Header = () => {
               </>
             )}
 
-            <div className={`${styles.cart} ${isCartPage ? styles.active : ""}`} >
+            <div
+              className={`${styles.cart} ${isCartPage ? styles.active : ""}`}
+            >
               <IconLink
                 to={RoutesLink.CartPage}
                 iconSrc={"img/icons/cart-logo.svg"}

@@ -72,6 +72,9 @@
 .auth_container{
   padding: 0 8px;
 }
+.loader{
+  margin-right: 8px;
+}
 .signout{
   @include small-text;
   background-color: transparent;

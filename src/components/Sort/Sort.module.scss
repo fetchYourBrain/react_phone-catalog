@@ -6,7 +6,7 @@
 
 .title {
   @include small-text;
-  color: $c-secondary;
+  color: var(--c-secondary);
   margin-bottom: 4px;
 }
 
@@ -23,18 +23,18 @@
   user-select: none;
   border: 1px solid transparent;
   transition: border-color $duration-default $easing-default;
-  background-color: $c-surface-two;
-  color: $c-white;
+  background-color: var(--c-surface-two);
+  color: var(--c-white);
   cursor: pointer;
 }
 
 .trigger:hover {
-  border: 1px solid $c-secondary;
-  background-color: $c-icons;
+  border: 1px solid var(--c-secondary);
+  background-color: var(--c-icons);
 }
 
 .open {
-  border-color: $c-accent;
+  border-color: var(--c-accent);
 }
 
 .icon {
@@ -58,8 +58,8 @@
   max-height: 200px;
   overflow-y: auto;
   z-index: 1;
-  border: 1px solid $c-secondary;
-  background-color: $c-black;
+  border: 1px solid var(--c-secondary);
+  background-color: var(--c-black);
   margin-top: 4px;
   list-style: none;
 }
@@ -70,12 +70,12 @@
   height: 32px;
   padding: 6px;
   padding-left: 12px;
-  color: $c-secondary;
+  color: var(--c-secondary);
   transition: background-color $duration-default $easing-default;
   cursor: pointer;
 }
 
 .item:hover {
-  background-color: $c-surface-two;
-  color: $c-white;
+  background-color: var(--c-surface-two);
+  color: var(--c-white);
 }

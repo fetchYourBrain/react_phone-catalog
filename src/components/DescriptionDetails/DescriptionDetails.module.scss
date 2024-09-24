@@ -3,7 +3,7 @@
 .section_title {
   @include h3;
   padding-bottom: 16px;
-  border-bottom: 1px solid $c-elements;
+  border-bottom: 1px solid var(--c-elements);
 
 }
 
@@ -43,7 +43,7 @@
 
 .text_description {
   @include body-text;
-  color: $c-secondary;
+  color: var(--c-secondary);
 }
 
 .tech_specs {
@@ -74,11 +74,11 @@ td {
   @include body-text;
 
   &:first-child {
-    color: $c-secondary;
+    color: var(--c-secondary);
   }
 
   &:last-child {
     text-align: right;
-    color: $c-white;
+    color: var(--c-white);
   }
 }

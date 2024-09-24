@@ -2,7 +2,7 @@
 
 .top {
   position: sticky;
-  background-color: $c-black;
+  background-color: var(--c-black);
   z-index: 1;
   top: 0;
 }
@@ -14,7 +14,7 @@
   min-width: 320px;
   padding-left: 16px;
   margin-bottom: 24px;
-  border-bottom: 1px solid $c-elements;
+  border-bottom: 1px solid var(--c-elements);
 }
 
 .logo {
@@ -38,7 +38,7 @@
   width: 48px;
   height: 48px;
   margin-left: auto;
-  border-left: 1px solid $c-elements;
+  border-left: 1px solid var(--c-elements);
   cursor: pointer;
 }
 
@@ -73,7 +73,7 @@
   box-sizing: border-box;
   width: 50%;
   height: 100%;
-  border-top: 1px solid $c-surface-two;
+  border-top: 1px solid var(--c-surface-two);
   cursor: pointer;
   position: relative;
   transition: color $duration-default $easing-default;
@@ -81,7 +81,7 @@
   &::after {
     content: '';
     display: block;
-    background-color: $c-white;
+    background-color: var(--c-white);
     height: 2px;
     position: absolute;
     width: 100%;
@@ -94,7 +94,7 @@
 
   &:hover,
   &.active {
-    color: $c-white;
+    color: var(--c-white);
 
     &::after {
       transform: scaleX(1);
@@ -102,6 +102,6 @@
   }
 
   &:first-child {
-    border-right: 1px solid $c-surface-two;
+    border-right: 1px solid var(--c-surface-two);
   }
 }

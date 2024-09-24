@@ -6,7 +6,7 @@
   justify-content: flex-start;
   width: 100%;
   padding: 32px;
-  background-color: $c-surface;
+  background-color: var(--c-surface);
   height: 440px;
 
   @include respond-to(tablet) {

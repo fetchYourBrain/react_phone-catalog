@@ -23,9 +23,9 @@
     justify-content: center;
     min-height: 32px;
     min-width: 32px;
-    background-color: $c-surface;
+    background-color: var(--c-surface);
 
     &.active {
-        background-color: $c-accent;
+        background-color: var(--c-accent);
     }
 }

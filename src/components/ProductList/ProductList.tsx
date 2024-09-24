@@ -12,12 +12,12 @@ import {
 } from "../../slices/deviceSlice";
 import { perPage } from "../../types/perpage";
 import { ITEMS_PER_PAGE, SORT_OPTIONS } from "../../constants/constJS";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getSortedProducts } from "../../features/getSortedProducts";
 import { CardSkeleton } from "../CardSkeleton/CardSkeleton";
 
-export const ProductList = React.memo(() => {
+export const ProductList = () => {
   const { category } = useParams();
   const dispatch = useAppDispatch();
   const { devices, loading, productsPerPage, sort } = useAppSelector(
@@ -105,4 +105,4 @@ export const ProductList = React.memo(() => {
       )}
     </>
   );
-});
+};

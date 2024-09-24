@@ -1,0 +1,64 @@
+@import '../../../App.scss';
+
+.container {
+  width: 100%;
+  grid-column: 1/-1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: $c-surface;
+  gap: 16px;
+  height: 500px;
+
+  @include respond-to(desktop) {
+    gap: 64px;
+  }
+}
+
+.banner_info {
+  display: flex;
+  flex-direction: column;
+}
+
+.first {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+
+  margin-bottom: 4px;
+}
+
+.text {
+  @include body-text;
+}
+
+.title {
+  font-family: Mont;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+  color: #F1F2F9; // ПОСТАВИТИ НАШ БІЛИЙ КОЛІР
+
+  margin-bottom: 16px;
+
+
+  @include respond-to(desktop) {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 41px;
+
+    margin-bottom: 40px;
+
+  }
+
+}
+
+
+.button {
+  @include button;
+
+  @include respond-to(tablet) {
+    max-width: 176px;
+  }
+
+}

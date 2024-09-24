@@ -2,7 +2,7 @@
 
 .header {
   position: sticky;
-  background-color: $c-black;
+  background-color: var(--c-black);
   z-index: 1;
   top: 0;
   height: map-get($header-heights, mobile);
@@ -19,7 +19,7 @@
   align-items: center;
   min-width: 320px;
   padding-left: 16px;
-  border-bottom: 1px solid $c-elements;
+  border-bottom: 1px solid var(--c-elements);
 
 
   @include respond-to(tablet) {
@@ -83,11 +83,11 @@
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 4%;
-  color: $c-secondary;
+  color: var(--c-secondary);
 
   transition: color $duration-default $easing-default;
   &:hover{
-    color: $c-white;
+    color: var(--c-white);
   }
 }
 
@@ -110,11 +110,11 @@
     align-items: center;
     width: 48px;
     height: 48px;
-    border-left: 1px solid $c-elements;
+    border-left: 1px solid var(--c-elements);
   }
   
   &:hover {
-    background-color: $c-icons;
+    background-color: var(--c-icons);
   }
 
   @include respond-to(desktop) {
@@ -137,7 +137,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-left: 1px solid $c-elements;
+  border-left: 1px solid var(--c-elements);
 
   @include respond-to(tablet){
     display: none;
@@ -159,7 +159,7 @@
   left: -110%;
   width: 100vw;
   height: 100vh;
-  background-color: $c-black;
+  background-color: var(--c-black);
   transition: left $duration-default ease-in-out;
   z-index: 2;
   overflow: auto;

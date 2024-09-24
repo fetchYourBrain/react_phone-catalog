@@ -78,5 +78,5 @@
 
 .amount {
     @include body-text;
-    color: $c-secondary;
+    color: var(--c-secondary);
 }

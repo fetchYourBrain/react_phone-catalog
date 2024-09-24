@@ -7,7 +7,7 @@
   align-self: center;
   height: 440px;
   padding: 32px;
-  background-color: $c-surface;
+  background-color: var(--c-surface);
   cursor: pointer;
 
   // @include respond-to(tablet) {
@@ -54,7 +54,7 @@
 .title {
   @include body-text;
   text-align: left;
-  color: $c-white;
+  color: var(--c-white);
 }
 
 .price {
@@ -62,18 +62,18 @@
   justify-content: space-between;
   width: 100%;
   margin-top: 8px;
-  color: $c-white;
+  color: var(--c-white);
 }
 
 .full_price {
-  color: $c-secondary;
+  color: var(--c-secondary);
   font-weight: 600;
   text-decoration: line-through;
 }
 
 .specifications {
   position: relative;
-  border-top: solid 1px $c-elements;
+  border-top: solid 1px var(--c-elements);
   padding-top: 8px;
   padding-bottom: 8px;
   margin-top: 8px;
@@ -88,11 +88,11 @@
 
 .specification {
   margin-right: 5px;
-  color: $c-secondary;
+  color: var(--c-secondary);
 }
 
 .value {
-  color: $c-white;
+  color: var(--c-white);
 }
 
 .buttons {
@@ -118,11 +118,11 @@
   @include button;
   width: 176px;
   height: 40px;
-  background-color: $c-surface-two;
+  background-color: var(--c-surface-two);
   cursor: not-allowed;
 
   &:hover {
-    background-color: $c-surface-two;
+    background-color: var(--c-surface-two);
 
   }
 
@@ -137,11 +137,11 @@
   height: 40px;
   padding: 12px;
   border: none;
-  background-color: $c-surface-two;
+  background-color: var(--c-surface-two);
   cursor: pointer;
-  color: $c-white;
+  color: var(--c-white);
 
   &:hover {
-    background-color: $c-icons;
+    background-color: var(--c-icons);
   }
 }

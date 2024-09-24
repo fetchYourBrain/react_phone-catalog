@@ -10,7 +10,11 @@ import { auth } from "../../firebase";
 import { signOut } from "firebase/auth";
 import { useAuth } from "../../context/AuthContext";
 
-export const Header = () => {
+interface Props {
+  themeHandler: () => void;
+}
+
+export const Header: React.FC<Props> = ({ themeHandler }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const {user} = useAuth();
 
@@ -41,6 +45,7 @@ export const Header = () => {
               <div className={styles.logo_icon}></div>
             </Link>
           </div>
+          <button onClick={themeHandler}>Click me!</button>
 
           <nav className={styles.navContainer}>
             <ul className={styles.navigation}>

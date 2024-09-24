@@ -22,7 +22,7 @@
 .img_container {
     max-width: 480px;
     max-height: 480px;
-    background-color: $c-white;
+    background-color: var(--c-white);
     border-radius: 32px;
 }
 
@@ -33,7 +33,7 @@
 
 .empty_cart_title {
     font-size: 22px;
-    color: $c-white;
+    color: var(--c-white);
     font-weight: 800;
     line-height: 1.4;
   

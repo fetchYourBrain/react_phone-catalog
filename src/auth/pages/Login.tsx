@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { signInWithEmailAndPassword} from "firebase/auth";
-import { auth} from "../../firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase";
 import { NavLink, useNavigate } from "react-router-dom";
 import { RoutesLink } from "../../types/routes";
 import styles from "./Styles.module.scss";
@@ -14,16 +14,11 @@ export const Login = () => {
     e.preventDefault();
 
     signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
+      .then(() => {
         navigate(RoutesLink.HomePage);
       })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-      });
+      .catch(() => {});
   };
-
 
   return (
     <>

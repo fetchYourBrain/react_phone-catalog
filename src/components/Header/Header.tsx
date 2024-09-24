@@ -28,7 +28,7 @@ export const Header = () => {
       .then(() => {
         navigate("/");
       })
-      .catch((error) => {});
+      .catch(() => {});
   };
 
   return (

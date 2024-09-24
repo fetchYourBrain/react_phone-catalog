@@ -2,7 +2,7 @@ import React from "react";
 import cn from "classnames";
 import styles from "./VariantDetails.module.scss";
 import { Devices, MergedDevice } from "../../types/devices";
-import { auth } from "../../firebase";
+import { useAuth } from "../../context/AuthContext";
 
 interface Props {
   currentDevice: MergedDevice;
@@ -25,7 +25,7 @@ export const VariantDetails: React.FC<Props> = ({
   handleCapacityChange,
   handleImageClick,
 }) => {
-  const user = auth.currentUser;
+  const {user} = useAuth();
 
   const isValidCssColor = (color: string) => {
     const styleColor = new Option().style;

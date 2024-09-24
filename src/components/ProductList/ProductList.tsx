@@ -13,7 +13,7 @@ import {
 import { perPage } from "../../types/perpage";
 import { ITEMS_PER_PAGE, SORT_OPTIONS } from "../../constants/constJS";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import { getSortedProducts } from "../../features/getSortedProducts";
 import { CardSkeleton } from "../CardSkeleton/CardSkeleton";
 
@@ -24,7 +24,12 @@ export const ProductList = () => {
     (state) => state.device
   );
 
-  const sortedProducts = getSortedProducts(sort, devices);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const finalSort = searchParams.get('sort') as SortTypes || sort;
+  const finalProductsPerPage = searchParams.get('perPage') || productsPerPage.toString();
+
+  const sortedProducts = getSortedProducts(finalSort, devices);
 
   const {
     visibleProducts,
@@ -33,7 +38,7 @@ export const ProductList = () => {
     numbers,
     changeCurrentPage,
     currentPage,
-  } = usePagination(sortedProducts, +productsPerPage);
+  } = usePagination(sortedProducts, +finalProductsPerPage);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -44,11 +49,17 @@ export const ProductList = () => {
 
   const handleSortType = (sort: SortTypes) => {
     dispatch(setSortType(sort));
+
+    searchParams.set('sort', sort);
+    setSearchParams(searchParams)
   };
 
   const handleProductsPerPage = (option: perPage) => {
     const value = option === "All" ? devices.length.toString() : option;
     dispatch(setProductsPerPage(value as perPage));
+
+    searchParams.set('perPage', value.toString());
+    setSearchParams(searchParams)
   };
 
   return (
@@ -59,13 +70,13 @@ export const ProductList = () => {
             options={SORT_OPTIONS}
             onChange={handleSortType}
             title={"Sort by"}
-            selectedValue={sort}
+            selectedValue={finalSort}
           />
           <Sort
             options={ITEMS_PER_PAGE}
             onChange={handleProductsPerPage}
             title={"Items on page"}
-            selectedValue={productsPerPage}
+            selectedValue={finalProductsPerPage}
           />
         </div>
       </div>

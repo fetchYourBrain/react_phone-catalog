@@ -7,26 +7,27 @@ import { RoutesLink } from "../../types/routes";
 import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
 import { BurgerMenu } from "../BurgerMenu/BurgerMenu";
 import { useAppSelector } from "../../hooks/helperToolkit";
-import { auth } from "../../firebase";
 import { signOut } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { loadFavoritesFromStorage } from "../../slices/favoritesSlice";
 import { loadCardFromStorage } from "../../slices/cartSlice";
+import { useAuth } from "../../context/AuthContext";
+
 
 export const Header = () => {
-  const user = auth.currentUser;
   const location = useLocation();
   const dispatch = useDispatch();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const {user} = useAuth();
   const favoritesCount = useAppSelector((state) => state.favorites.items.length);
   const cartItemCount = useAppSelector((state) => state.cart.items.length);
-
   
-  useEffect(() => {
+  
+    useEffect(() => {
     dispatch(loadFavoritesFromStorage());
     dispatch(loadCardFromStorage());
   }, [dispatch]);
+  
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);

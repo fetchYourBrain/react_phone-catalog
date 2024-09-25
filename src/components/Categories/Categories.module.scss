@@ -1,82 +1,116 @@
 @import '../../App.scss';
 
 .block {
-    margin-top: 56px;
+  margin-top: 56px;
 
-    @include respond-to(tablet) {
-        margin-top: 64px;
-    }
+  @include respond-to(tablet) {
+    margin-top: 64px;
+  }
 
-    @include respond-to(desktop) {
-        margin-top: 80px;
-    }
+  @include respond-to(desktop) {
+    margin-top: 80px;
+  }
 }
 
 .top_block {
-    margin-bottom: 24px;
+  margin-bottom: 24px;
 }
 
 .title {
-    @include h2;
+  @include h2;
 }
 
-.list {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-    align-items: center;
-    justify-content: center;
 
-    @include respond-to(tablet) {
-        flex-direction: row;
-        gap: 16px;
-    }
+
+.list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 32px;
+
+  padding: 0;
+  list-style-type: none;
+
+
+  @include respond-to(tablet) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(188px, 1fr));
+    gap: 16px;
+    justify-content: center;
+  }
+
+  @include respond-to(desktop) {
+    grid-template-columns: repeat(auto-fit, minmax(268px, 1fr));
+  }
+
+
+}
+
+
+.category_item {
+  width: 100%;
+  max-width: 288px;
+
+  @include respond-to(tablet) {
+    max-width: 100%;
+  }
+}
+
+.category_link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 }
 
 .img_container {
-    width: 288px;
-    height: 288px;
-    overflow: hidden;
-    position: relative;
-    margin-bottom: 24px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: clamp(16px, 3vw, 24px);
+  transition: transform 0.3s ease;
 
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        position: absolute;
-        right: -20%;
-        bottom: -30%;
-        transition: all $duration-default $easing-default;
-    }
-
-    &:hover {
-        img {
-            right: -15%;
-            bottom: -28%;
-            transform: scale(1.05);
-        }
-    }
+  img {
+    object-position: 55px 55px ;
+  }
+}
 
 
-    @include respond-to(tablet) {
-        width: 188px;
-        height: 188px;
-    }
+.category_image {
+  position: absolute;
+  object-fit: center;
+  width: 100%;
+  height: 100%;
+  transform: scale(1.05);
+  object-fit: cover;
+  transition: transform 0.3s ease;
 
-    @include respond-to(desktop) {
-        width: 368px;
-        height: 368px;
-    }
+  &:hover {
+    transform: scale(1.1);
+  }
+}
 
+.img_container:nth-of-type(1) {
+  object-position: 55px 55px ;
+}
+
+.img_container:nth-of-type(2) {
+  object-position: 20px 20px ;
+}
+
+.img_container:nth-of-type(3) {
+  object-position: 550px 550px ;
 }
 
 .name {
-    @include h4;
-    margin-bottom: 4px;
+  @include h4;
+  margin-bottom: 4px;
 }
 
 .amount {
-    @include body-text;
-    color: $c-secondary;
+  @include body-text;
+  color: $c-secondary;
 }

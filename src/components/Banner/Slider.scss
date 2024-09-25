@@ -11,7 +11,7 @@
       &::before {
         content: '';
         display: block;
-        background-image: url(/public/img/banner/dot.svg);
+        background-image: url(img/banner/dot.svg);
         width: 24px;
         height: 24px;
         transition: all 0.3s ease;
@@ -20,7 +20,7 @@
 
     &.slick-active {
       button::before {
-        background-image: url(/public/img/banner/active-dot.svg);
+        background-image: url(img/banner/active-dot.svg);
 
       }
     }

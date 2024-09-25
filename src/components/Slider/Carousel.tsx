@@ -33,37 +33,15 @@ export const Carousel: React.FC<CarouselProps> = ({ children, title }) => {
 
   const settings = {
     dots: false,
-    infinite: false,
-    speed: 500,
+    infinite: true,
+    speed: 800,
     slidesToShow,
     slidesToScroll: 1,
     initialSlide: 0,
     arrows: false,
-    autoplay: false,
+    autoplay: true,
+    autoplaySpeed: 2000,
     centerMode: false,
-
-    // responsive: [
-    //   {
-    //     breakpoint: 1200,
-    //     settings: {
-    //       slidesToShow: 3,
-    //     },
-    //   },
-    //   {
-    //     breakpoint: 1024,
-    //     settings: {
-    //       slidesToShow: 2,
-    //       centerPadding: '16px',
-    //     },
-    //   },
-    //   {
-    //     breakpoint: 640,
-    //     settings: {
-    //       slidesToShow: 1,
-    //       centerPadding: '16px',
-    //     },
-    //   },
-    // ],
   };
 
   const handlePrev = () => {

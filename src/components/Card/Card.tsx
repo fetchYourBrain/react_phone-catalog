@@ -55,7 +55,6 @@ export const Card: React.FC<Props> = ({
       category,
     };
 
-  console.log(product);
     dispatch(addItemToCart({ item: product }));
     setIsClicked(true);
   }

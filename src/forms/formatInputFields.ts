@@ -1,6 +1,8 @@
 export const formatCreditCardNumber = (value: string): string => {
   const cleanedValue = value.replace(/\D/g, '');
-  const match = cleanedValue.match(/.{1,4}/g);
+  const limitedValue = cleanedValue.slice(0, 16);
+
+  const match = limitedValue.match(/.{1,4}/g);
   return match ? match.join(' ') : '';
 };
 

@@ -1,84 +1,86 @@
 @import '../../App.scss';
 
 .footer {
-    width: 100%;
-    border-top: 1px solid #3B3E4A;
-    height: map-get($footer-heights, mobile);
-    margin-top: map-get($bottom-margin, mobile);
+  width: 100%;
+  border-top: 1px solid #3B3E4A;
+  height: map-get($footer-heights, mobile);
+  margin-top: map-get($bottom-margin, mobile);
 
-    @include respond-to(tablet) {
-      height: map-get($footer-heights, tablet-desktop);
-    }
+  @include respond-to(tablet) {
+    height: map-get($footer-heights, tablet-desktop);
+  }
 
-    @include respond-to(desktop) {
-        display: flex;
-        justify-content: center;
-
-    }
-
+  @include respond-to(desktop) {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    padding: 32px 16px;
-    background: $c-black;
-    gap: 32px;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 16px;
+  background: $c-black;
+  gap: 32px;
 
+  @include respond-to(tablet) {
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 32px
+  }
 
-    @include respond-to(tablet) {
-        justify-content: space-between;
-        flex-direction: row;
-        padding: 32px;
-    }
+  @include respond-to(desktop) {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 1136px;
+    padding: 32px
+  }
+}
 
-    @include respond-to(desktop) {
-        width: 100%;
-        flex-direction: row;
-        justify-content: space-between;
-        max-width: 1136px;
-        padding-inline: 0;
-    }
+.image {
+  width: 100%;
+  height: 100%;
 }
 
 .logo_container {
-    width: 89px;
-    height: 32px;
-    color: $c-white;
-    display: flex;
+  width: 89px;
+  height: 32px;
+  color: $c-white;
+  display: flex;
 }
 
 .navigation {
-    flex-direction: column;
-    display: flex;
-    gap: 16px;
+  flex-direction: column;
+  display: flex;
+  gap: 16px;
 
-    @include respond-to(tablet) {
-        align-items: center;
-        flex-direction: row;
-        gap: 14px;
-    }
+  @include respond-to(tablet) {
+    align-items: center;
+    flex-direction: row;
+    gap: 14px;
+  }
 
-    @include respond-to(desktop) {
-        gap: 106px;
-    }
+  @include respond-to(desktop) {
+    gap: 106px;
+  }
 
-    a {
-        text-decoration: none;
-        text-transform: uppercase;
-        color: $c-white;
-        font-weight: 800;
-        font-size: 12px;
-        line-height: 11px;
-        cursor: pointer;
+  a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $c-white;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 11px;
+    cursor: pointer;
     }
 }
 
 .back_to_top {
-    justify-content: center;
-    display: flex;
-    gap: 16px;
-    align-items: center;
+  justify-content: center;
+  display: flex;
+  gap: 16px;
+  align-items: center;
 
 }
 
@@ -88,20 +90,20 @@
   color: $c-secondary;
 }
 
-    .back_to_top_btn {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-        height: 32px;
-        width: 32px;
-        border: none;
-        background-color: $c-elements;
-        font-size: 24px;
-        cursor: pointer;
-        text-align: center;
-        line-height: 32px;
+.back_to_top_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 32px;
+  width: 32px;
+  border: none;
+  background-color: $c-elements;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 32px;
 
-        &:hover {
-            background-color: $c-icons;
-        }
-    }
+  &:hover {
+    background-color: $c-icons;
+  }
+}

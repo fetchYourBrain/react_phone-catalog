@@ -10,9 +10,7 @@ export const Footer = () => {
     <footer className={styles.footer}>
       <div className={styles.container}>
         <div className={styles.logo_container}>
-          <a>
-            <img src={logo} alt="The logo of Nice Gadgets" />
-          </a>
+            <img src={logo} className={styles.image} alt="The logo of Nice Gadgets" />
         </div>
         <nav className={styles.navigation}>
           <a href="#">Github</a>

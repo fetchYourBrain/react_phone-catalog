@@ -27,9 +27,9 @@ export const HomePage = () => {
     <div className={styles.block}>
       <h1 className={styles.title}>Welcome to Nice Gadgets store!</h1>
       <Banner />
-      <ProductsRow  products={newProducts} hasDiscount={false}/>
+      <ProductsRow  products={newProducts} hasDiscount={false} title="Brand new models"/>
       <Categories/>
-      <ProductsRow products={hotPrices} hasDiscount={true}/>
+      <ProductsRow products={hotPrices} hasDiscount={true} title="Hot prices"/>
     </div>
   );
 };

@@ -8,6 +8,7 @@ import { fetchDeviceById, fetchDevicesList } from "../../slices/deviceSlice";
 import { Loader } from "../../components/Loader/Loader";
 import { VariantDetails } from "../../components/VariantDetails/VariantDetails";
 import { DescriptionDetails } from "../../components/DescriptionDetails/DescriptionDetails";
+import { ProductsRow } from "../../components/ProductsRow/ProductsRow";
 
 export const ProductDetails: React.FC = () => {
   const { id, category } = useParams<{ id: string; category: string }>();
@@ -92,6 +93,7 @@ export const ProductDetails: React.FC = () => {
         />
 
         <DescriptionDetails />
+        <ProductsRow products={devices} hasDiscount={true} title="You may also like"/>
       </div>
     </>
   );

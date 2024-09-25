@@ -9,7 +9,7 @@ interface Props {
   onClick?: () => void;
 }
 
-const styledActive = ({ isActive }: { isActive: boolean }) => {
+export const styledActive = ({ isActive }: { isActive: boolean }) => {
   return classNames(styles.navLink, {
     [styles.active]: isActive,
   });

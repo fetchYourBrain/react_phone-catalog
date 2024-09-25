@@ -19,6 +19,7 @@ export const HomePage = () => {
     getProducts();
   }, []);
 
+
   const hotPrices = getHotPrices(products);
   const newProducts = getNewModels(products);
 
@@ -27,7 +28,7 @@ export const HomePage = () => {
       <h1 className={styles.title}>Welcome to Nice Gadgets store!</h1>
       <Banner />
       <ProductsRow  products={newProducts} hasDiscount={false}/>
-      <Categories />
+      <Categories/>
       <ProductsRow products={hotPrices} hasDiscount={true}/>
     </div>
   );

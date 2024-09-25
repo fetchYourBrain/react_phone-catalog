@@ -14,7 +14,6 @@ export const DescriptionDetails = () => {
 
   return (
     <section className={styles.section}>
-      <div className={styles.section_container}>
         <div className={styles.info}>
           <h3 className={styles.section_title}>About</h3>
           {productDescription.map((section) => (
@@ -71,7 +70,6 @@ export const DescriptionDetails = () => {
             </tbody>
           </table>
         </div>
-      </div>
     </section>
   );
 };

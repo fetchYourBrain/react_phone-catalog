@@ -43,3 +43,20 @@
       letter-spacing: -0.01em;
     }
 }
+
+
+.go_back {
+  @include button;
+
+  min-width: 240px;
+  max-width: 480px;
+  width: 100%;
+  height: 48px;
+
+  &::after {
+    content: url('../../../public/img/icons/arrow-right.svg');
+    margin-left: 5px;
+    width: 16px;
+    height: 16px;
+  }
+}

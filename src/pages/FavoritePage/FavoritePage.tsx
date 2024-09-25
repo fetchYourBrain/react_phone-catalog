@@ -5,6 +5,8 @@ import { loadFavoritesFromStorage } from "../../slices/favoritesSlice";
 import styles from "./FavoritePage.module.scss";
 import { Card } from "../../components/Card/Card";
 import noFavoriteItem from "../../../public/img/product-not-found.png";
+import { Link } from "react-router-dom";
+import { RoutesLink } from "../../types/routes";
 import { useAuth } from "../../context/AuthContext";
 import { CardSkeleton } from "../../components/CardSkeleton/CardSkeleton";
 
@@ -58,6 +60,9 @@ export const FavoritePage = () => {
                 Empty favourites, empty paws. <br /> Help this cat find some
                 joy!
               </p>
+              <Link to={RoutesLink.HomePage} className={styles.go_back}>
+              Shop now
+              </Link>
             </div>
           )}
         </div>

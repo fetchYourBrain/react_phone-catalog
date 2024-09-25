@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./NotFoundPage.module.scss";
 import { Link } from "react-router-dom";
 import page_not_found from "../../../public/img/page-not-found.png";
+import { RoutesLink } from "../../types/routes";
 
 export const NotFoundPage: React.FC = () => {
   return (
@@ -17,7 +18,7 @@ export const NotFoundPage: React.FC = () => {
       <p className={styles.description}>
         The page you&apos;re looking for doesn&apos;t exist or has been moved.
       </p>
-      <Link to="/" className={styles.go_back}>
+      <Link to={RoutesLink.HomePage} className={styles.go_back}>
         Go Back Home
       </Link>
     </div>

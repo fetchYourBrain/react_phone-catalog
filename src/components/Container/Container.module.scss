@@ -20,7 +20,7 @@
   @include respond-to(desktop) {
     padding: 0 32px;
     grid-template-columns: repeat(24, 32px);
-    min-height: calc(100vh - (map-get($header-heights, desktop) + map-get($top-margin, desktop) + map-get($footer-heights, tablet-desktop) + map-get($bottom-margin, tablet-desktop)));
+    // min-height: calc(100vh - (map-get($header-heights, desktop) + map-get($top-margin, desktop) + map-get($footer-heights, tablet-desktop) + map-get($bottom-margin, tablet-desktop)));
 
   }
 }

@@ -1,5 +1,6 @@
-import { Banner } from "../Banner";
+import { Link } from "react-router-dom";
 import styles from "./BannerItem.module.scss";
+import { Banner } from "../../../types/Banner";
 
 interface Props {
   slide: Banner;
@@ -17,7 +18,8 @@ export const BannerItem: React.FC<Props> = ({ slide }) => {
           <p className={styles.text}>{slide.model}</p>
         </div>
         <h3 className={styles.title}>{slide.title}</h3>
-        <button className={styles.button}>Shop Now</button>
+        <button className={styles.button}>
+          <Link to={slide.way}>Shop Now</Link></button>
       </div>
       <div className={styles.image}>
         <img className={styles.image} src={slide.imageUrl} alt={slide.altText} />

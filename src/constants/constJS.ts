@@ -59,3 +59,28 @@ export const ITEMS_PER_PAGE = [
   { label: "16", value: 16 },
   { label: "All", value: "All" },
 ];
+
+
+export const banner_slides = [
+  {
+    imageUrl: 'img/banner/banner-1.png',
+    altText: 'Phones banner',
+    model: 'iPhone 14 Pro',
+    title: 'Experience Pro-Level Performance',
+    way: `${RoutesLink.PhonesPage}`,
+  },
+  {
+    imageUrl: 'img/banner/banner-2.png',
+    altText: 'Accessories banner',
+    model: 'MagSafe accessories',
+    title: 'Everything just clicks!',
+    way: `${RoutesLink.AccessoriesPage}`,
+  },
+  {
+    imageUrl: 'img/banner/banner-3.png',
+    altText: 'Tablets banner',
+    model: 'iPad air',
+    title: 'Get up to something wonderful.',
+    way: `${RoutesLink.TabletsPage}`,
+  },
+];

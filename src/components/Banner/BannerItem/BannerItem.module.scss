@@ -12,6 +12,15 @@
   padding: 16px 16px 24px 16px;
   flex-direction: column;
   border-radius: 4px;
+  // height: 337px;
+
+  @include respond-to(tablet) {
+    height: 189px;
+  }
+
+  @include respond-to(tablet) {
+    height: 399px;
+  }
 
 
 
@@ -35,7 +44,6 @@
   align-items: center;
   flex-direction: column;
   order: 2;
-  padding-block: 30px;
 
   @include respond-to(tablet) {
     order: 1;
@@ -50,7 +58,7 @@
 
 .first {
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: start;
   gap: 4px;
 
@@ -103,18 +111,17 @@
 }
 
 .image {
-  // background-image: url(img/banner/banner-1.png);
-  // background-position: center;
-  // background-size: contain;
-  // background-repeat: no-repeat;
-  min-width: 149px;
-  min-height: 151px;
+  max-width: 149px;
+  max-height: 151px;
   order: 1;
 
   @include respond-to(tablet) {
     min-width: 149px;
     min-height: 151px;
     order: 2;
+    max-width: none;
+    max-height: none;
+
 
   }
 

@@ -219,17 +219,14 @@
 }
 
 .heart_icon_button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
+  display: block;
   width: 48px;
   height: 48px;
+  padding: 12px;
   border: none;
   background-color: $c-surface-two;
   cursor: pointer;
-  transition: background-color $duration-default $easing-default;
-
+  color: $c-white;
 
   &:hover {
     background-color: $c-icons;
@@ -282,4 +279,19 @@
   color: $c-black;
   background-color: $c-white;
   border-color: $c-white;
+}
+
+.favorited_button {
+  display: block;
+  width: 48px;
+  height: 48px;
+  padding: 12px;
+  border: 1px solid $c-elements;
+  background-color: $c-surface;
+  cursor: pointer;
+  color: $c-white;
+
+  &:hover {
+    background-color: $c-black;
+  }
 }

@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from "../../hooks/helperToolkit";
 import {  addItemToCart } from "../../slices/cartSlice";
 import { useEffect, useState } from "react";
 import { addItemToFavorites, removeItemFromFavorites } from "../../slices/favoritesSlice";
-import { auth } from "../../firebase";
+import { useAuth } from "../../context/AuthContext";
 
 interface Props {
   name: string;
@@ -33,7 +33,7 @@ export const Card: React.FC<Props> = ({
   category,
   id,
 }) => {
-  const user = auth.currentUser;
+  const {user} = useAuth();
   const [isClicked, setIsClicked] = useState<boolean>(false);
   const favorites = useAppSelector((state) => state.favorites.items);
   const isFavorited = favorites.some(item => item.id === id);
@@ -55,7 +55,6 @@ export const Card: React.FC<Props> = ({
       category,
     };
 
-  console.log(product);
     dispatch(addItemToCart({ item: product }));
     setIsClicked(true);
   }

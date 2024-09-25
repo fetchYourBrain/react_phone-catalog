@@ -22,7 +22,7 @@ export const NAV_ITEMS = [
 
 export const CATEGORIES = [
   {
-    name: "Mobile phones",
+    name: "Phones",
     img: "img/category-phones.webp",
     backgroundColor: "#6D6474",
   },

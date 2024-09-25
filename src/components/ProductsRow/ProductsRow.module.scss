@@ -1,6 +1,7 @@
 @import '../../App.scss';
 
 .block {
+    grid-column: 1 / -1;
     margin-top: 56px;
 
     @include respond-to(tablet) {

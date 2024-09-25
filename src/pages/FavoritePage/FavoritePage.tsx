@@ -7,9 +7,12 @@ import { Card } from "../../components/Card/Card";
 import noFavoriteItem from "../../../public/img/product-not-found.png";
 import { Link } from "react-router-dom";
 import { RoutesLink } from "../../types/routes";
+import { useAuth } from "../../context/AuthContext";
+import { CardSkeleton } from "../../components/CardSkeleton/CardSkeleton";
 
 export const FavoritePage = () => {
   const dispatch = useAppDispatch();
+  const { loading } = useAuth();
   const favorites = useAppSelector((state) => state.favorites.items);
 
   useEffect(() => {
@@ -25,7 +28,11 @@ export const FavoritePage = () => {
           <p className={styles.amount_models}>{favorites.length} items</p>
         </div>
         <div className={styles.list}>
-          {favorites.length > 0 ? (
+          {loading ? (
+            favorites.map((_, index) => (
+              <CardSkeleton key={index}/>
+            ))
+          ) : favorites.length > 0 ? (
             favorites.map((favorite) => (
               <Card
                 key={favorite.id}

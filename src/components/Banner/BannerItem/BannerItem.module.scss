@@ -1,0 +1,132 @@
+@import '../../../App.scss';
+
+.container {
+  position: relative;
+  width: 100%;
+  grid-column: 1/-1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: $c-surface;
+  gap: 16px;
+  padding: 16px 16px 24px 16px;
+  flex-direction: column;
+  border-radius: 4px;
+  // height: 337px;
+
+  @include respond-to(tablet) {
+    height: 189px;
+  }
+
+  @include respond-to(tablet) {
+    height: 399px;
+  }
+
+
+
+  @include respond-to(tablet) {
+    justify-content: space-evenly;
+    padding: 0 40px 0 40px;
+    flex-direction: row;
+
+  }
+
+  @include respond-to(desktop) {
+    gap: 64px;
+    padding-inline: 96px;
+
+  }
+}
+
+.banner_info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  order: 2;
+
+  @include respond-to(tablet) {
+    order: 1;
+    align-items: start;
+    max-width: 197px;
+  }
+
+  @include respond-to(desktop) {
+    max-width: 368px;
+  }
+}
+
+.first {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  gap: 4px;
+
+  margin-bottom: 4px;
+}
+
+.text {
+  font-family: Mont;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+
+
+}
+
+.title {
+  font-family: Mont;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+  color: #F1F2F9; // ПОСТАВИТИ НАШ БІЛИЙ КОЛІР
+  text-align: center;
+
+  margin-bottom: 16px;
+
+  @include respond-to(tablet) {
+    text-align: left;
+  }
+
+
+  @include respond-to(desktop) {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 41px;
+    margin-bottom: 40px;
+  }
+
+}
+
+
+.button {
+  @include button;
+  width: 100%;
+  height: 40px;
+
+  @include respond-to(tablet) {
+    max-width: 176px;
+  }
+
+}
+
+.image {
+  max-width: 149px;
+  max-height: 151px;
+  order: 1;
+
+  @include respond-to(tablet) {
+    min-width: 149px;
+    min-height: 151px;
+    order: 2;
+    max-width: none;
+    max-height: none;
+
+
+  }
+
+  @include respond-to(desktop) {
+    min-width: 414px;
+    min-height: 399px;
+  }
+}

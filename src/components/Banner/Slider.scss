@@ -1,9 +1,9 @@
 @import '../../App.scss';
 
 .slick-dots {
-  position: relative;
+  position: absolute;
   height: 24px;
-  bottom: 0;
+  bottom: -20px;
   li {
     margin: 0 4px;
 
@@ -29,9 +29,6 @@
 
 .slick-track {
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   gap: 10px;
 }
 
@@ -44,3 +41,58 @@
       display: block !important;
     }
   }
+
+  .slick-prev, .slick-next {
+    font-size: 0;
+    line-height: 0;
+    position: absolute;
+    top: 50%;
+    display: block;
+    height: 100%;
+    width: 32px;
+    margin-inline: -10px;
+    padding: 0;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    cursor: pointer;
+    color: transparent;
+    border: none;
+    outline: none;
+    background-color: #323542;
+    opacity: 0.5;
+
+}
+
+
+.slick-prev:hover,
+.slick-next:hover {
+  opacity: 0.8;
+  background-color: #4A4D58;
+}
+
+.slick-prev:before, 
+.slick-next:before {
+  text-align: center;
+  margin: 0 auto;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+  color: transparent;
+
+
+}
+
+.slick-prev:before {
+  background-image: url(img/icons/arrow-left.svg);
+}
+.slick-next:before {
+  background-image: url(/public/img/icons/arrow-right.svg);
+}
+
+.slick-prev:focus,
+.slick-next:focus {
+  background-color: #323542;
+}

@@ -1,8 +1,11 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import cn from "classnames";
 import styles from "./VariantDetails.module.scss";
 import { Devices, MergedDevice } from "../../types/devices";
 import { useAuth } from "../../context/AuthContext";
+import { useAppDispatch, useAppSelector } from "../../hooks/helperToolkit";
+import { addItemToCart } from "../../slices/cartSlice";
+import { addItemToFavorites, removeItemFromFavorites } from "../../slices/favoritesSlice";
 
 interface Props {
   currentDevice: MergedDevice;
@@ -26,12 +29,58 @@ export const VariantDetails: React.FC<Props> = ({
   handleImageClick,
 }) => {
   const {user} = useAuth();
+  const [isClicked, setIsClicked] = useState<boolean>(false);
+  const favorites = useAppSelector((state) => state.favorites.items);
+  const isFavorited = favorites.some(item => item.id === currentDevice.id);
+  const cartItems = useAppSelector((state) => state.cart.items);
+  const isInCart = cartItems.some((item) => item.id === currentDevice.id);
+  const dispatch = useAppDispatch();
 
   const isValidCssColor = (color: string) => {
     const styleColor = new Option().style;
     styleColor.color = color;
     return styleColor.color !== "";
   };
+
+
+  useEffect(() => {
+    setIsClicked(isInCart);
+  }, [isInCart]);
+
+  const addToCartHandler = () => {
+    const product = {
+      id: currentDevice.id,
+      name: currentDevice.name,
+      price: currentDevice.priceDiscount,
+      image: currentDevice.images[0],
+      itemId: currentDevice.itemId,
+      category: currentDevice.category,
+    };
+
+  console.log(product);
+    dispatch(addItemToCart({ item: product }));
+    setIsClicked(true);
+  }
+
+  const toggleFavoritesHandler = () => {
+    const product = {
+      id: currentDevice.id,
+      name: currentDevice.name,
+      price: currentDevice.priceDiscount,
+      image: currentDevice.images[0],
+      itemId: currentDevice.itemId,
+      category: currentDevice.category,
+      ram: currentDevice.ram,
+      screen: currentDevice.screen,
+      capacity: currentDevice.capacity,
+    };
+
+    if (isFavorited) {
+      dispatch(removeItemFromFavorites(currentDevice.id));
+    } else {
+      dispatch(addItemToFavorites({ item: product }));
+    }
+  }
 
   return (
     <>
@@ -106,12 +155,19 @@ export const VariantDetails: React.FC<Props> = ({
           <p className={styles.regular_price}>${deviceById?.priceRegular}</p>
         </div>
         <div className={styles.buttons}>
-          <button className={styles.add_to_cart_button}>Add to cart</button>
-          {user && (
-            <button className={styles.heart_icon_button}>
-              <img src="img/icons/heart-icon.svg" alt="Heart Icon" />
-            </button>
-          )}
+        <button
+          onClick={addToCartHandler}
+          className={styles.add_to_cart_button}
+        >
+          {isClicked ? "Added to Cart" : "Add to cart"}
+        </button>
+        {user && (
+          <button
+          onClick={toggleFavoritesHandler} 
+          className={isFavorited ? styles.favorited_button : styles.heart_icon_button}>
+        <img src={isFavorited ? "img/icons/red-heart.svg" : "img/icons/heart-icon.svg"} alt="Heart Icon" />
+      </button>
+        )}
         </div>
 
         <section className={styles.specs}>

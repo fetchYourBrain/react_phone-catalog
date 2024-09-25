@@ -57,7 +57,6 @@ export const VariantDetails: React.FC<Props> = ({
       category: currentDevice.category,
     };
 
-  console.log(product);
     dispatch(addItemToCart({ item: product }));
     setIsClicked(true);
   }

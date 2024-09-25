@@ -19,7 +19,7 @@ export const ProductDetails: React.FC = () => {
   const [selectedColor, setSelectedColor] = useState<string>("");
   const [selectedCapacity, setSelectedCapacity] = useState<string>("");
   const [mainImage, setMainImage] = useState<string>("");
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const currentDevice = devices.find(
     (device) => device.itemId === deviceById?.id
@@ -37,17 +37,32 @@ export const ProductDetails: React.FC = () => {
   useEffect(() => {
     if (category) {
       setLoading(true);
-      dispatch(fetchDevicesList(category)).then(() => {
-        dispatch(fetchDeviceById({ id, category })).finally(() => {
+      dispatch(fetchDevicesList(category))
+        .catch((error) => {
+          console.error("Error fetching devices list:", error);
+        })
+        .finally(() => {
           setLoading(false);
         });
-      });
+    }
+  }, [category, dispatch]);
+
+  useEffect(() => {
+    if (id && category) {
+      setLoading(true);
+      dispatch(fetchDeviceById({ id, category }))
+        .catch((error) => {
+          console.error("Error fetching device by ID:", error);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
     }
   }, [id, category, dispatch]);
 
   const handleProductChange = (newColor: string, newCapacity: string) => {
     if (newColor && newCapacity && deviceById?.namespaceId) {
-      const newId = `${deviceById.namespaceId}-${newCapacity.toLowerCase()}-${newColor.split(' ').join('-')}`;
+      const newId = `${deviceById.namespaceId}-${newCapacity.toLowerCase()}-${newColor.split(" ").join("-")}`;
       navigate(`/${category}/${newId}`);
     }
   };
@@ -70,7 +85,7 @@ export const ProductDetails: React.FC = () => {
     setMainImage(image);
   };
 
-  if (loading) {
+  if (loading || !deviceById || !currentDevice) {
     return <Loader />;
   }
 
@@ -81,7 +96,7 @@ export const ProductDetails: React.FC = () => {
       <div className={styles.block}>
         <h2 className={styles.title}>{deviceById?.name}</h2>
 
-        <VariantDetails 
+        <VariantDetails
           currentDevice={currentDevice}
           deviceById={deviceById}
           mainImage={mainImage}
@@ -93,7 +108,7 @@ export const ProductDetails: React.FC = () => {
         />
 
         <DescriptionDetails />
-        <ProductsRow products={devices} hasDiscount={true} title="You may also like"/>
+        <ProductsRow products={devices} hasDiscount={true} title="You may also like" />
       </div>
     </>
   );

@@ -31,9 +31,9 @@ export const VariantDetails: React.FC<Props> = ({
   const {user} = useAuth();
   const [isClicked, setIsClicked] = useState<boolean>(false);
   const favorites = useAppSelector((state) => state.favorites.items);
-  const isFavorited = favorites.some(item => item.id === currentDevice.id);
+  const isFavorited = favorites.some(item => item.id === deviceById.id);
   const cartItems = useAppSelector((state) => state.cart.items);
-  const isInCart = cartItems.some((item) => item.id === currentDevice.id);
+  const isInCart = cartItems.some((item) => item.id === deviceById.id);
   const dispatch = useAppDispatch();
 
   const isValidCssColor = (color: string) => {
@@ -49,12 +49,12 @@ export const VariantDetails: React.FC<Props> = ({
 
   const addToCartHandler = () => {
     const product = {
-      id: currentDevice.id,
-      name: currentDevice.name,
-      price: currentDevice.priceDiscount,
-      image: currentDevice.images[0],
-      itemId: currentDevice.itemId,
-      category: currentDevice.category,
+      id: deviceById.id,
+      name: deviceById.name,
+      price: deviceById.priceDiscount,
+      image: deviceById.images[0],
+      itemId: deviceById.id,
+      category: deviceById.category,
     };
 
     dispatch(addItemToCart({ item: product }));
@@ -63,19 +63,19 @@ export const VariantDetails: React.FC<Props> = ({
 
   const toggleFavoritesHandler = () => {
     const product = {
-      id: currentDevice.id,
-      name: currentDevice.name,
-      price: currentDevice.priceDiscount,
-      image: currentDevice.images[0],
-      itemId: currentDevice.itemId,
-      category: currentDevice.category,
-      ram: currentDevice.ram,
-      screen: currentDevice.screen,
-      capacity: currentDevice.capacity,
+      id: deviceById.id,
+      name: deviceById.name,
+      price: deviceById.priceDiscount,
+      image: deviceById.images[0],
+      itemId: deviceById.id,
+      category: deviceById.category,
+      ram: deviceById.ram,
+      screen: deviceById.screen.replace(/\s*\(.*?\)\s*/g, ""),
+      capacity: deviceById.capacity,
     };
 
     if (isFavorited) {
-      dispatch(removeItemFromFavorites(currentDevice.id));
+      dispatch(removeItemFromFavorites(deviceById.id));
     } else {
       dispatch(addItemToFavorites({ item: product }));
     }

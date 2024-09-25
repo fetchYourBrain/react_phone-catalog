@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./Header.module.scss";
-import { NavItem, styledActive } from "../NavItem/NavItem";
+import { NavItem} from "../NavItem/NavItem";
 import { NAV_ITEMS } from "../../constants/constJS";
 import { IconLink } from "../IconLink/IconLink";
 import { RoutesLink } from "../../types/routes";
@@ -76,11 +76,11 @@ export const Header = () => {
             {loading ? (
               <div className={styles.loader}>
                 <Skeleton
-                baseColor={baseColor}
-                highlightColor={highlightColor}
-                height={20}
-                width={100}
-              />
+                  baseColor={baseColor}
+                  highlightColor={highlightColor}
+                  height={20}
+                  width={100}
+                />
               </div>
             ) : user ? (
               <>
@@ -104,22 +104,9 @@ export const Header = () => {
                 </div>
               </>
             ) : (
-              <>
-                <nav className={styles.auth_container}>
-                  <ul className={styles.auth}>
-                    <li>
-                      <NavLink to="/signup" className={styledActive}>
-                        Sign up
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink to="/login" className={styledActive}>
-                        Log in
-                      </NavLink>
-                    </li>
-                  </ul>
-                </nav>
-              </>
+              <NavLink to="/signup" className={styles.profile}>
+                <img src="img/icons/profile.svg" alt="" />
+              </NavLink>
             )}
 
             <div

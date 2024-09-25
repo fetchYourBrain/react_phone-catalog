@@ -4,10 +4,13 @@ import { useAppDispatch, useAppSelector } from "../../hooks/helperToolkit";
 import { loadFavoritesFromStorage } from "../../slices/favoritesSlice";
 import styles from "./FavoritePage.module.scss";
 import { Card } from "../../components/Card/Card";
-import noFavoriteItem from '../../../public/img/product-not-found.png';
+import noFavoriteItem from "../../../public/img/product-not-found.png";
+import { useAuth } from "../../context/AuthContext";
+import { CardSkeleton } from "../../components/CardSkeleton/CardSkeleton";
 
 export const FavoritePage = () => {
   const dispatch = useAppDispatch();
+  const { loading } = useAuth();
   const favorites = useAppSelector((state) => state.favorites.items);
 
   useEffect(() => {
@@ -23,9 +26,13 @@ export const FavoritePage = () => {
           <p className={styles.amount_models}>{favorites.length} items</p>
         </div>
         <div className={styles.list}>
-          {favorites.length > 0 ? (
+          {loading ? (
+            favorites.map((_, index) => (
+              <CardSkeleton key={index}/>
+            ))
+          ) : favorites.length > 0 ? (
             favorites.map((favorite) => (
-               <Card
+              <Card
                 key={favorite.id}
                 name={favorite.name}
                 image={favorite.image}
@@ -47,7 +54,10 @@ export const FavoritePage = () => {
                 alt="No favorites"
                 className={styles.noFavoritesImage}
               />
-              <p className={styles.noFavoritesText}>Empty favourites, empty paws. <br /> Help this cat find some joy!</p>
+              <p className={styles.noFavoritesText}>
+                Empty favourites, empty paws. <br /> Help this cat find some
+                joy!
+              </p>
             </div>
           )}
         </div>

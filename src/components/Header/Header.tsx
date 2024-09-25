@@ -60,7 +60,7 @@ export const Header = () => {
         <div className={styles.container}>
           <div className={styles.logoContainer}>
             <Link to={RoutesLink.HomePage}>
-              <div className={styles.logo_icon}></div>
+              <div className={styles.logo_icon}>Roma</div>
             </Link>
           </div>
 

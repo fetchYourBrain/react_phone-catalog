@@ -1,5 +1,5 @@
 import styles from "./Footer.module.scss";
-import logo from "/img/icons/logo.svg";
+import logo from "../../../public/img/icons/logo.svg";
 
 export const Footer = () => {
   const handleBackToTop = () => {
@@ -10,7 +10,9 @@ export const Footer = () => {
     <footer className={styles.footer}>
       <div className={styles.container}>
         <div className={styles.logo_container}>
-            <img src={logo} className={styles.image} alt="The logo of Nice Gadgets" />
+          <a>
+            <img src={logo} alt="The logo of Nice Gadgets" />
+          </a>
         </div>
         <nav className={styles.navigation}>
           <a href="#">Github</a>

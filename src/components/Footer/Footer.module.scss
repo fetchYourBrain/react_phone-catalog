@@ -29,7 +29,7 @@
     @include respond-to(tablet) {
         justify-content: space-between;
         flex-direction: row;
-        padding: 32px
+        padding: 32px;
     }
 
     @include respond-to(desktop) {
@@ -37,7 +37,7 @@
         flex-direction: row;
         justify-content: space-between;
         max-width: 1136px;
-        padding: 32px
+        padding-inline: 0;
     }
 }
 

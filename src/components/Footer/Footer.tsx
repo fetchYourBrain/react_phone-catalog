@@ -1,5 +1,5 @@
 import styles from "./Footer.module.scss";
-import logo from "../../../public/img/icons/logo.svg";
+import logo from "/img/icons/logo.svg";
 
 export const Footer = () => {
   const handleBackToTop = () => {

@@ -3,7 +3,7 @@ import { CATEGORIES } from "../../constants/constJS";
 import styles from "./Categories.module.scss";
 import { getCategoryRoute } from "../../features/getCategoryRoute";
 import { useAppSelector } from "../../hooks/helperToolkit";
-import { amountOfCategory } from "../../features/getAmountOfModels";
+import { getAmountofModels } from "../../features/getAmountOfModels";
 
 
 export const Categories = () => {
@@ -28,7 +28,7 @@ export const Categories = () => {
                 <img src={category.img} alt={`${category.name} category`} className={styles.category_image} />
               </div>
               <h3 className={styles.name}>{category.name}</h3>
-              <div className={styles.amount}>{amountOfCategory(products, category.name)} models</div>
+              <div className={styles.amount}>{getAmountofModels(products, category.name)} models</div>
             </Link>
           </li>
         ))}

@@ -53,7 +53,7 @@ export const Signup = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
-        navigate("/login");
+        navigate("/");
       })
       .catch((error) => {
         const errorCode = error.code;

@@ -32,20 +32,20 @@ Run the application:
 
 ## Project Structure
 The project follows a modular structure:
-`src/
-├── components/            # Shared components
-│   ├── ComponentName/
-│   │   ├── index.ts
-│   │   ├── ComponentName.tsx
-│   │   └── ComponentName.module.scss
-│   └── ...
-├── modules/              # Per-page modules
-│   ├── HomePage/
-│   │   └── components/
-│   ├── CartPage/
-│   ├── FavoritesPage/
-│   └── ...
-└── ...`
+`src/`
+`├── components/            # Shared components`
+`│   ├── ComponentName/`
+`│   │   ├── index.ts`
+`│   │   ├── ComponentName.tsx`
+`│   │   └── ComponentName.module.scss`
+`│   └── ...`
+`├── modules/              # Per-page modules`
+`│   ├── HomePage/`
+`│   │   └── components/`
+`│   ├── CartPage/`
+`│   ├── FavoritesPage/`
+`│   └── ...`
+`└── ...`
 
 ## Key Components
 - HomePage: Displays the main product catalog, including sliders for featured products and categories.

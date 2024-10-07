@@ -1,6 +1,6 @@
 # React Product Catalog
 ## Overview
-The React Product Catalog is a fully functional web application that allows users to browse, shop, and manage their favorite products. Built using React and Next.js, this project features a shopping cart, a favorites page, and various product categories, all while adhering to modern web development practices.
+The React Product Catalog is a fully functional web application that allows users to browse, shop, and manage their favorite products. Built using React, this project features a shopping cart, a favorites page, and various product categories, all while adhering to modern web development practices.
 
 ## Features
 - Responsive Design: The application is optimized for both desktop and mobile devices, providing a seamless user experience.
@@ -29,23 +29,6 @@ Run the application:
 - Prettier for code formatting
 - Husky for managing git hooks
 - Auto-deployment configuration
-
-## Project Structure
-The project follows a modular structure:
-`src/`
-`├── components/            # Shared components`
-`│   ├── ComponentName/`
-`│   │   ├── index.ts`
-`│   │   ├── ComponentName.tsx`
-`│   │   └── ComponentName.module.scss`
-`│   └── ...`
-`├── modules/              # Per-page modules`
-`│   ├── HomePage/`
-`│   │   └── components/`
-`│   ├── CartPage/`
-`│   ├── FavoritesPage/`
-`│   └── ...`
-`└── ...`
 
 ## Key Components
 - HomePage: Displays the main product catalog, including sliders for featured products and categories.

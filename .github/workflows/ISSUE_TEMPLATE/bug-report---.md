@@ -1,7 +1,5 @@
-name	about	labels
 Bug report 🐞
-Create a bug report
-bug
+
 Describe the bug
 A clear and concise description of what the bug is.
 

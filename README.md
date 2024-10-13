@@ -23,7 +23,7 @@ React Product Catalog
 <br />
 <a href="https://fetchyourbrain.github.io/react_phone-catalog/">View Demo</a>
 ·
-<a href="https://github.com/fetchYourBrain/react_phone-catalog/blob/main/.github/workflows/ISSUE_TEMPLATE/bug-report---.md">Report Bug</a>
+<a href="https://github.com/fetchYourBrain/react_phone-catalog/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
 ·
 <a href="https://github.com/fetchYourBrain/react_phone-catalog/blob/main/.github/workflows/ISSUE_TEMPLATE/feature-request---.md">Request Feature</a>
 </p>

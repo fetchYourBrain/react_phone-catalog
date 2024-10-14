@@ -140,6 +140,7 @@ Don't forget to give the project a star! Thanks again!
 
 ## Contact
 
+Your Name - [Roman Bekh][linkedin-url](https://www.linkedin.com/in/coldshein/) - [mail](mailto:bekh.roman.dev@gmail.com)
 Your Name - [Maksym Borovyk][linkedin-url] - [mail](mailto:borovyk.maxym@gmail.com)
 
 Project Link: https://github.com/fetchYourBrain/react_phone-catalog

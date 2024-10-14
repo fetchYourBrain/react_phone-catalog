@@ -140,7 +140,7 @@ Don't forget to give the project a star! Thanks again!
 
 ## Contact
 <ul>
-    <li><a href="https://github.com/coldshein" target="_blank">Roman Bekh</a>[linkedin-url-roma] - [mail](mailto:bekh.roman.dev@gmail.com)</li>
+    <li><a href="https://github.com/coldshein" target="_blank">Roman Bekh</a> [linkedin-url-roma] - [mail](mailto:bekh.roman.dev@gmail.com)</li>
     <li>[Maksym Borovyk][linkedin-url] - [mail](mailto:borovyk.maxym@gmail.com)</li>
 </ul>
 
@@ -177,7 +177,7 @@ Use this space to list resources you find helpful and would like to give credit 
 [issues-url]: https://github.com/fetchYourBrain/react_phone-catalog/issues
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/maksym-borovyk-front-end
-[linkedin-url-roma]: www.linkedin.com/in/roman-bekh-dev
+[linkedin-url-roma]: https://www.linkedin.com/in/roman-bekh-dev
 [product-screenshot]: https://drive.google.com/uc?id=1zLse9f0zTLCz-yQ1E_mKwhjTLsfoOort
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/

@@ -140,7 +140,7 @@ Don't forget to give the project a star! Thanks again!
 
 ## Contact
 <ul>
-    <li><a href="https://github.com/coldshein" target="_blank">Roman Bekh</a> [linkedin-url-roma] - [mail](mailto:bekh.roman.dev@gmail.com)</li>
+    <li><a href="https://github.com/coldshein" target="_blank">Roman Bekh</a> <a href="https://www.linkedin.com/in/roman-bekh-dev">LinkedIn<a/> - <a href="mailto:bekh.roman.dev@gmail.com">Email<a/></li>
     <li>[Maksym Borovyk][linkedin-url] - [mail](mailto:borovyk.maxym@gmail.com)</li>
 </ul>
 

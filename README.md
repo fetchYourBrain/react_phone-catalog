@@ -142,7 +142,7 @@ Don't forget to give the project a star! Thanks again!
 <ul>
     <li><a href="https://github.com/coldshein" target="_blank">Roman Bekh</a> <a href="https://www.linkedin.com/in/roman-bekh-dev">LinkedIn<a/> - <a href="mailto:bekh.roman.dev@gmail.com">Email<a/></li>
     <li><a href="https://github.com/MaxBorovique" target="_blank">Maksym Borovyk</a> <a href="https://www.linkedin.com/in/maksym-borovyk-front-end">LinkedIn<a/> - <a href="mailto:borovyk.maxym@gmail.com">Email<a/></li>
-    <li><a href="https://github.com/victoriasokolvak" target="_blank">Viktoriia Sokolvak</a> <a href="www.linkedin.com/in/viktoriia-sokolvak-134805331">LinkedIn<a/> - <a href="mailto:viktoriia.sokolvak@gmail.com">Email<a/></li>
+    <li><a href="https://github.com/victoriasokolvak" target="_blank">Viktoriia Sokolvak</a> <a href="https://www.linkedin.com/in/viktoriia-sokolvak-134805331">LinkedIn<a/> - <a href="mailto:viktoriia.sokolvak@gmail.com">Email<a/></li>
 </ul>
 
 Project Link: https://github.com/fetchYourBrain/react_phone-catalog

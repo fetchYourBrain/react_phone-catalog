@@ -35,11 +35,14 @@ export const Card: React.FC<Props> = ({
 }) => {
   const {user} = useAuth();
   const [isClicked, setIsClicked] = useState<boolean>(false);
-  const favorites = useAppSelector((state) => state.favorites.items);
-  const isFavorited = favorites.some(item => item.id === id);
-  const cartItems = useAppSelector((state) => state.cart.items);
-  const isInCart = cartItems.some((item) => item.id === id);
   const dispatch = useAppDispatch();
+
+  const favorites = useAppSelector((state) => state.favorites.items) || [];
+  const isFavorited = Array.isArray(favorites) && favorites.some(item => item.id === id);
+
+  const cartItems = useAppSelector((state) => state.cart.items) || [];
+  const isInCart = Array.isArray(cartItems) && cartItems.some((item) => item.id === id);
+
 
   useEffect(() => {
     setIsClicked(isInCart);
